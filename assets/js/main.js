@@ -42,7 +42,7 @@
     // Get the navbar
 
 
-    // for menu scroll 
+    //===== menu scroll
     var pageLink = document.querySelectorAll('.page-scroll');
     
     pageLink.forEach(elem => {
