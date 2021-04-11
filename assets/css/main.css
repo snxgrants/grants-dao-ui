@@ -170,6 +170,12 @@ h2.synth-members-h.fadeInUp {
     letter-spacing: 1px; 
 }
 
+.synth-grants-h {
+    text-shadow: 0px 3px 3px #000000b0;
+    letter-spacing: 1px; 
+    margin: 0 auto;
+}
+
 span.synth-g {
     font-family: "Inter";
     font-weight: 800;
@@ -253,6 +259,7 @@ p {
   font-weight: normal;
   line-height: 23px;
   margin: 0px;
+  padding: 15px 0; 
   font-family:  'Inter', sans-serif; }
 
 
@@ -494,6 +501,12 @@ h2.synth-treasury-h.fadeInUp {
       margin-bottom: 23px;  
       }
     
+    .synth-gdao-grants-mini-logo {
+      text-align: center;
+      margin-bottom: 20px;
+      margin-top:0;
+      }
+    
     img.synth-home-icon-img {
       width: 300px;
       margin-top: -50px;
@@ -591,15 +604,15 @@ h2.synth-treasury-h.fadeInUp {
 
 @media only screen and (min-width: 1500px) {
     .treasury-section {
-        height: 1585px!important } }
+        height: 1800px!important } }
 
 @media only screen and (min-width: 1400px) and (max-width: 1500px){
     .treasury-section {
-        height: 1450px!important; } }    
+        height: 1600px!important; } }    
 
 @media only screen and (min-width: 1200px) and (max-width: 1399px) {
     .treasury-section {
-        height: 1350px!important; } }
+        height: 1500px!important; } }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
     .treasury-section {
@@ -648,6 +661,36 @@ img.synth-proto-footer {
     margin-top: -15px;
     position: relative;
 }
+
+.grantsdao-data-heading {
+    margin: 0 0 15px;
+    font-size: 19px;
+    text-transform: uppercase;
+    font-family: GT America CM;
+}
+
+.grants-indi-description {
+    margin: 15px 0 15px;
+    font-size: 25px;
+    text-transform: uppercase;
+    font-family: GT America CM;
+    letter-spacing: 1px;
+}
+
+.padding-bottom {
+ padding-bottom: 30px;
+}
+
+.padding-right {
+ padding-right: 30px;
+}
+
+
+.anchor {
+    display:block;
+    padding-top:120px;
+    margin-top:-100px;
+ }
 
 img.synth-proto-footer.wow.fadeInUp {
     width: 92%;
@@ -1054,6 +1097,13 @@ img.synth-proto-footer.wow.fadeInUp {
   -o-transition: all 0.3s ease-out 0s;
   transition: all 0.3s ease-out 0s; }
 
+
+@media (min-width: 992px) {
+.navbar-expand-lg .navbar-nav {
+    flex-direction: row;
+    margin-left: auto!important;
+}}
+
 .sticky {
   position: fixed;
   z-index: 99;
@@ -1172,15 +1222,12 @@ img.synth-proto-footer.wow.fadeInUp {
   position: relative;
   margin-left: 40px; }
   .navbar-nav .nav-item a {
-    font-size: 17px;
+    font-family: 'GT America CM'!important;
+    font-size: 19px;
+    text-rendering: optimizeLegibility;
     text-transform: uppercase;
-    font-weight: 400;
+    font-weight: 500;
     color: #fff;
-    -webkit-transition: all 0.3s ease-out 0s;
-    -moz-transition: all 0.3s ease-out 0s;
-    -ms-transition: all 0.3s ease-out 0s;
-    -o-transition: all 0.3s ease-out 0s;
-    transition: all 0.3s ease-out 0s;
     padding: 10px 0;
     position: relative;
     z-index: 1; }
@@ -1194,11 +1241,6 @@ img.synth-proto-footer.wow.fadeInUp {
     bottom: 7px;
     left: 0;
     z-index: -1;
-    -webkit-transition: all 0.3s ease-out 0s;
-    -moz-transition: all 0.3s ease-out 0s;
-    -ms-transition: all 0.3s ease-out 0s;
-    -o-transition: all 0.3s ease-out 0s;
-    transition: all 0.3s ease-out 0s;
 }
       @media only screen and (min-width: 768px) and (max-width: 991px) {
         .navbar-nav .nav-item a::before {
@@ -1325,7 +1367,32 @@ top: -5px; }
 }
 
 .synth-vh {
-margin-top: 50vh;
+    margin-top: 50vh;
+}
+
+.grants-vh {
+    margin-top: 53vh;
+    text-align: center;
+}
+
+
+.view-proposal {
+    margin-bottom: 5px;
+}
+
+.active-tab-header {
+    color: #00D1FF;
+    font-size: 18px;
+    font-weight: bold;
+    
+}
+
+.synth-blue {
+    color: #00D1FF;
+}
+
+.synth-pink {
+    color: #E33798!important;
 }
 
 .hero-content.synth-vh {
@@ -1419,34 +1486,88 @@ margin-top: 50vh;
   margin-bottom: -1px;
 }
 
+
+.synth-grants-indi-section {
+  position: relative;
+  z-index: 1;
+  padding: 200px 0 50px;
+  background-image: url("../img/hero/synth_grants_individual_hero.png");
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: -1px;
+  height: 100vh;
+}
+
+.grants-descr-wrapper {
+    max-width: 900px;
+    margin: auto;
+}
+
+
+.h4-grants-dao-descr {
+    margin: 15px 0 15px;
+    font-size: 25px;
+    text-transform: uppercase;
+    font-family: GT America CM;
+    letter-spacing: 1px;
+}
+
+.grants-individual-vh {
+    margin-top: 51vh;
+    text-align: center;
+}
+
+
+.info-left {
+    font-weight: bold;
+    padding-bottom: 5px;
+    font-size: 14px;
+    color: #787882;
+}
+
+.info-right {
+    font-weight: bold;
+    padding-bottom: 5px;
+    font-size: 14px;
+    color: #00D1FF;
+}
+
+.gdao-mini-logo {
+    width: 150px;
+}
+
 .synth-grants-hero-section {
   position: relative;
   z-index: 1;
   padding: 180px 0 50px;
   background-image: url("../img/hero/synth_grants_hero.png");
-  background-position: bottom center;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   margin-bottom: -1px;
-  height: 93vh;
+  height: 100vh;
 }
 
 @media only screen and (min-width: 1800px) {
       .synth-grants-hero-section {
-      height: 100vh!important; }}
+      padding: 220px 0 50px!important;
+      height: 110vh!important; }}
 
 @media only screen and (min-width: 1600px) {
       .synth-grants-hero-section {
-      height: 93vh!important; }}
+      height: 120vh!important; }}
+
+@media only screen and (min-width: 1500px) {
+      .synth-grants-hero-section {
+      height: 110vh!important; }}
+
 
 @media only screen and (min-width: 1400px) {
       .synth-grants-hero-section {
-      height: 103vh!important; }}
+      padding: 270px 0 50px!important;
+      height: 100vh!important; }}
     
-@media only screen and (min-width: 1500px) {
-      .synth-grants-hero-section {
-      height: 100vh; }}
-
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
       .synth-grants-hero-section {
       height: 97vh; }}
@@ -1523,7 +1644,7 @@ margin-bottom: 100px; }
         @media only screen and (min-width: 1800px) {
             
         .synth-footer-section {
-            height: 100vh!important;
+            height: 1200px!important;
         }
             
         .synth-landing-hero {
@@ -1604,7 +1725,7 @@ margin-bottom: 100px; }
 }
 
 .grants-section-bg {
-	background-image: linear-gradient(#041225, #202846);
+	background-image: linear-gradient(#00040a, #220327);
     padding-bottom: 80px;
 }
 
@@ -1723,14 +1844,23 @@ margin-bottom: 100px; }
             margin-right: 0; }}
 
 
-/**
-**	Custom css for demo
-**/
-.tab1 {
-  background-color: #0a1116;
-  padding: 40px 15px;
-  margin-bottom: 50px;
+
+/* Dividers */
+
+.synth-divider {
+    border-top: 1px solid white;
 }
+
+.synth-tab-divider {
+  border-top: 1px solid white;  
+}
+
+/* Tabs */
+
+.synth-tabs {
+  padding: 30px 15px;
+}
+
 
 ul.tabs {
   text-align: center;

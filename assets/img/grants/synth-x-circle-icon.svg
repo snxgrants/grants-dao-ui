@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32.929" height="30.244" viewBox="0 0 32.929 30.244">
+  <defs>
+    <filter id="blue-x" x="0" y="1.707" width="32.929" height="28.538" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_4568" data-name="Group 4568" transform="translate(-935.526 -1705)">
+    <g id="Ellipse_1068" data-name="Ellipse 1068" transform="translate(939.5 1705)" fill="none" stroke="#696969" stroke-width="2">
+      <circle cx="13" cy="13" r="13" stroke="none"/>
+      <circle cx="13" cy="13" r="12" fill="none"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 935.53, 1705)" filter="url(#blue-x)">
+      <path id="blue-x-2" data-name="blue-x" d="M3.607,2.455a.492.492,0,0,0-.386-.179H.094A.09.09,0,0,1,.026,2.25.08.08,0,0,1,0,2.192V.084A.081.081,0,0,1,.026.026.09.09,0,0,1,.094,0H3.4A2.8,2.8,0,0,1,5.556,1.022l.8.98L4.8,3.909,3.607,2.455ZM9.383,1.012A2.816,2.816,0,0,1,11.551,0h3.294a.085.085,0,0,1,.063.021.087.087,0,0,1,.021.063V2.192a.091.091,0,0,1-.021.058.075.075,0,0,1-.063.026H11.718a.492.492,0,0,0-.386.179l-2.3,2.8,2.314,2.824a.494.494,0,0,0,.375.169h3.127a.075.075,0,0,1,.063.026.108.108,0,0,1,.021.068v2.108a.091.091,0,0,1-.021.058.075.075,0,0,1-.063.026H11.551A2.773,2.773,0,0,1,9.393,9.516L7.475,7.176,5.556,9.516a2.8,2.8,0,0,1-2.168,1.022H.094a.075.075,0,0,1-.063-.026.106.106,0,0,1-.021-.069V8.335a.09.09,0,0,1,.021-.058.075.075,0,0,1,.063-.026H3.221a.513.513,0,0,0,.386-.179L5.869,5.311l3.514-4.3Z" transform="translate(9 7.71)" fill="#00d1ff"/>
+    </g>
+  </g>
+</svg>
