@@ -428,14 +428,12 @@ h2.synth-treasury-h.fadeInUp {
     img.synthetic-grant-members-img {
         width: 95%;
         margin: auto;
-        display: block; }}
+        display: block; }
 
-
-@media only screen and (min-width: 1600px) {
     img.synthetic-grant-members-img {
-        width: 95%;
-        margin: auto;
-        display: block; }}
+            width: 95%;
+            margin: auto;
+            display: block; }}
 
 @media only screen and (min-width: 1400px) {
     img.synthetic-grant-members-img {
@@ -1192,7 +1190,7 @@ img.synth-proto-footer.wow.fadeInUp {
     height: 1px;
     width: 0;
     border-radius: 16px;
-    background: #ffffff6b;
+    background: #03d1ff;
     bottom: 7px;
     left: 0;
     z-index: -1;
@@ -1302,20 +1300,27 @@ img.synth-proto-footer.wow.fadeInUp {
       border: 0;
       width: 30px;
       height: 30px; } }
-  .navbar-nav .sub-nav-toggler span {
-    width: 8px;
-    height: 8px;
-    border-left: 1px solid #222;
-    border-bottom: 1px solid #222;
-    -webkit-transform: rotate(-45deg);
-    -moz-transform: rotate(-45deg);
-    -ms-transform: rotate(-45deg);
-    -o-transform: rotate(-45deg);
-    transform: rotate(-45deg);
-    position: relative;
-    top: -5px; }
+
+
+.navbar-nav .sub-nav-toggler span {
+width: 8px;
+height: 8px;
+border-left: 1px solid #222;
+border-bottom: 1px solid #222;
+-webkit-transform: rotate(-45deg);
+-moz-transform: rotate(-45deg);
+-ms-transform: rotate(-45deg);
+-o-transform: rotate(-45deg);
+transform: rotate(-45deg);
+position: relative;
+top: -5px; }
 
 .synth-landing-hero {
+	height: 100vh;
+}
+
+
+.synth-grants-landing-hero {
 	height: 100vh;
 }
 
@@ -1357,6 +1362,22 @@ margin-top: 50vh;
     margin: -40px 0 120px -70px;
 }
 
+.synth-grants-apply-btn {
+    width: 400px;
+    margin: -40px 0 0 -70px;
+}
+
+
+.synth-grants-innitiative-btn {
+    width: 400px;
+    margin: -40px 0 0 -70px;
+}
+
+.synth-grants-disconnect-btn {
+    width: 400px;
+    margin: -40px 0 0 -70px;
+}
+
 .synth-treasury-btn-wrapper {
 }
 
@@ -1396,6 +1417,56 @@ margin-top: 50vh;
   background-repeat: no-repeat;
   background-size: cover;
   margin-bottom: -1px;
+}
+
+.synth-grants-hero-section {
+  position: relative;
+  z-index: 1;
+  padding: 180px 0 50px;
+  background-image: url("../img/hero/synth_grants_hero.png");
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: -1px;
+  height: 93vh;
+}
+
+@media only screen and (min-width: 1800px) {
+      .synth-grants-hero-section {
+      height: 100vh!important; }}
+
+@media only screen and (min-width: 1600px) {
+      .synth-grants-hero-section {
+      height: 93vh!important; }}
+
+@media only screen and (min-width: 1400px) {
+      .synth-grants-hero-section {
+      height: 103vh!important; }}
+    
+@media only screen and (min-width: 1500px) {
+      .synth-grants-hero-section {
+      height: 100vh; }}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+      .synth-grants-hero-section {
+      height: 97vh; }}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+      .synth-grants-hero-section {
+      height: 93vh; }}
+
+@media (max-width: 767px) {
+      .synth-grants-hero-section {
+      height: 93vh; }}
+
+@media (max-width: 400px) {
+      .synth-grants-hero-section {
+      height: 93vh; }}
+
+
+
+.grants-intro-section {
+    padding: 60px 0 0 0;
 }
 
 .synth-hero-section .hero-content {
@@ -1532,6 +1603,11 @@ margin-bottom: 100px; }
     padding-bottom: 80px;
 }
 
+.grants-section-bg {
+	background-image: linear-gradient(#041225, #202846);
+    padding-bottom: 80px;
+}
+
 .social-icons-wrapper {
     display: flex;
     position: absolute;
@@ -1645,3 +1721,90 @@ margin-bottom: 100px; }
             width: 450px;
             margin-top: -130px;
             margin-right: 0; }}
+
+
+/**
+**	Custom css for demo
+**/
+.tab1 {
+  background-color: #0a1116;
+  padding: 40px 15px;
+  margin-bottom: 50px;
+}
+
+ul.tabs {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+ul.tabs li {
+  display: inline-block;
+  padding: 0 24px;
+}
+ul.tabs li a {
+  outline: 0;
+  color: #fff;
+}
+ul.tabs li a:hover, ul.tabs li a.selected {
+  color: #2fabe1;
+}
+
+.tab-pane {
+  padding: 100px 30px;
+}
+
+@media only screen and (max-width: 767px) {
+  ul.tabs li {
+    display: block;
+    text-align: left;
+    padding: 0;
+  }
+  ul.tabs li a {
+    color: #000;
+    display: block;
+    padding: 20px 24px;
+  }
+}
+/**
+**	Main css for plugin
+**/
+.selected-tab {
+  position: relative;
+  height: 40px;
+  padding: 5px 35px 5px 15px;
+  line-height: 30px;
+  color: #747474;
+  background-color: #fff;
+  box-shadow: 0 3px 6px rgba(116, 116, 116, 0.25);
+}
+.selected-tab:after {
+  display: block;
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 7px solid #747474;
+  border-left-color: transparent !important;
+  border-right-color: transparent !important;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+@media only screen and (max-width: 767px) {
+  .tab-to-dropdown {
+    position: relative;
+  }
+
+  .converted-tab {
+    position: absolute;
+    z-index: 10;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+  }
+}
