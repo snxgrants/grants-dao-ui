@@ -663,7 +663,7 @@ img.synth-proto-footer {
 
 .grantsdao-data-heading {
     margin: 0 0 15px;
-    font-size: 19px;
+    font-size: 17px;
     text-transform: uppercase;
     font-family: GT America CM;
 }
@@ -676,13 +676,66 @@ img.synth-proto-footer {
     letter-spacing: 1px;
 }
 
+
+.data-header {
+    color: #03d1ff;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+
+.grants-v-btn {
+    border: 1px solid #2ec79a!important;
+    color: #26a27e!important;
+    background: #2fcb9c3b!important;
+    text-shadow: 0px 1px 1px #00000057;
+    font-size: 15px!important;
+    margin: 0px 10px 10px;
+    width: 80%;
+    border-radius: 31px;
+    text-align: center;
+    float: right;
+    padding: 5px;
+}
+
+.grants-paid-btn { 
+    border: 1px solid #bd16d4!important;
+    color: #bd16d4!important;
+    /* background: #02daff47!important; */
+    text-shadow: 0px 1px 1px #00000057;
+    font-size: 15px!important;
+    margin: 0px 10px 10px;
+    width: 80%;
+    border-radius: 31px;
+    text-align: center;
+    float: right;
+    padding: 5px;  
+}
+
+.bio-info {
+    font-size: 13px!important;
+    display: inline;
+}
+
+.data-wrapper {
+}
+
+.soft divider {
+    border: 1px solid #2d1442;
+    margin-top: 30px;
+}
+
 .padding-bottom {
- padding-bottom: 30px;
+     padding-bottom: 30px;
 }
 
 .padding-right {
- padding-right: 30px;
+     padding-right: 30px;
 }
+
+.candidates-info { 
+    padding-bottom: 80px;  
+} 
 
 
 .anchor {
@@ -1131,7 +1184,13 @@ img.synth-proto-footer.wow.fadeInUp {
       background: #ffffff; }
 
 .sticky-logo {
-    width: 100px;
+    width: 100px!important;
+}
+
+@media only screen and (max-width: 991px) {
+    .navbar-brand img {
+    max-width: 190px!important;
+}
 }
 
 .navbar {
@@ -1498,6 +1557,32 @@ top: -5px; }
   height: 100vh;
 }
 
+.synth-grants-blog-section {
+  position: relative;
+  z-index: 1;
+  padding: 200px 0 50px;
+  background-image: url("../img/hero/synth_grants_individual_hero.png");
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: -1px;
+  height: 100vh;
+}
+
+
+
+.synth-grants-innitiatives-section {
+  position: relative;
+  z-index: 1;
+  padding: 200px 0 50px;
+  background-image: url("../img/hero/synth_innitiatives_hero.png");
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: -1px;
+  height: 100vh;
+}
+
 .grants-descr-wrapper {
     max-width: 900px;
     margin: auto;
@@ -1522,8 +1607,8 @@ top: -5px; }
 }
 
 .callout-btn {
-    border: 2px solid #bd16d4!important;
-    color: #bd16d4!important;
+    border: 2px solid #30CB9D!important;
+    color: #30CB9D!important;
     /* background: #02daff47!important; */
     text-shadow: 0px 1px 1px #00000057;
     font-size: 19px!important;
@@ -1540,18 +1625,18 @@ top: -5px; }
 }
 
 .synth-g-btn {
-    border: 2px solid #00D1FF!important;
+border: 2px solid #00D1FF!important;
     color: #00D1FF!important;
     background: #00D1FF3b!important;
-    text-shadow: 0px 1px 1px #00000057;
-    font-size: 18px!important;
-    margin: 0 0 30px;
     letter-spacing: 1px;
-    width: 250px;
+    text-shadow: 0px 1px 1px #00000057;
+    font-size: 15px!important;
+    margin: 0 -120px 30px;
+    width: 80%;
     border-radius: 40px;
     text-align: center;
     text-transform: uppercase;
-    padding: 5px 5px;
+    padding: 6px 5px;
     font-family: 'GT America CM';
     float: right;
 }
@@ -1572,9 +1657,9 @@ img.member-avatar {
     background: #bd15d43b!important;
     letter-spacing: 1px;
     text-shadow: 0px 1px 1px #00000057;
-    font-size: 18px!important;
+    font-size: 16px!important;
     margin: 0 0 30px;
-    width: 250px;
+    width: 80%;
     border-radius: 40px;
     text-align: center;
     text-transform: uppercase;
@@ -1587,15 +1672,36 @@ img.member-avatar {
     opacity: 0.8!important;
 }
 
+.synth-v-btn {
+    border: 2px solid #30cb9d!important;
+    color: #30cb9d!important;
+    background: #30cb9d3b!important;
+    letter-spacing: 1px;
+    text-shadow: 0px 1px 1px #00000057;
+    font-size: 16px!important;
+    margin: 0 -60px 30px;
+    width: 80%;
+    border-radius: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 5px 5px;
+    font-family: 'GT America CM';
+    float: right;
+}
+
+.synth-v-btn:hover {
+    opacity: 0.8!important;
+}
+
 .synth-dc-btn {
     border: 2px solid #fff!important;
     color: #fff!important;
     background: #ffffff38;
     text-shadow: 0px 1px 1px #00000057;
-    font-size: 18px!important;
+    font-size: 16px!important;
     margin: 0 0 30px;
     letter-spacing: 1px;
-    width: 250px;
+    width: 80%;
     border-radius: 40px;
     text-align: center;
     text-transform: uppercase;
@@ -1605,11 +1711,14 @@ img.member-avatar {
 }
 
 .gm-wrapper {
-    padding-top: 5px;
 }
 
 .synth-dc-btn:hover {
     opacity: 0.8!important;
+}
+
+.grants-excerpt {
+    color: #fff;
 }
 
 
@@ -1642,6 +1751,16 @@ img.member-avatar {
     color: #00D1FF;
 }
 
+img.custom-icons {
+    width: 24px;
+    padding-bottom: 1px;
+    margin-left: 1px;
+}
+
+.align-center {
+    text-align: center;
+}
+
 .votes-amount {
     background-color: #BD18D4;
     width: 100px;
@@ -1653,6 +1772,15 @@ img.member-avatar {
 
 .gdao-mini-logo {
     width: 150px;
+}
+
+.no-margin {
+    margin: 0!important;
+    padding: 0;
+}
+
+section.grants-data {
+    padding-bottom: 60px;
 }
 
 .synth-grants-hero-section {
@@ -1848,8 +1976,11 @@ margin-bottom: 100px; }
 }
 
 .grants-indi-bg {
-    padding-bottom: 80px;
-    background: linear-gradient(#0a060f, #220327e8);
+    background: linear-gradient(#08081c, #220327);
+}
+
+.data-p {
+    padding-right: 15px!important;
 }
 
 .social-icons-wrapper {
@@ -1995,8 +2126,12 @@ ul.tabs {
   margin: 0;
 }
 ul.tabs li {
-  display: inline-block;
-  padding: 0 24px;
+    display: inline-block;
+    padding: 0 24px;
+    font-weight: 600;
+    font-family: 'GT America CM';
+    letter-spacing: 1px;
+    font-size: 17px;
 }
 ul.tabs li a {
   outline: 0;
@@ -2004,6 +2139,7 @@ ul.tabs li a {
 }
 ul.tabs li a:hover, ul.tabs li a.selected {
   color: #2fabe1;
+  font-weight: bold; 
 }
 
 .tab-pane {
