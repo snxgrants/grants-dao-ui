@@ -120,9 +120,10 @@
     </section>
     <!-- ========================= Synthetix hero-section end ========================= -->
      
+    <div class="grants-section-bg">
       
     <!-- ========================= Grants Intro Section Header Start ========================= -->
-    <div class="grants-section-bg">
+<!--
         <section class="grants-intro-section">
             <div class="container-md container">
                 <div class="row">
@@ -133,26 +134,16 @@
                             </div>
                             <div class="col-md-2 col-sm-12">
                                 <div class="gm-wrapper">
-                                    <div class="synth-blue gm-text">Synthetix Protocol</div> 
-                                    <div class="gm-text">grantsDAO</div>
+                                    <div class="synth-blue gm-text gt-america">Synthetix Protocol</div> 
+                                    <div class="gm-text gt-america">grantsDAO</div>
                                 </div>
                             </div>
-                            <div class="col-md-3 col-sm-12">
-                                <a href="grant-application.html" rel="nofollow" class="synth-g-btn btn-hover wow fadeInUp" data-wow-delay=".6s">APPLY FOR GRANT</a>
-                            </div>
-                            
-                            <div class="col-md-3 col-sm-12">
-                                <a href="" rel="nofollow" class="synth-v-btn btn-hover wow fadeInUp" data-wow-delay=".6s">VOTE</a>
-                            </div>
-                            
-                            <div class="col-md-3 col-sm-12">
-                                <a href="" rel="nofollow" class="synth-dc-btn btn-hover wow fadeInUp" data-wow-delay=".6s">DISCONNECT WALLET</a>
-                            </div>
-                    </div>
+                         </div>
                     </div>
                 </div>
             </div>
         </section>
+-->
         <!-- ========================= Grants Intro Section Header End ========================= -->
         
         
@@ -170,23 +161,26 @@
         <section class="grants-data">
             <!-- =========================  Tabs ========================= --> 
             <div class="container-md container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="synth-tabs">
-                          <ul class="tabs">
-                            <li><a href="#all" class="selected">ALL</a></li>
-                            <li><a href="#core">SUBMITTED</a></li>
-                            <li><a href="#community">IN REVIEW</a></li>
-                            <li><a href="#active">APPROVED</a></li>
-                            <li><a href="#pending">COMPLETED</a></li>
-                            <li><a href="#closed">PAID</a></li>
-                            <li><a href="#approved">ON HOLD</a></li>
-                          </ul>
-                        </div> 
-                        <div class="synth-tab-divider"></div>
-                        <div style="height: 30px"></div>
-                    </div>
-                </div>      
+                <div class="filter-wrapper">
+                    <div class="synth-tab-divider"></div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="synth-tabs">
+                              <ul class="tabs">
+                                <li><a href="#all" class="selected">ALL</a></li>
+                                <li><a href="#core">SUBMITTED</a></li>
+                                <li><a href="#community">IN REVIEW</a></li>
+                                <li><a href="#active">APPROVED</a></li>
+                                <li><a href="#pending">COMPLETED</a></li>
+                                <li><a href="#closed">PAID</a></li>
+                                <li><a href="#approved">REJECTED</a></li>
+                                <li><a href="" rel="nofollow" class="synth-g-btn btn-hover wow fadeInUp" data-wow-delay=".6s">APPLY FOR GRANT</a></li>
+                              </ul>
+                            </div> 
+                        </div>
+                    </div> 
+                    <div class="synth-tab-divider-filters"></div> 
+                </div>
             </div>
             <!-- ========================= Tabs End========================= --> 
             
@@ -195,87 +189,105 @@
             <section id="all" class="anchor">
                 <!-- ========================= Tab Data Headings========================= -->
                 <div class="container">
-                    <div class="row padding-bottom">
-                        <div class="col-md-6 col-sm-12 active-tab-header">ALL GRANTS</div>
-                        <div class="data-header align-center col-md-2 col-sm-12">VOTES 
-                            <span class="synth-up-arrow"><img class="custom-icons" src="assets/img/grants/down-arrow.svg" alt="Arrow"></span>
-                        </div>
-                        <div class="data-header align-center col-md-2 col-sm-12">AMOUNT 
-                            <span class="synth-up-arrow"><img class="custom-icons" src="assets/img/grants/down-arrow.svg" alt="Arrow"></span>
-                        </div>
-                        <div class="data-header align-center col-md-2 col-sm-12">STATUS 
-                            <span class="synth-up-arrow"><img class="custom-icons" src="assets/img/grants/down-arrow.svg" alt="Arrow"></span>
+                    <div class="heading-wrapper">
+                        <div class="row">
+                            <div class="col-md-5 col-sm-12 active-tab-header">ALL GRANTS</div>
+                            <div class="data-header align-center col-md-1 col-sm-12">VOTES 
+                                <span class="synth-up-arrow"><img class="custom-icons" src="assets/img/grants/down-arrow.svg" alt="Arrow"></span>
+                            </div>
+                            <div class="data-header align-center col-md-2 col-sm-12">AMOUNT 
+                                <span class="synth-up-arrow"><img class="custom-icons" src="assets/img/grants/down-arrow.svg" alt="Arrow"></span>
+                            </div>
+                           <div class="data-header align-center col-md-2 col-sm-12">STATUS
+                                <span class="synth-up-arrow"><img class="custom-icons" src="assets/img/grants/down-arrow.svg" alt="Arrow"></span>
+                            </div>
+                            <div class="data-header align-center col-md-2 col-sm-12">VOTING 
+                                <span class="synth-up-arrow"><img class="custom-icons" src="assets/img/grants/down-arrow.svg" alt="Arrow"></span>
+                            </div>
                         </div>
                     </div>
                 </div>
                     <!-- ========================= Tab Data Headings End========================= -->
                     
                     
-                    <!-- ========================= Tabs Data Start - Repeat these items...========================= -->
+                <!-- ========================= Tabs Data Start .========================= -->
                 <div class="container">
+                  
+                    <!-- ========================= Repeat Data Start ========================= -->
                     
+                    
+                    
+                    <!-- ========================= Data Wrapper Start ========================= -->
                     <div class="data-wrapper">
                         <div class="row">
-                            <div class="col-md-6 col-sm-12 data-p">
-                                <a href="grants-individual.html">
-                                    <h4 class="no-margin grantsdao-data-heading padding-right">Discord Bot Maintenance </h4>
-                                    <p class="bio-info"><span class="grants-excerpt bio-info no-margin padding-right">
-                                        Discord bots are one of the most useful features of the communication platform. They are AIs that marketers and business owners can use to perform a wide range of automated...</span>
-                                        <span class="bio-info">Requested by</span>
-                                        <span class="bio-info synth-blue"> Danijel</span> in
-                                        <span class="bio-info synth-pink">Grants</span>
-                                    </p>
-                                </a>
+                            <div class="col-md-5 col-sm-12 data-p">
+                                <div class="data-description-wrapper">
+                                    <a class="hover" href="grants-individual.html">
+                                        <h4 class="no-margin grantsdao-data-heading padding-right">Discord Bot Maintenance</h4>
+                                        <p class="no-margin bio-info-p grants-excerpt bio-info-p no-margin padding-right">
+                                            Discord bots are one of the most useful features of the communication platform. They are AIs that marketers and business owners can use to perform a wide range of automated...
+                                        <span class="sm-font synth-blue">View Details</span></p>
+                                    </a>
+                                </div>
+                                    
+
+                                <span class="sm-font no-margin bio-info"><span class="bio-info">Requested by</span>
+                                <span class=" bio-info synth-blue"> Danijel</span> in
+                                <span class="sm-font bio-info synth-pink">Grants</span></span>
                             </div>
-                            <div class="align-center col-md-2 col-sm-12">5</div>
-                            <div class="align-center col-md-2 col-sm-12">1.500 SNX</div>
-                            <div class="align-center col-md-2 col-sm-12">
+                            <div class="vertical-align align-center col-md-1 col-sm-12">5</div>
+                            <div class="vertical-align align-center col-md-2 col-sm-12">1.500 SNX</div>
+                            <div class="vertical-align align-center col-md-2 col-sm-12">PAID</div>
+                            <div class="vertical-align align-center col-md-2 col-sm-12">
                                 <div class="utility-btn">
-                                 <a href="" rel="nofollow" class="grants-v-btn wow fadeInUp animated" data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">PAID</a>
+                                 <div class="vertical-align grants-v-btn">CLOSED</div>
                                 </div>
                             </div>
                         </div>
+                        <!-- ========================= Data Wrapper End ========================= -->
+                        
+                        
+                    <!-- ========================= Data Wrapper Start ========================= -->
+                    <div class="data-wrapper">
+                        <div class="row">
+                            <div class="col-md-5 col-sm-12 data-p">
+                                <div class="data-description-wrapper">
+                                    <a class="hover" href="grants-individual.html">
+                                        <h4 class="no-margin grantsdao-data-heading padding-right">Synthetix Documentation</h4>
+                                        <p class="no-margin bio-info-p grants-excerpt bio-info-p no-margin padding-right">
+                                            Discord bots are one of the most useful features of the communication platform. They are AIs that marketers and business owners can use to perform a wide range of automated...
+                                        <span class="sm-font synth-blue">View Details</span></p>
+                                    </a>
+                                </div>
+                                    
+
+                                <span class="sm-font no-margin bio-info"><span class="bio-info">Requested by</span>
+                                <span class=" bio-info synth-blue"> Danijel</span> in
+                                <span class="sm-font bio-info synth-pink">Grants</span></span>
+                            </div>
+                            <div class="vertical-align align-center col-md-1 col-sm-12">5</div>
+                            <div class="vertical-align align-center col-md-2 col-sm-12">1.500 SNX</div>
+                            <div class="vertical-align align-center col-md-2 col-sm-12">PAID</div>
+                            <div class="vertical-align align-center col-md-2 col-sm-12">
+                                <div class="utility-btn">
+                                 <div class="vertical-align grants-v-btn">CLOSED</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ========================= Data Wrapper End ========================= -->
+                        
+                 
+                        
+                        
+                        
+                        
+                        <!-- ========================= Repeat Data End ========================= -->
                         <div class="soft-divider"></div>
                     </div>
                     
-                    <div class="data-wrapper">
-                        <div class="row">
-                            <div class="col-md-6 col-sm-12 data-p">
-                                <a href="grants-individual.html">
-                                    <h4 class="no-margin grantsdao-data-heading padding-right">Discord Bot Maintenance </h4>
-                                    <p class="bio-info"><span class="grants-excerpt bio-info no-margin padding-right">
-                                        Discord bots are one of the most useful features of the communication platform. They are AIs that marketers and business owners can use to perform a wide range of automated...</span>
-                                        <span class="bio-info">Requested by</span>
-                                        <span class="bio-info synth-blue"> Danijel</span> in
-                                        <span class="bio-info synth-pink">Grants</span>
-                                    </p>
-                                </a>
-                            </div>
-                            <div class="align-center col-md-2 col-sm-12">5</div>
-                            <div class="align-center col-md-2 col-sm-12">1.500 SNX</div>
-                            <div class="align-center col-md-2 col-sm-12">
-                                <div class="utility-btn">
-                                 <a href="" rel="nofollow" class="grants-v-btn wow fadeInUp animated" data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">PAID</a>
-                                </div>
-                                <div class="soft-divider"></div>
-                            </div>
-                        </div>
-                    </div>
                     
-                    
- 
                 </div>
-                    <!-- ========================= Tabs All Data End========================= --> 
-
-                
-                <div style="height: 30px"></div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="synth-divider"></div>
-                        </div>
-                    </div>
-                </div>
+                <!-- ========================= Tabs All Data End========================= --> 
             </section>
             <!-- =========================  Tabs End========================= --> 
         </section>  
@@ -320,7 +332,7 @@
 
 						<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                             <div class="synth-footer-logo-wrapper">
-                                <a href="home.html"> <img class="synth-social-img" src="assets/img/logo/synthetix_grantsDAO_logo.svg" alt=""> </a>
+                                <a href="home.html"> <img class="synth-social-img" src="assets/img/logo/synthetix_grantsDAO_logo.svg" alt=""></a>
                             </div>
 						</div>
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
