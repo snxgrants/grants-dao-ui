@@ -735,6 +735,21 @@ img.synth-proto-footer {
     font-family: 'GT America CM';
 }
 
+
+.grants-paid {
+    border: 2px solid #03d1ff!important;
+    color: #03d1ff!important;
+    letter-spacing: 1px;
+    text-shadow: 0px 1px 1px #00000057;
+    font-size: 15px!important;
+    width: 100%;
+    border-radius: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 5px 15px;
+    font-family: 'GT America CM';
+}
+
 .grants-to-vote {
     border: 2px solid #FC8738!important;
     color: #FC8738!important;
@@ -765,8 +780,8 @@ img.synth-proto-footer {
 
 
 .grants-on-hold {
-    border: 2px solid #6c757d!important;
-    color: #6c757d!important;
+    border: 2px solid #fc8738!important;
+    color: #fc8738!important;
     letter-spacing: 1px;
     text-shadow: 0px 1px 1px #00000057;
     font-size: 15px!important;
@@ -777,6 +792,23 @@ img.synth-proto-footer {
     padding: 5px 15px;
     font-family: 'GT America CM';
 }
+
+.grants-rejeted {
+    border: 2px solid #31D8A4!important;
+    color: #31D8A4!important;
+    letter-spacing: 1px;
+    text-shadow: 0px 1px 1px #00000057;
+    font-size: 15px!important;
+    width: 100%;
+    border-radius: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 5px 15px;
+    font-family: 'GT America CM';
+}
+
+
+
 
 .grants-apply-btn {
     background: #bd16d454!important;
@@ -918,7 +950,7 @@ img.synth-proto-footer.wow.fadeInUp {
 .scroll-top {
     width: 45px;
     height: 45px;
-    background: #e11df570;
+    background: #e11df53d;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1554,7 +1586,7 @@ position: relative;
 top: -5px; }
 
 .synth-landing-hero {
-	height: 100vh;
+	height: 105vh;
 }
 
 
@@ -1694,18 +1726,17 @@ top: -5px; }
     height: 80vh;
 }
 
-.synth-grants-blog-section {
+.synth-blog-section {
   position: relative;
   z-index: 1;
   padding: 200px 0 50px;
-  background-image: url("../img/hero/synth_grants_individual_hero.png");
+  background-image: url("../img/hero/synth_blog_hero.png");
   background-position: top center;
   background-repeat: no-repeat;
   background-size: cover;
   margin-bottom: -1px;
   height: 100vh;
 }
-
 
 
 .synth-grants-innitiatives-section {
@@ -1939,6 +1970,11 @@ section.grants-data {
 }
 
 
+p.ga {
+    margin: 0;
+    padding: 0 0 6px 11px;
+}
+
 .synth-grants-hero-section {
   position: relative;
   z-index: 1;
@@ -2047,10 +2083,16 @@ margin-bottom: 100px; }
             
         .synth-footer-section {
             height: 1200px!important;
+            }}
+            
+         @media only screen and (min-width: 3000px) {
+            
+        .synth-footer-section {
+            height: 1800px!important;
         }
             
         .synth-landing-hero {
-        height: 100vh;
+        height: 88vh;
         }}
 
         @media only screen and (min-width: 1200px) and (max-width: 1399px) {
@@ -2108,6 +2150,7 @@ margin-bottom: 100px; }
 .feature-section .single-feature {
   text-align: center;
   padding: 30px 10px 0 10px; }
+
   @media only screen and (min-width: 1400px) {
     .feature-section .single-feature {
       padding: 30px 40px; } }
@@ -2400,4 +2443,45 @@ ul.tabs li a:hover, ul.tabs li a.selected {
     font-family: GT America CM;
     letter-spacing: 1px;
     margin: 10px 0 -10px 0px;
+}
+
+/*Grants Application Form*/
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #fff!important;
+    background-color: #5ceaff14;
+    background-clip: padding-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    border: 2px solid #5CEAFF;
+}
+
+.title {
+    margin: 15px;
+}
+
+.form-control:focus {
+    color: #212529;
+    background-color: #03d1ff00;
+    border-color: #03d1ff;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
+}
+
+.sga-wrapper {
+    margin: 10px 0 30px 0;
+}
+
+::placeholder {
+  color: #fff!important;
+  opacity: 0.6!important;
 }

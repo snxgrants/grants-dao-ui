@@ -54,7 +54,7 @@
           <div class="row align-items-center">
             <div class="col-lg-12">
               <nav class="navbar navbar-expand-lg">
-                <a class="navbar-brand" href="home.html">
+                <a class="navbar-brand" href="index.html">
                   <img src="assets/img/logo/synthetix_grantsDAO_logo.svg" alt="Logo"/>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -69,7 +69,7 @@
                       <a class="active" href="grants.html">Grants</a>
                     </li>
                      <li class="nav-item">
-                      <a class="" href="initiatives.html">Innitiatives</a>
+                      <a class="" href="innitiatives.html">Innitiatives</a>
                     </li>
                     <li class="nav-item">
                       <a class="" href="blog.html">Blog</a>
@@ -111,7 +111,7 @@
                 </div>
                 <h1 class="synth-grants-h wow fadeInUp" data-wow-delay=".4s">GRANT APPLICATION</h1>
                 <p class="wow fadeInUp synth-p-opti align-center" data-wow-delay=".6s">
-                SNeed funding for a brilliant idea that benefits Synthetix?</p>	
+                Need funding for a brilliant idea that benefits Synthetix?</p>	
            </div>
 		  </div>
         </div>
@@ -129,7 +129,7 @@
                         <div class="col-md-12">
                             <div class="synth-tabs">
                                 <div class="grp">GRANT REQUEST PROCESS</div>
-                                 <p>Complete the grant proposal template step by step below and submit.</p>
+                                 <p>Welcome, complete the grant proposal using the form below and submit.</p>
                             </div> 
                         </div>
                     </div> 
@@ -143,20 +143,163 @@
             
                 <div class="container">
                     <div class="row grants-descr-wrapper padding-bottom">
+                        <div class="h4-grants-dao-descr">USERNAME</div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="sga-wrapper">
+                                    <div class="form-group">
+                                      <div class="col-sm-12">
+                                        <textarea placeholder="Enter your username" class="form-control" rows="2" id="username"></textarea>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="h4-grants-dao-descr">DESCRIPTION</div>
+                        <p class="ga">Add a short description</p>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="sga-wrapper">
+                                    <div class="form-group">
+                                      <div class="col-sm-12">
+                                        <textarea placeholder="Description" class="form-control" rows="2" id="description"></textarea>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="h4-grants-dao-descr">TITLE</div>
+                        <p class="ga">The title should clearly and succinctly describe the project.</p>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="sga-wrapper">
+                                    <div class="form-group">
+                                      <div class="col-sm-12">
+                                        <textarea placeholder="Enter your title" class="form-control" rows="4" id="title"></textarea>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                              
                         <div class="h4-grants-dao-descr">OVERVIEW</div>
-                        <p>The Overview section is where the the applicant should provide a high-level description of what the proposal hopes to achieve. The purpose is to describe the project and to give more color, background, and goals of the effort. A paragraph-based prose is best for this section, and it will serve as the first impression of the project.</p>
+                        <p class="ga">The Overview section is where the the applicant should provide a high-level description of what the proposal hopes to achieve. The purpose is to describe the project and to give more color, background, and goals of the effort. A paragraph-based prose is best for this section, and it will serve as the first impression of the project.</p>
                         
                        <p>By the end of this section, the reader should be fully understand what the project will produce, as well as enough background context to understand it’s place within the broader Synthetix/crypto ecosystem.
                         This section should avoid more mechanical information, such as in-depth outlines/timelines/funding/etc., which have their own sections later in the proposal.</p>
                         
-                        <div class="input-wrapper">
-                            <p class="gdao-descriptor">Enter Overview here...</p>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="sga-wrapper">
+                                    <div class="form-group">
+                                      <div class="col-sm-12">
+                                        <textarea placeholder="Add your overview" class="form-control" rows="4" id="overview"></textarea>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                        
+                        
+                        <div class="h4-grants-dao-descr">VALUE TO SYNTHETIX</div>
+                        <p class="ga">This section should describe the specific benefits that the completion of this work will bring to the Synthetix ecosystem. The grantsDAO is ultimately tasked with deploying funding for the betterment of Synthetix, and thus this section is pivotal to the justification of approval of fund disbursement. The grantsDAO should be able to turn around and use this section to explain to the SNX stakeholders what they are getting for their money.</p>
+                        
+                        
+                        <p>This section should avoid describing benefits other than direct value to Synthetix. If there is value to be delivered outside of SNX that the proposer feels is important to include (e.g. benefitting other DeFi projects), then that should be included in the previous Overview section.</p>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="sga-wrapper">
+                                    <div class="form-group">
+                                      <div class="col-sm-12">
+                                        <textarea placeholder="Value to Synthetix" class="form-control" rows="4" id="value"></textarea>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="h4-grants-dao-descr">Applicant Background</div>
+                        <p class="ga">This section is where the proposer(s) should explain the skillsets and experience they possess, which justifies their ability to execute and deliver on the project they propose. Developers and designers should be able give some examples of past-work, with a brief description of their background/resume.</p>
+                        
+                        
+                        <p>It is important to note that being an expert in the field is not a pre-requisite for approval of a project, and should not discourage less-experienced members from applying. The important thing is to set expectations appropriately, and the grantsDAO will take into account all information presented here.</p>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="sga-wrapper">
+                                    <div class="form-group">
+                                      <div class="col-sm-12">
+                                        <textarea placeholder="Your background" class="form-control" rows="4" id="applicant-background"></textarea>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="h4-grants-dao-descr">PROJECT IMPLEMENTATION PLAN</div>
+                        <p class="ga">This section is where the proposer will give a detailed description of the steps they will go through as well as the estimated timelines to execute and complete the proposal. The more complex (and expensive) the project, the more time one should spend compiling a solid project plan. Often, multiple phases/deliverables will be necessary, so as to provide natural checkpoints for both the proposer and the grantsDAO to ensure that the project is progressing well.</p>
+                        
+                        
+                        <p>It is understood that the implementation plan may need to be changed, or that some pieces cannot be fully outlined from the outset of the project. In these cases, just make note of this, and work with the grantsDAO to set expectations appropriately.</p>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="sga-wrapper">
+                                    <div class="form-group">
+                                      <div class="col-sm-12">
+                                        <textarea placeholder="Project implementation plan" class="form-control" rows="4" id="implementation"></textarea>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="h4-grants-dao-descr">ADDITIONAL INFORMATION</div>
+                        <p class="ga">This is an optional section, for the purpose of giving more detailed data (datasets/charts/tables/etc.) which are used to justify some piece of the project, similar to an appendix. This is a better home for deeper data that does not fit cleanly alongside the other, more prose-heavy sections.</p>
+                        
+                        
+                        <p>For instance, if the project requires reimbursement for server hosting fees, API licenses, or SSL certificates, this would be the appropriate place to make a table that shows a breakdown of all these costs.
+                            This is also the appropriate place to give breakdowns of hourly rates if labor costs are being considered in the budget.</p>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="sga-wrapper">
+                                    <div class="form-group">
+                                      <div class="col-sm-12">
+                                        <textarea placeholder="Additional information" class="form-control" rows="4" id="additional-information"></textarea>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="h4-grants-dao-descr">FUNDING REQUEST</div>
+                        <p class="ga">This section is where the proposer should give the overall budgetary request, as well as break down the funding to any specific phases, if applicable.</p>
+                        
+                        
+                        <p>As funding is often the most important and potentially contentious aspect of the agreement between the proposer and grantsDAO, the proposer should work with the grantsDAO directly prior to submitting a final proposal to come to an agreeable payment on a per-deliverable basis. The Synthetix Discord (in the #grants-dao channel) is the best place to engage with the grantsDAO to achieve this goal.</p>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="sga-wrapper">
+                                    <div class="form-group">
+                                      <div class="col-sm-12">
+                                        <textarea placeholder="Overall budgetary request information" class="form-control" rows="4" id="budget"></textarea>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
                         
                         <div class="vertical-align align-center col-md-2 col-sm-12">
                                 <div class="utility-btn">
                                  <a href="grant-application.html">
-                                     <button class="vertical-align grants-apply-btn wow fadeInUp" data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">NEXT </button> 
+                                     <button class="vertical-align grants-apply-btn wow fadeInUp" data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">SUBMIT </button> 
                                 </a>
                                 </div>
                         </div>
@@ -203,7 +346,7 @@
 
 						<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                             <div class="synth-footer-logo-wrapper">
-                                <a href="home.html"> <img class="synth-social-img" src="assets/img/logo/synthetix_grantsDAO_logo.svg" alt=""> </a>
+                                <a href="index.html"> <img class="synth-social-img" src="assets/img/logo/synthetix_grantsDAO_logo.svg" alt=""> </a>
                             </div>
 						</div>
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
