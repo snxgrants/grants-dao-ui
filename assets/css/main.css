@@ -721,7 +721,7 @@ img.synth-proto-footer {
     font-family: 'GT America CM';
 }
 
-.grants-ip {
+.grants-applied {
     border: 2px solid #FFD75C!important;
     color: #FFD75C!important;
     letter-spacing: 1px;
@@ -736,7 +736,7 @@ img.synth-proto-footer {
 }
 
 
-.grants-paid {
+.grants-active {
     border: 2px solid #03d1ff!important;
     color: #03d1ff!important;
     letter-spacing: 1px;
@@ -750,9 +750,9 @@ img.synth-proto-footer {
     font-family: 'GT America CM';
 }
 
-.grants-to-vote {
-    border: 2px solid #FC8738!important;
-    color: #FC8738!important;
+.grants-completed {
+    border: 2px solid #cc1ae0!important;
+    color: #cc1ae0!important;
     letter-spacing: 1px;
     text-shadow: 0px 1px 1px #00000057;
     font-size: 15px!important;
@@ -779,7 +779,7 @@ img.synth-proto-footer {
 }
 
 
-.grants-on-hold {
+.grants-cancelled {
     border: 2px solid #fc8738!important;
     color: #fc8738!important;
     letter-spacing: 1px;
@@ -793,9 +793,9 @@ img.synth-proto-footer {
     font-family: 'GT America CM';
 }
 
-.grants-rejeted {
-    border: 2px solid #31D8A4!important;
-    color: #31D8A4!important;
+.grants-rejected {
+    border: 2px solid #FF1E39!important;
+    color: #FF1E39!important;
     letter-spacing: 1px;
     text-shadow: 0px 1px 1px #00000057;
     font-size: 15px!important;
@@ -806,9 +806,6 @@ img.synth-proto-footer {
     padding: 5px 15px;
     font-family: 'GT America CM';
 }
-
-
-
 
 .grants-apply-btn {
     background: #bd16d454!important;
@@ -823,6 +820,10 @@ img.synth-proto-footer {
     text-transform: uppercase;
     padding: 5px 15px;
     font-family: 'GT America CM';
+}
+
+.margin-auto {
+    margin: auto!important;
 }
 
 .cast-vote-btn {
@@ -1028,7 +1029,7 @@ img.synth-proto-footer.wow.fadeInUp {
   height: 100%;
   width: 100%;
   /* Change Background Color */
-  background: #fff;
+  background: #000;
   z-index: 99999; }
   .preloader .loader {
     display: table-cell;
@@ -1084,7 +1085,7 @@ img.synth-proto-footer.wow.fadeInUp {
       height: 100%;
       border-style: solid;
       /* Spinner Color */
-      border-color: #5864FF #5864FF #ddd;
+      border-color: #00D1FF #00D1FF #ddd;
       border-radius: 50%;
       border-width: 6px; }
     .preloader .loader .ytp-spinner-left .ytp-spinner-circle {
@@ -1910,6 +1911,12 @@ img.member-avatar {
 }
 
 
+.grants-individual-vh {
+    margin-top: 55vh;
+    text-align: center;
+}
+
+
 .info-left {
     font-weight: bold;
     padding-bottom: 5px;
@@ -1967,6 +1974,18 @@ section.grants-data {
   background-size: cover;
   margin-bottom: -1px;
   height: 100vh;
+}
+
+.synth-grant-application-thank-you {
+  position: relative;
+  z-index: 1;
+  padding: 180px 0 50px;
+  background-image: url("../img/hero/grant-application-hero.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: -1px;
+  height: 105vh;
 }
 
 
@@ -2178,6 +2197,10 @@ margin-bottom: 100px; }
     background: linear-gradient(#08081c, #220327);
 }
 
+.grants-bg {
+    background: linear-gradient(#00040a, #220327);
+}
+
 .data-p {
     padding-right: 15px!important;
 }
@@ -2186,6 +2209,20 @@ margin-bottom: 100px; }
     display: flex;
     position: absolute;
     bottom: 70px;
+}
+
+
+.votes {
+    /* background-color: #e11cf582; */
+    height: 40px;
+    border-radius: 30px;
+    width: 40px;
+    padding: 7px;
+    margin: auto;
+    color: #03d1ff;
+    border: 2px solid #03d1ff;
+    /* font-weight: bold; */
+    font-size: 14px;
 }
 
 no-margin {
@@ -2325,13 +2362,34 @@ ul.tabs {
   padding: 0;
   margin: 0;
 }
+
 ul.tabs li {
     display: inline-block;
-    padding: 0 24px;
+    padding: 0 20px 0 0;
     font-family: 'GT America CM';
     letter-spacing: 1px;
     font-size: 16px;
+    text-transform: uppercase;
+    color: #fff
 }
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #40e2fe;
+    background-color: #40e2fe00;
+    border-color: #40e2fe00;
+}
+
+.nav-tabs .nav-link {
+    margin-bottom: -1px;
+    background: 0 0;
+    border: 0px solid transparent;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
 ul.tabs li a {
   outline: 0;
   color: #fff;
@@ -2341,7 +2399,11 @@ ul.tabs li a:hover, ul.tabs li a.selected {
 }
 
 .tab-pane {
-  padding: 100px 30px;
+  padding: 30px 0;
+}
+
+.nav-tabs {
+    border-bottom: 0 solid #dee2e6;
 }
 
 @media only screen and (max-width: 767px) {
@@ -2479,6 +2541,11 @@ ul.tabs li a:hover, ul.tabs li a.selected {
 
 .sga-wrapper {
     margin: 10px 0 30px 0;
+}
+
+::placeholder {
+  color: #fff!important;
+  opacity: 0.6!important;
 }
 
 ::placeholder {
