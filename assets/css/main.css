@@ -169,6 +169,7 @@ h2.synth-members-h.fadeInUp {
     text-shadow: 0px 3px 3px #000000b0;
     letter-spacing: 1px; 
     margin: 0 auto;
+    text-transform: uppercase;
 }
 
 span.synth-g {
@@ -512,7 +513,7 @@ h2.synth-treasury-h.fadeInUp {
       }
     
     .synth-vh {
-      margin-top: 150px;
+      margin-top: 40%;
       }
     
     .synth-landing-hero {
@@ -597,6 +598,7 @@ h2.synth-treasury-h.fadeInUp {
 }
 
 @media only screen and (min-width: 1500px) {
+    
     .treasury-section {
         height: 1800px!important } }
 
@@ -808,7 +810,7 @@ img.synth-proto-footer {
 }
 
 .grants-apply-btn {
-    background: #bd16d454!important;
+    background: #bd16d436;
     border: 2px solid #e11cf5!important;
     color: #e11cf5!important;
     letter-spacing: 1px;
@@ -820,6 +822,100 @@ img.synth-proto-footer {
     text-transform: uppercase;
     padding: 5px 15px;
     font-family: 'GT America CM';
+}
+
+
+.grants-indi-amount {
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: 15px!important;
+    border-radius: 40px;
+    text-transform: uppercase;
+    padding: 5px 15px;
+    font-family: 'GT America CM';
+    width: 100%;
+    background-color: #bd16d4;
+}
+
+.grants-to-vote {
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: center;
+    border: 2px solid #6c757d;
+    color: #6c757d!important;
+    letter-spacing: 1px;
+    text-shadow: 0px 1px 1px #00000057;
+    font-size: 15px!important;
+    border-radius: 40px;
+    text-transform: uppercase;
+    padding: 5px 15px;
+    font-family: 'GT America CM';
+    width: 100%;
+}
+
+
+.grants-cancel {
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: center;
+    border: 2px solid #6c757d;
+    color: #6c757d!important;
+    letter-spacing: 1px;
+    text-shadow: 0px 1px 1px #00000057;
+    font-size: 15px!important;
+    border-radius: 40px;
+    text-transform: uppercase;
+    padding: 5px 15px;
+    font-family: 'GT America CM';
+    width: 100%;
+    background: #fff0;
+}
+
+.grants-yes {
+    border: 2px solid #31D8A4!important;
+    color: #31D8A4!important;
+    letter-spacing: 1px;
+    text-shadow: 0px 1px 1px #00000057;
+    font-size: 15px!important;
+    width: 100%;
+    border-radius: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 5px 15px;
+    font-family: 'GT America CM';
+}
+
+.grants-no {
+    border: 2px solid #FF1E39!important;
+    color: #FF1E39!important;
+    letter-spacing: 1px;
+    text-shadow: 0px 1px 1px #00000057;
+    font-size: 15px!important;
+    width: 100%;
+    border-radius: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 5px 15px;
+    font-family: 'GT America CM';
+}
+
+
+.back-to-grants-btn {
+    background: #bd16d454!important;
+    border: 2px solid #e11cf5!important;
+    color: #e11cf5!important;
+    letter-spacing: 1px;
+    text-shadow: 0px 1px 1px #00000057;
+    font-size: 18px!important;
+    width: 100%;
+    border-radius: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    font-family: 'GT America CM';
+    margin-top: 20px!important;
 }
 
 .margin-auto {
@@ -886,9 +982,19 @@ img.synth-proto-footer {
     padding-bottom: 15px;
 }
 
+.padding-bottom-100 {
+    padding-bottom: 100px;
+}
+
 .max-width {
     max-width: 900px;
 }
+
+.max-width-grant-divider {
+    max-width: 900px;
+    margin: 10px auto!important;
+}
+
 
 .voting-wrapper {
     margin-bottom: 15px;
@@ -902,9 +1008,6 @@ img.synth-proto-footer {
      padding-right: 30px;
 }
 
-.candidates-info { 
-    padding-bottom: 80px;  
-} 
 
 img.synth-proto-footer.wow.fadeInUp {
     width: 92%;
@@ -1596,7 +1699,7 @@ top: -5px; }
 }
 
 .synth-vh {
-    margin-top: 50vh;
+    margin-top: 40%;
 }
 
 .grants-vh {
@@ -1740,11 +1843,11 @@ top: -5px; }
 }
 
 
-.synth-grants-innitiatives-section {
+.synth-grants-initiatives-section {
   position: relative;
   z-index: 1;
   padding: 200px 0 50px;
-  background-image: url("../img/hero/synth_innitiatives_hero.png");
+  background-image: url("../img/hero/synth_initiatives_hero.png");
   background-position: top center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1758,13 +1861,42 @@ top: -5px; }
     padding: 50px 0;
 }
 
+.initiatives-descr-wrapper {
+    max-width: 900px;
+    margin: auto;
+    padding: 30px 0;
+}
+
+
 .candidates-h {
     margin: 0 0 15px;
-    font-size: 19px;
+    font-size: 15px;
     text-transform: uppercase;
     font-family: GT America CM;
     color: #00D1FF;
     margin-right: 10px;
+}
+
+.candidates-h-yes {
+    margin: 0 0 15px;
+    font-size: 17px;
+    text-transform: uppercase;
+    font-family: GT America CM;
+    margin-right: 10px;
+    color: #31D8A4;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.candidates-h-no {
+    margin: 0 0 15px;
+    font-size: 17px;
+    text-transform: uppercase;
+    font-family: GT America CM;
+    margin-right: 10px;
+    color: #FF1E39;
+    letter-spacing: 1px;
+    font-weight: bold;
 }
 
 .votes-h {
@@ -1950,6 +2082,27 @@ background-color: #BD18D4;
     margin-right: 20px;
 }
 
+.votes-amount-yes {
+    border: 2px solid #31d8a4;
+    width: 100px;
+    text-align: center;
+    border-radius: 20px;
+    padding: 5px 30px;
+    margin-right: 20px;
+    color: #31d8a4;
+}
+
+.votes-amount-no {
+    border: 2px solid #FF1E39;
+    width: 100px;
+    text-align: center;
+    border-radius: 20px;
+    padding: 5px 30px;
+    margin-right: 20px;
+    color: #FF1E39;
+    font-weight: bold;
+}
+
 .gdao-mini-logo {
     width: 150px;
 }
@@ -1980,12 +2133,12 @@ section.grants-data {
   position: relative;
   z-index: 1;
   padding: 180px 0 50px;
-  background-image: url("../img/hero/grant-application-hero.png");
+  background-image: url("../img/hero/synth_grants_thank-you-hero.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   margin-bottom: -1px;
-  height: 105vh;
+  height: 100vh;
 }
 
 
@@ -2010,6 +2163,11 @@ p.ga {
       .synth-grants-hero-section {
       padding: 220px 0 50px!important;
       height: 110vh!important; }}
+
+
+        .synth-grants-indi-section {
+            height: 80vh;
+        }
 
 @media only screen and (min-width: 1600px) {
       .synth-grants-hero-section {
@@ -2083,7 +2241,7 @@ margin-bottom: 100px; }
       @media only screen and (min-width: 1400px) {
 
         .synth-vh {
-            margin-top: 50vh;
+            margin-top: 40%;
         } 
         .synth-landing-hero {
         height: 100vh;
@@ -2095,13 +2253,13 @@ margin-bottom: 100px; }
 
         @media only screen and (min-width: 1600px) {
         .synth-landing-hero {
-        height: 95vh;
+        height: 100vh;
         }}
 
         @media only screen and (min-width: 1800px) {
             
         .synth-footer-section {
-            height: 1200px!important;
+            height: 1100px!important;
             }}
             
          @media only screen and (min-width: 3000px) {
@@ -2184,21 +2342,26 @@ margin-bottom: 100px; }
 }
 
 .feature-section {
-	background-image: linear-gradient(#20011d, #202846);
+	background-image: linear-gradient(to bottom, #20011d, #202846);
     padding-bottom: 80px;
 }
 
 .grants-section-bg {
-	background-image: linear-gradient(#00040a, #220327);
+	background-image: linear-gradient(to bottom, #00040a, #220327);
     padding-bottom: 80px;
 }
 
 .grants-indi-bg {
-    background: linear-gradient(#08081c, #220327);
+    background: linear-gradient(to bottom, #08081c, #220327);
 }
 
 .grants-bg {
-    background: linear-gradient(#00040a, #220327);
+    background: linear-gradient(to bottom, #00040a, #220327);
+}
+
+
+.grant-indi-bg {
+    background: linear-gradient(180deg, #080618, #220327);
 }
 
 .data-p {
@@ -2552,3 +2715,75 @@ ul.tabs li a:hover, ul.tabs li a.selected {
   color: #fff!important;
   opacity: 0.6!important;
 }
+
+
+li.previous {
+    float: left;
+}
+
+li.next {
+    float: right;
+}
+
+
+.grants-pager-wrapper {
+    max-width: 900px;
+    margin: auto;
+    padding: 10px 0;
+}
+
+
+a.grants-pager-link {
+    font-size: 15px;
+    text-transform: uppercase;
+    font-family: GT America CM;
+    letter-spacing: 1px;
+    color: #e11cf5;
+}
+
+img.pager-icons {
+    height: 16px;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 0 2px 2px 2px;
+}
+
+.voter-wrapper {
+    margin-bottom: 20px;
+}
+
+.vertical-align {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+
+.member-acc-nr {
+    font-size: 13px;
+}
+
+.padding-15 {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+
+.grants-end {
+    border-top: 1px solid #2d1442;
+}
+
+.margin-0 {
+    margin-bottom: 0!important;
+}
+
+
+.voter-wrapper-last {
+    margin-bottom: 0;
+}
+
+.preloader-x {
+    width: 25px;
+}
+
+
+
