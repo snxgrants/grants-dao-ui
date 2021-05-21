@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="">
-	<head>
+<html class="no-js" lang=""><head>
 		<meta charset="utf-8">
 		<meta content="ie=edge" http-equiv="x-ua-compatible">
 		<title>
@@ -140,7 +139,7 @@
 						<div class="vertical-align align-center col-md-2 col-sm-12">
 							<div class="">
 								<a href="grant-application.html">
-								<div class="vertical-align grants-completed wow fadeInUp" data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">
+								<div class="vertical-align initiatives-active-btn wow fadeInUp" data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">
 									5 ACTIVE INITIATIVES
 								</div></a>
 							</div>
@@ -683,80 +682,13 @@
 		</div>
 	</footer><!-- ========================= Footer End ========================= -->
 	<!-- ========================= scroll-top ========================= -->
-	<a class="scroll-top btn-hover" href="#"><i class="lni lni-chevron-up"></i></a> <!-- ========================= JS ========================= -->
-	 
-	<script src="assets/js/main.js">
-	</script> 
+	<a class="scroll-top btn-hover" href="#"><i class="lni lni-chevron-up"></i></a> 
+
+	<!-- ========================= JS ========================= -->
 	<script src="assets/js/bootstrap.5.0.0.alpha-2-min.js">
 	</script> 
-	<script>
-	         (function( $ ) {
-	       $.fn.tabConvert = function(options) {
-
-	               var settings = $.extend({
-	                       activeClass: "active",
-	                       screenSize: 767,
-	               }, options );
-
-	               return this.each(function(i) {
-	                       var wrap = $(this).wrap('<div class="tab-to-dropdown"><\/div>'),
-	                                       currentItem = $(this),
-	                                       container = $(this).closest('.tab-to-dropdown'),
-	                                       value = $(this).find('.'+settings.activeClass).text(),
-	                                       toggler = '<div class="selected-tab">'+ value +'<\/div>';
-	                       currentItem.addClass('converted-tab');
-	                       container.prepend(toggler);
-	                       
-	                       // function to slide dropdown
-	                       function tabConvert_toggle(){
-	                               currentItem.parent().find('.converted-tab').slideToggle();
-	                       }
-
-	                       container.find('.selected-tab').click(function(){
-	                               tabConvert_toggle();
-	                       });
-	                       
-	                       currentItem.find('a').click(function(e){
-	                               var windowWidth = window.innerWidth;
-	                               if( settings.screenSize >= windowWidth){
-	                                       tabConvert_toggle();
-	                                       var selected_text = $(this).text();
-	                                       $(this).closest('.tab-to-dropdown').find('.selected-tab').text(selected_text);
-	                               }
-	                       });
-	                       
-	                       //Remove toggle if screen size is bigger than defined screen size
-	                       function resize_function(){
-	                               var windowWidth = window.innerWidth;
-	                               if( settings.screenSize >= windowWidth){
-	                                       currentItem.css('display','none');
-	                                       currentItem.parent().find('.selected-tab').css('display','');
-	                               }else{
-	                                       currentItem.css('display','');
-	                                       currentItem.parent().find('.selected-tab').css('display','none');
-	                               }
-	                       }
-	                       resize_function();
-	                       
-	                       $(window).resize(function(){
-	                               resize_function();
-	                       });
-	                       
-	               });
-	       };
-
-	       //      Toggle will appear on default screen size 767px
-	       $('.tabs').tabConvert({
-	       activeClass: "selected",
-	       });
-
-	     //      Toggle will appear on size 991px
-	     $('.nav-tabs').tabConvert({
-	     activeClass: "active",
-	               screenSize: 991,
-	     });
-
-	     }( jQuery ));
+	<script src="assets/js/main.js">
 	</script>
+        
 </body>
 </html>
