@@ -52,27 +52,31 @@
 					<div class="col-lg-12">
 						<nav class="navbar navbar-expand-lg">
 							<a class="navbar-brand" href="index.html"><img alt="Logo" src="assets/img/logo/synthetix_grantsDAO_logo.svg"></a> <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button"><span class="toggler-icon"></span> <span class="toggler-icon"></span> <span class="toggler-icon"></span></button>
-							<div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
-								<ul class="navbar-nav ml-auto" id="nav">
-									<li class="nav-item">
-										<a class="" href="grants.html">Grants</a>
-									</li>
-									<li class="nav-item">
-										<a class="active" href="initiatives.html">initiatives</a>
-									</li>
-									<li class="nav-item">
-										<a class="" href="blog.html">Blog</a>
-									</li>
-									<li class="nav-item">
-										<a class="" href="voting.html">Voting</a>
-									</li>
-									<li class="nav-item">
-										<a class="" href="treasury.html">Treasury</a>
-									</li>
-									<li class="nav-item">
-										<a class="" href="contact.html">Contact</a>
-									</li>
-								</ul>
+							<div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent"><ul class="navbar-nav ml-auto" id="nav">
+										<li class="nav-item">
+											<a class="active" href="grants.html">Grants</a>
+										</li>
+
+										<li class="nav-item">
+											<a class="" href="initiatives.html">initiatives</a>
+										</li>
+                                        
+										<li class="nav-item">
+											<a class="" href="events.html">Events</a>
+										</li>
+
+										<li class="nav-item">
+											<a class="" href="blog.html">Blog</a>
+										</li>
+
+										<li class="nav-item">
+											<a class="" href="voting.html">Voting</a>
+										</li>
+
+										<li class="nav-item">
+											<a class="" href="treasury.html">Treasury</a>
+										</li>
+									</ul>
 							</div><!-- navbar collapse -->
 						</nav><!-- navbar -->
 					</div>
@@ -320,79 +324,12 @@
 		</div>
 	</footer><!-- ========================= Footer End ========================= -->
 	<!-- ========================= scroll-top ========================= -->
-	<a class="scroll-top btn-hover" href="#"><i class="lni lni-chevron-up"></i></a> <!-- ========================= JS ========================= -->
+	<a class="scroll-top btn-hover" href="#"><i class="lni lni-chevron-up"></i></a> 
+    
+	<!-- ========================= JS ========================= --> 
+	<script src="assets/js/bootstrap.5.0.0.alpha-2-min.js"></script> 
+	<script src="assets/js/main.js"></script>
 	 
-	<script src="assets/js/main.js">
-	</script> <!-- ========================= Mobile Dropdown Tabs Start ========================= --> 
-	<script>
 
-	                          (function( $ ) {
-	                     $.fn.tabConvert = function(options) {
-	                  
-	                      var settings = $.extend({
-	                          activeClass: "active",
-	                          screenSize: 767,
-	                      }, options );
-
-	                      return this.each(function(i) {
-	                          var wrap = $(this).wrap('<div class="tab-to-dropdown"><\/div>'),
-	                                  currentItem = $(this),
-	                                  container = $(this).closest('.tab-to-dropdown'),
-	                                  value = $(this).find('.'+settings.activeClass).text(),
-	                                  toggler = '<div class="selected-tab">'+ value +'<\/div>';
-	                          currentItem.addClass('converted-tab');
-	                          container.prepend(toggler);
-	                          
-	                          // function to slide dropdown
-	                          function tabConvert_toggle(){
-	                              currentItem.parent().find('.converted-tab').slideToggle();
-	                          }
-
-	                          container.find('.selected-tab').click(function(){
-	                              tabConvert_toggle();
-	                          });
-	                          
-	                          currentItem.find('a').click(function(e){
-	                              var windowWidth = window.innerWidth;
-	                              if( settings.screenSize >= windowWidth){
-	                                  tabConvert_toggle();
-	                                  var selected_text = $(this).text();
-	                                  $(this).closest('.tab-to-dropdown').find('.selected-tab').text(selected_text);
-	                              }
-	                          });
-	                          
-	                          //Remove toggle if screen size is bigger than defined screen size
-	                          function resize_function(){
-	                              var windowWidth = window.innerWidth;
-	                              if( settings.screenSize >= windowWidth){
-	                                  currentItem.css('display','none');
-	                                  currentItem.parent().find('.selected-tab').css('display','');
-	                              }else{
-	                                  currentItem.css('display','');
-	                                  currentItem.parent().find('.selected-tab').css('display','none');
-	                              }
-	                          }
-	                          resize_function();
-	                          
-	                          $(window).resize(function(){
-	                              resize_function();
-	                          });
-	                          
-	                      });
-	                  };
-
-	                  //  Toggle will appear on default screen size 767px
-	                  $('.tabs').tabConvert({
-	                  activeClass: "selected",
-	                  });
-
-	                 //  Toggle will appear on size 991px
-	                 $('.nav-tabs').tabConvert({
-	                  activeClass: "active",
-	                      screenSize: 991,
-	                 });
-
-	                 }( jQuery ));
-	</script> <!-- ========================= Mobile Dropdown Tabs End ========================= -->
 </body>
 </html>
