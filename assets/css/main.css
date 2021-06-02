@@ -1551,7 +1551,7 @@ h1.synth-hero-h-index.wow.fadeInUp.animated {
 }
 
 .synth-p-opti {
-	max-width: 650px;
+	max-width: 450px;
 	display: block;
 	margin: auto;
 }
@@ -1628,7 +1628,7 @@ h1.synth-hero-h-index.wow.fadeInUp.animated {
 }
 
 .hero-content.synth-vh {
-	margin-top: -189px;
+	margin-top: -6%;
 }
 
 .voting-hero-content {
@@ -2149,11 +2149,11 @@ h1.synth-hero-h-index.wow.fadeInUp {
 	background-repeat: no-repeat;
 	background-size: cover;
 	margin-bottom: -1px;
-	height: 82vh;
+	height: 100vh;
 }
 
 .events-vh {
-    margin-top: 53vh;
+    margin-top: 63vh;
     text-align: center;
 }
 
