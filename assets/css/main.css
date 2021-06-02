@@ -809,6 +809,7 @@ img.synth-proto-footer {
 	border-bottom: 1px solid #2d1442;
 	margin: 30px 0;
 	padding-bottom: 15px;
+    border-bottom: 1px solid #e31df79e;
 }
 
 .padding-bottom-100 {
@@ -2186,6 +2187,10 @@ h1.synth-hero-h-index.wow.fadeInUp {
 	background: linear-gradient(to bottom, #07061c, #080720);
 }
 
+.treasury-bg {
+	background: linear-gradient(to bottom, #07061c, #080720);
+}
+
 .events-bg {
 	background: linear-gradient(to bottom, #18142d, #080720);
 }
@@ -2296,6 +2301,10 @@ div.scrollmenu a:hover {
 
 .synth-divider {
 	border-top: 1px solid #bd16d4;
+}
+
+.treasury-divider {
+	padding-bottom: 15px;
 }
 
 /* Tabs */
@@ -2611,6 +2620,91 @@ img.pager-icons {
 .voting-width-wrapper {
 	max-width: 900px;
 	margin: 30px auto 0 auto;
+}
+
+h1.synth-current-balance {
+    margin-top: 80px;
+    text-align: center;
+    font-size: 23px;
+    color: #3fd1ff;
+    font-family: 'GT America CM';
+    letter-spacing: 1px;
+}
+
+.treasury-snx {
+    border: 2px solid #03d1ff!important;
+    color: #03d1ff!important;
+    letter-spacing: 1px;
+    text-shadow: 0px 1px 1px #00000057;
+    font-size: 17px!important;
+    width: 100%;
+    border-radius: 40px;
+    text-align: center;
+    padding: 10px 15px;
+    font-family: 'GT America CM';
+    box-shadow: 0px 0px 8px 2px #3fd1ff;
+}
+
+.treasury-susd {
+    border: 2px solid #30CB9D!important;
+    color: #30CB9D!important;
+    letter-spacing: 1px;
+    text-shadow: 0px 1px 1px #00000057;
+    font-size: 17px!important;
+    width: 100%;
+    border-radius: 40px;
+    text-align: center;
+    padding: 10px 15px;
+    font-family: 'GT America CM';
+    box-shadow: 0px 0px 8px 2px #30CB9D;
+}
+
+.treasury-eth {
+    border: 2px solid #BD18D4!important;
+    color: #BD18D4!important;
+    letter-spacing: 1px;
+    text-shadow: 0px 1px 1px #00000057;
+    font-size: 17px!important;
+    width: 100%;
+    border-radius: 40px;
+    text-align: center;
+    padding: 10px 15px;
+    font-family: 'GT America CM';
+    box-shadow: 0px 0px 8px 2px #BD18D4;
+}
+
+.treasury-max-width {
+    max-width: 900px;
+    margin: auto;
+}
+
+.padding-top {
+    padding-top: 80px;
+    margin-bottom: 30px;
+}
+
+.synth-pth {
+    margin-top: 30px;
+}
+
+.current-balance-h {
+    padding: 20px 0;
+    font-family: 'GT America CM';
+    letter-spacing: 1px;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.treasury-name {
+    font-family: inherit;
+    font-size: 15px;
+}
+
+.treasury-divider.treasury-end {
+    padding-bottom: 0;
+    border-top: 1px solid #e31df7b5;
+    margin-top: 30px;
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1399px) {
