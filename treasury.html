@@ -121,7 +121,6 @@
 		<!-- ========================= Synthetix hero-section end ========================= -->
 
 		<div class="treasury-bg">
-            
             <div class="padding-top">
                 <div class="container-fluid synth-tab-styling">
                     <div class="treasury-header-wrapper">
@@ -142,19 +141,24 @@
 				<div class="row">
 					<div class="col-md-12 max-width">
 						<div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="vertical-align treasury-snx">
                                     xxx SNX
                                 </div>
                             </div> 
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="vertical-align treasury-susd">
                                     xxx sUSD
                                 </div>
                             </div> 
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="vertical-align treasury-eth">
                                     xxx ETH
+                                </div>
+                            </div> 
+                            <div class="col-md-3">
+                                <div class="vertical-align treasury-seth">
+                                    xxx sETH
                                 </div>
                             </div> 
                         </div>
@@ -162,181 +166,513 @@
 				</div>
             </div>
             
-            <div class="synth-pth">
-                <div class="container-fluid synth-tab-styling">
-                    <div class="treasury-header-wrapper">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="synth-tabs">
-                                        <div class="align-center current-balance-h">PAYMENT TRANSACTION HISTORY</div>            
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
+			<!-- ========================= grantsDAO Data ========================= -->
+			<!-- Nav tabs Start-->
+			<div class="container-fluid synth-tab-styling">
+				<div class="filter-wrapper device-margin">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-10">
+								<div class="synth-tabs">
+									<ul class="tabs nav nav-tabs" id="myTab" role="tablist">
+										<li class="nav-item" role="presentation">
+											<div aria-controls="home" aria-selected="true" class="nav-link active" data-bs-target="#all" data-bs-toggle="tab" id="home-tab" role="tab">
+												All
+											</div>
+										</li>
 
+										<li class="nav-item" role="presentation">
+											<button aria-controls="completed" aria-selected="false" class="nav-link" data-bs-target="#completed" data-bs-toggle="tab" id="completed-tab" role="tab" type="button">Grants</button>
+                                        </li>
 
-			<div class="tab-content treasury-max-width">
+										<li class="nav-item" role="presentation">
+											<button aria-controls="cancelled" aria-selected="false" class="nav-link" data-bs-target="#initiatives" data-bs-toggle="tab" id="cancelled-tab" role="tab" type="button">Initiatives</button>
+										</li>
+                                        
+										<li class="nav-item" role="presentation">
+											<button aria-controls="cancelled" aria-selected="false" class="nav-link" data-bs-target="#competitions" data-bs-toggle="tab" id="competitions-tab" role="tab" type="button">Competitions</button>
+										</li>
+										<li class="nav-item" role="presentation">
+											<button aria-controls="other" aria-selected="false" class="nav-link" data-bs-target="#other" data-bs-toggle="tab" id="other-tab" role="tab" type="button">Other</button>
+										</li>
+									</ul>
+								</div>
+							</div>
+
+							<div class="vertical-align align-center col-md-2 col-sm-12">
+                            <!--
+								<div class="utility-btn">
+									<a href="grant-application.html"><button class="vertical-align grants-apply-btn wow fadeInUp" data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">Call To Action</button></a>
+								</div>
+                            -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Nav tabs end-->
+            
+			<!-- Tab panes Start-->
+			<div class="tab-content" id="myTabContent">
+                
 				<!-- All Start-->
+				<div aria-labelledby="all-tab" class="tab-pane fade show active" id="all" role="tabpanel">
 					<div class="container">
 						<div class="heading-wrapper">
 							<div class="row">
-								<div class="col-md-6 col-sm-12 data-header">
-									NAME
+								<div class="col-md-6 col-sm-12 active-tab-header">
+									PAYMENT TRANSACTION HISTORY - ALL
 								</div>
 
-								<div class="data-header align-center col-md-3 col-sm-12">
-									TRX ID <span class="synth-up-arrow"><img alt="Arrow" class="custom-icons" src="assets/img/grants/down-arrow.svg"></span>
-								</div>
+								<div class="data-header align-center col-md-1 col-sm-12"></div>
 
 								<div class="data-header align-center col-md-3 col-sm-12">
 									AMOUNT <span class="synth-up-arrow"><img alt="Arrow" class="custom-icons" src="assets/img/grants/down-arrow.svg"></span>
+								</div>
+
+								<div class="data-header align-center col-md-2 col-sm-12">
+									STATUS <span class="synth-up-arrow"><img alt="Arrow" class="custom-icons" src="assets/img/grants/down-arrow.svg"></span>
 								</div>
 							</div>
 						</div>
 						<!-- ========================= Tab Data Headings End========================= --><!-- ========================= Repeat Data Start ========================= -->
 						<!-- ========================= Data Start ========================= -->
+                        
 
+                        <!-- ========================= Data Wrapper Start ========================= -->
 						<div class="data-wrapper">
 							<div class="row">
 								<div class="col-md-6 col-sm-12 data-p">
 									<div class="data-description-wrapper">
-										<a class="hover" href="grant-application-discord-bot-maintenance.html">
-                                            <h4 class="no-margin treasury-name padding-right">
-                                                TRX name
-                                            </h4>
-                                        </a>
+										<a class="hover" href="grant-application-gnosis-safe-sponsoring.html">
+										<h4 class="no-margin grantsdao-data-heading padding-right">
+											Gnosis Safe Sponsoring
+										</h4>
+
+										<p class="no-margin bio-info-p grants-excerpt bio-info-p no-margin padding-right">
+											Coinbase is one of the main Cryptocurrency spot-trading exchanges out there. San Fransisco based Coinbase was founded in June 2012. Coinbase provides a digital currency wallet... <span class="sm-font synth-blue bold">View Details</span>
+										</p></a>
+									</div>
+
+									<div class="request-details-wrapper">
+										<span class="request no-margin bio-info"><span class="bio-info">Requested by</span> <span class="bio-info synth-blue">GS</span> in <span class="bio-info synth-pink">Grants</span> <span class="sm-font bio-info">on <span class="synth-blue">23 April 2021</span></span></span>
+									</div>
+                                    <div class="request-details-wrapper">
+										<span class="request no-margin bio-info">
+                                            <span class="bio-info">Transaction ID</span>
+                                            <span class="bio-info synth-blue"> xxxxxxxxxxx</span>
+                                        </span>
 									</div>
 								</div>
 
-								<div class="vertical-align align-center col-md-3 col-sm-12">
-									xxxxxxxxxxxxxxxxxxxxxxx
+								<div class="vertical-align align-center col-md-1 col-sm-12">
+									
 								</div>
 
 								<div class="vertical-align align-center col-md-3 col-sm-12">
-									1500 snx
+									1500 SNX
+								</div>
+
+								<div class="vertical-align align-center col-md-2 col-sm-12">
+									<div class="utility-btn vertical-align">
+										<div class="voting-wrapper">
+											<div class="grants-completed">
+												COMPLETED
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 							<!-- ========================= Repeat Data End ========================= -->
 
-							<div class="treasury-divider"></div>
-						</div>
-						<div class="data-wrapper">
-							<div class="row">
-								<div class="col-md-6 col-sm-12 data-p">
-									<div class="data-description-wrapper">
-										<a class="hover" href="grant-application-discord-bot-maintenance.html">
-                                            <h4 class="no-margin treasury-name padding-right">
-                                                TRX name
-                                            </h4>
-                                        </a>
-									</div>
-								</div>
-
-								<div class="vertical-align align-center col-md-3 col-sm-12">
-									xxxxxxxxxxxxxxxxxxxxxxx
-								</div>
-
-								<div class="vertical-align align-center col-md-3 col-sm-12">
-									1500 snx
-								</div>
+							<div class="soft-divider">
 							</div>
-							<!-- ========================= Repeat Data End ========================= -->
-
-							<div class="treasury-divider"></div>
 						</div>
-						<div class="data-wrapper">
-							<div class="row">
-								<div class="col-md-6 col-sm-12 data-p">
-									<div class="data-description-wrapper">
-										<a class="hover" href="grant-application-discord-bot-maintenance.html">
-                                            <h4 class="no-margin treasury-name padding-right">
-                                                TRX name
-                                            </h4>
-                                        </a>
+						<!-- ========================= Data Wrapper End ======================= == -->
+                        
+                        
+                        <!-- ========================= Data Wrapper Start ========================= -->
+                        <div class="data-wrapper">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12 data-p">
+                                    <div class="data-description-wrapper">
+                                        <a class="hover" href="initiatives-individual.html">
+                                        <h4 class="no-margin grantsdao-data-heading padding-right">Debt Hedging Zaps</h4>
+                                        <p class="no-margin bio-info-p grants-excerpt bio-info-p no-margin padding-right">Coinbase is one of the main Cryptocurrency spot-trading exchanges out there. San Fransisco based Coinbase was founded in June 2012. Coinbase provides a digital currency wallet service and a platform.. <span class="sm-font synth-blue bold">View Details</span></p></a>
+                                    </div>
+                                    <div class="request-details-wrapper">
+                                        <span class="request no-margin bio-info"><span class="bio-info">Initiated by</span> <span class=" bio-info synth-blue">ΔLΞXΔNDΞR</span> in <span class="bio-info synth-pink">Initiatives</span> <span class="sm-font bio-info">on <span class="synth-blue">23 April 2021</span></span></span>
+                                    </div>
+                                    <div class="request-details-wrapper">
+										<span class="request no-margin bio-info">
+                                            <span class="bio-info">Transaction ID</span>
+                                            <span class="bio-info synth-blue"> xxxxxxxxxxx</span>
+                                        </span>
 									</div>
-								</div>
-
-								<div class="vertical-align align-center col-md-3 col-sm-12">
-									xxxxxxxxxxxxxxxxxxxxxxx
-								</div>
-
-								<div class="vertical-align align-center col-md-3 col-sm-12">
-									1500 snx
-								</div>
-							</div>
-							<!-- ========================= Repeat Data End ========================= -->
-
-							<div class="treasury-divider"></div>
-						</div>
-						<div class="data-wrapper">
-							<div class="row">
-								<div class="col-md-6 col-sm-12 data-p">
-									<div class="data-description-wrapper">
-										<a class="hover" href="grant-application-discord-bot-maintenance.html">
-                                            <h4 class="no-margin treasury-name padding-right">
-                                                TRX name
-                                            </h4>
-                                        </a>
+                                </div>
+                                <div class="col-md-1"></div>
+                                <div class="vertical-align align-center col-md-3 col-sm-12">
+                                    800 SNX
+                                </div>
+                                <div class="vertical-align align-center col-md-2 col-sm-12">
+                                    <div class="utility-btn vertical-align">
+                                        <div class="voting-wrapper">
+                                            <div class="grants-completed">
+                                                COMPLETED
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- ========================= Repeat Data End ========================= -->
+                            <div class="soft-divider"></div>
+                        </div>
+                        <!-- ========================= Data Wrapper End ========================= -->
+                        
+                        <!-- ========================= Data Wrapper Start ========================= -->
+                        <div class="data-wrapper">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12 data-p">
+                                    <div class="data-description-wrapper">
+                                        <a class="hover" href="Competitions-individual.html">
+                                        <h4 class="no-margin grantsdao-data-heading padding-right">Meme Site Design and Build: Multi Asset v2</h4>
+                                        <p class="no-margin bio-info-p grants-excerpt bio-info-p no-margin padding-right">Coinbase is one of the main Cryptocurrency spot-trading exchanges out there. San Fransisco based Coinbase was founded in June 2012. Coinbase provides a digital currency wallet service and a platform.. <span class="sm-font synth-blue bold">View Details</span></p></a>
+                                    </div>
+                                    <div class="request-details-wrapper">
+                                        <span class="request no-margin bio-info"><span class="bio-info">initiated by</span> <span class=" bio-info synth-blue">david</span> in <span class="bio-info synth-pink">Competitions</span> <span class="sm-font bio-info">on <span class="synth-blue">23 April 2021</span></span></span>
+                                    </div>
+                                    <div class="request-details-wrapper">
+										<span class="request no-margin bio-info">
+                                            <span class="bio-info">Transaction ID</span>
+                                            <span class="bio-info synth-blue"> xxxxxxxxxxx</span>
+                                        </span>
 									</div>
-								</div>
-
-								<div class="vertical-align align-center col-md-3 col-sm-12">
-									xxxxxxxxxxxxxxxxxxxxxxx
-								</div>
-
-								<div class="vertical-align align-center col-md-3 col-sm-12">
-									1500 snx
-								</div>
-							</div>
-							<!-- ========================= Repeat Data End ========================= -->
-
-							<div class="treasury-divider"></div>
-						</div>
-						<div class="data-wrapper">
-							<div class="row">
-								<div class="col-md-6 col-sm-12 data-p">
-									<div class="data-description-wrapper">
-										<a class="hover" href="grant-application-discord-bot-maintenance.html">
-                                            <h4 class="no-margin treasury-name padding-right">
-                                                TRX name
-                                            </h4>
-                                        </a>
-									</div>
-								</div>
-
-								<div class="vertical-align align-center col-md-3 col-sm-12">
-									xxxxxxxxxxxxxxxxxxxxxxx
-								</div>
-
-								<div class="vertical-align align-center col-md-3 col-sm-12">
-									1500 snx
-								</div>
-							</div>
-							<!-- ========================= Repeat Data End ========================= -->
-
-							<div class="treasury-divider treasury-end"></div>
-                            <div class="container">
-			<div class="row grants-pager-wrapper">
-				<div class="col-md-12">
-					<ul class="pager">
-						<li class="previous">
-							<a class="grants-pager-link" href="initiatives.html"><span class="synth-up-arrow"><img alt="Arrow" class="pager-icons" src="assets/img/grants/gdao-previous.svg"></span> Back</a>
-						</li>
-						<li class="next">
-							<a class="grants-pager-link" href="chainlink-hackathon-initiative.html">NEXT<span class="synth-up-arrow"><img alt="Arrow" class="pager-icons" src="assets/img/grants/gdao-next.svg"></span></a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-						</div>
+                                </div>
+                                <div class="vertical-align align-center col-md-2 col-sm-12">
+                                     
+                                </div>
+                                <div class="vertical-align align-center col-md-2 col-sm-12">
+                                    800 SNX
+                                </div>
+                                <div class="vertical-align align-center col-md-2 col-sm-12">
+                                    <div class="utility-btn vertical-align">
+                                        <div class="voting-wrapper">
+                                            <div class="grants-completed">
+                                                COMPLETED
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- ========================= Repeat Data End ========================= -->
+                            <div class="soft-divider"></div>
+                        </div>
+                        <!-- ========================= Data Wrapper End ========================= -->
 					</div>
 				</div>
-        </div>
+				<!-- All data end-->
+
+
+				<!-- Grants Start-->
+				<div aria-labelledby="completed-tab" class="tab-pane fade" id="completed" role="tabpanel">
+					<div class="container">
+						<div class="heading-wrapper">
+							<div class="row">
+								<div class="col-md-6 col-sm-12 active-tab-header">
+									PAYMENT TRANSACTION HISTORY - GRANTS
+								</div>
+
+								<div class="data-header align-center col-md-1 col-sm-12">
+									VOTES <span class="synth-up-arrow"><img alt="Arrow" class="custom-icons" src="assets/img/grants/down-arrow.svg"></span>
+								</div>
+
+								<div class="data-header align-center col-md-3 col-sm-12">
+									AMOUNT <span class="synth-up-arrow"><img alt="Arrow" class="custom-icons" src="assets/img/grants/down-arrow.svg"></span>
+								</div>
+
+								<div class="data-header align-center col-md-2 col-sm-12">
+									STATUS <span class="synth-up-arrow"><img alt="Arrow" class="custom-icons" src="assets/img/grants/down-arrow.svg"></span>
+								</div>
+							</div>
+						</div>
+						<!-- ========================= Tab Data Headings End========================= -->
+						<!-- ========================= Repeat Data Start ========================= -->
+
+						<div class="data-wrapper">
+							<div class="row">
+								<div class="col-md-6 col-sm-12 data-p">
+									<div class="data-description-wrapper">
+										<a class="hover" href="grant-application-gnosis-safe-sponsoring.html">
+										<h4 class="no-margin grantsdao-data-heading padding-right">
+											Gnosis Safe Sponsoring
+										</h4>
+
+										<p class="no-margin bio-info-p grants-excerpt bio-info-p no-margin padding-right">
+											Coinbase is one of the main Cryptocurrency spot-trading exchanges out there. San Fransisco based Coinbase was founded in June 2012. Coinbase provides a digital currency wallet... <span class="sm-font synth-blue bold">View Details</span>
+										</p></a>
+									</div>
+
+									<div class="request-details-wrapper">
+										<span class="request no-margin bio-info"><span class="bio-info">Requested by</span> <span class="bio-info synth-blue">GS</span> in <span class="bio-info synth-pink">Grants</span> <span class="sm-font bio-info">on <span class="synth-blue">23 April 2021</span></span></span>
+									</div>
+                                    <div class="request-details-wrapper">
+										<span class="request no-margin bio-info">
+                                            <span class="bio-info">Transaction ID</span>
+                                            <span class="bio-info synth-blue"> xxxxxxxxxxx</span>
+                                        </span>
+									</div>
+								</div>
+
+								<div class="vertical-align align-center col-md-1 col-sm-12 votes">
+									5/5
+								</div>
+
+								<div class="vertical-align align-center col-md-3 col-sm-12">
+									1500 SNX
+								</div>
+
+								<div class="vertical-align align-center col-md-2 col-sm-12">
+									<div class="utility-btn vertical-align">
+										<div class="voting-wrapper">
+											<div class="grants-completed">
+												COMPLETED
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- ========================= Repeat Data End ========================= -->
+
+							<div class="soft-divider">
+							</div>
+						</div>
+						<!-- ========================= Data End ======================= == -->
+					</div>
+				</div>
+				<!-- Grants End-->
+                
+				<!-- Initiatives Start-->
+				<div aria-labelledby="initiatives-tab" class="tab-pane fade" id="initiatives" role="tabpanel">
+					<div class="container">
+						<div class="heading-wrapper">
+							<div class="row">
+								<div class="col-md-6 col-sm-12 active-tab-header">
+									PAYMENT TRANSACTION HISTORY - INITIATIVES
+								</div>
+
+								<div class="data-header align-center col-md-1 col-sm-12"></div>
+
+								<div class="data-header align-center col-md-3 col-sm-12">
+									AMOUNT <span class="synth-up-arrow"><img alt="Arrow" class="custom-icons" src="assets/img/grants/down-arrow.svg"></span>
+								</div>
+
+								<div class="data-header align-center col-md-2 col-sm-12">
+									STATUS <span class="synth-up-arrow"><img alt="Arrow" class="custom-icons" src="assets/img/grants/down-arrow.svg"></span>
+								</div>
+							</div>
+						</div>
+						<!-- ========================= Tab Data Headings End========================= -->
+				        <!-- ========================= Data Wrapper Start ========================= -->
+                        <div class="data-wrapper">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12 data-p">
+                                    <div class="data-description-wrapper">
+                                        <a class="hover" href="initiatives-individual.html">
+                                        <h4 class="no-margin grantsdao-data-heading padding-right">Debt Hedging Zaps</h4>
+                                        <p class="no-margin bio-info-p grants-excerpt bio-info-p no-margin padding-right">Coinbase is one of the main Cryptocurrency spot-trading exchanges out there. San Fransisco based Coinbase was founded in June 2012. Coinbase provides a digital currency wallet service and a platform.. <span class="sm-font synth-blue bold">View Details</span></p></a>
+                                    </div>
+                                    <div class="request-details-wrapper">
+                                        <span class="request no-margin bio-info"><span class="bio-info">initiated by</span> <span class=" bio-info synth-blue">ΔLΞXΔNDΞR</span> in <span class="bio-info synth-pink">Initiatives</span> <span class="sm-font bio-info">on <span class="synth-blue">23 April 2021</span></span></span>
+                                    </div>
+                                    <div class="request-details-wrapper">
+										<span class="request no-margin bio-info">
+                                            <span class="bio-info">Transaction ID</span>
+                                            <span class="bio-info synth-blue"> xxxxxxxxxxx</span>
+                                        </span>
+									</div>
+                                </div>
+                                <div class="col-md-1"></div>
+                                <div class="vertical-align align-center col-md-3 col-sm-12">
+                                    800 SNX
+                                </div>
+                                <div class="vertical-align align-center col-md-2 col-sm-12">
+                                    <div class="utility-btn vertical-align">
+                                        <div class="voting-wrapper">
+                                            <div class="grants-completed">
+                                                COMPLETED
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- ========================= Repeat Data End ========================= -->
+                            <div class="soft-divider"></div>
+                        </div>
+                        <!-- ========================= Data Wrapper End ========================= -->
+					</div>
+				</div>
+				<!-- Initiatives End-->
+                
+                <!-- Competitions start-->
+                <div aria-labelledby="competitions-tab" class="tab-pane fade" id="competitions" role="tabpanel">
+                    <div class="container">
+                        <div class="heading-wrapper">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12 active-tab-header">
+                                    PAYMENT TRANSACTION HISTORY - COMPETITIONS
+                                </div>
+                                <div class="data-header align-center col-md-2 col-sm-12">
+                                    PARTICIPANTS <span class="synth-up-arrow"><img alt="Arrow" class="custom-icons" src="assets/img/grants/down-arrow.svg"></span>
+                                </div>
+                                <div class="data-header align-center col-md-2 col-sm-12">
+                                    AMOUNT <span class="synth-up-arrow"><img alt="Arrow" class="custom-icons" src="assets/img/grants/down-arrow.svg"></span>
+                                </div>
+                                <div class="data-header align-center col-md-2 col-sm-12">
+                                    STATUS <span class="synth-up-arrow"><img alt="Arrow" class="custom-icons" src="assets/img/grants/down-arrow.svg"></span>
+                                </div>
+                            </div>
+                        </div><!-- ========================= Tab Data Headings End========================= -->
+                        <!-- ========================= Data Wrapper Start ========================= -->
+                        <div class="data-wrapper">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12 data-p">
+                                    <div class="data-description-wrapper">
+                                        <a class="hover" href="Competitions-individual.html">
+                                        <h4 class="no-margin grantsdao-data-heading padding-right">Debt Hedging Zaps</h4>
+                                        <p class="no-margin bio-info-p grants-excerpt bio-info-p no-margin padding-right">Coinbase is one of the main Cryptocurrency spot-trading exchanges out there. San Fransisco based Coinbase was founded in June 2012. Coinbase provides a digital currency wallet service and a platform.. <span class="sm-font synth-blue bold">View Details</span></p></a>
+                                    </div>
+                                    <div class="request-details-wrapper">
+                                        <span class="request no-margin bio-info"><span class="bio-info">initiated by</span> <span class=" bio-info synth-blue">ΔLΞXΔNDΞR</span> in <span class="bio-info synth-pink">Competitions</span> <span class="sm-font bio-info">on <span class="synth-blue">23 April 2021</span></span></span>
+                                    </div>
+                                    <div class="request-details-wrapper">
+										<span class="request no-margin bio-info">
+                                            <span class="bio-info">Transaction ID</span>
+                                            <span class="bio-info synth-blue"> xxxxxxxxxxx</span>
+                                        </span>
+									</div>
+                                </div>
+                                <div class="vertical-align align-center col-md-2 col-sm-12 votes">
+                                        7
+                                </div>
+                                <div class="vertical-align align-center col-md-2 col-sm-12">
+                                    800 SNX
+                                </div>
+                                <div class="vertical-align align-center col-md-2 col-sm-12">
+                                    <div class="utility-btn vertical-align">
+                                        <div class="voting-wrapper">
+                                            <div class="grants-completed">
+                                                COMPLETED
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- ========================= Repeat Data End ========================= -->
+                            <div class="soft-divider"></div>
+                        </div><!-- ========================= Data Wrapper End ========================= -->
+                        
+                        <!-- ========================= Data Wrapper Start ========================= -->
+                        <div class="data-wrapper">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12 data-p">
+                                    <div class="data-description-wrapper">
+                                        <a class="hover" href="Competitions-individual.html">
+                                        <h4 class="no-margin grantsdao-data-heading padding-right">Meme Site Design and Build: Multi Asset v2</h4>
+                                        <p class="no-margin bio-info-p grants-excerpt bio-info-p no-margin padding-right">Coinbase is one of the main Cryptocurrency spot-trading exchanges out there. San Fransisco based Coinbase was founded in June 2012. Coinbase provides a digital currency wallet service and a platform.. <span class="sm-font synth-blue bold">View Details</span></p></a>
+                                    </div>
+                                    <div class="request-details-wrapper">
+                                        <span class="request no-margin bio-info"><span class="bio-info">initiated by</span> <span class=" bio-info synth-blue">david</span> in <span class="bio-info synth-pink">Competitions</span> <span class="sm-font bio-info">on <span class="synth-blue">23 April 2021</span></span></span>
+                                    </div>
+                                    <div class="request-details-wrapper">
+										<span class="request no-margin bio-info">
+                                            <span class="bio-info">Transaction ID</span>
+                                            <span class="bio-info synth-blue"> xxxxxxxxxxx</span>
+                                        </span>
+									</div>
+                                </div>
+                                <div class="vertical-align align-center col-md-2 col-sm-12 votes">
+                                        4
+                                </div>
+                                <div class="vertical-align align-center col-md-2 col-sm-12">
+                                    800 SNX
+                                </div>
+                                <div class="vertical-align align-center col-md-2 col-sm-12">
+                                    <div class="utility-btn vertical-align">
+                                        <div class="voting-wrapper">
+                                            <div class="grants-completed">
+                                                COMPLETED
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- ========================= Repeat Data End ========================= -->
+                            <div class="soft-divider"></div>
+                        </div>
+                        <!-- ========================= Data Wrapper End ========================= -->
+                    </div>
+                </div>
+                <!-- Competitions End-->
+                
+				<!-- Other Start-->
+				<div aria-labelledby="other-tab" class="tab-pane fade" id="other" role="tabpanel">
+					<div class="container">
+						<div class="heading-wrapper">
+							<div class="row">
+								<div class="col-md-6 col-sm-12 active-tab-header">
+									PAYMENT TRANSACTION HISTORY - OTHER
+								</div>
+
+								<div class="data-header align-center col-md-1 col-sm-12"></div>
+
+								<div class="data-header align-center col-md-3 col-sm-12">
+									AMOUNT <span class="synth-up-arrow"><img alt="Arrow" class="custom-icons" src="assets/img/grants/down-arrow.svg"></span>
+								</div>
+
+								<div class="data-header align-center col-md-2 col-sm-12">
+									STATUS <span class="synth-up-arrow"><img alt="Arrow" class="custom-icons" src="assets/img/grants/down-arrow.svg"></span>
+								</div>
+							</div>
+						</div>
+						<!-- ========================= Tab Data Headings End========================= -->
+				        <!-- ========================= Data Wrapper Start ========================= -->
+                        <div class="data-wrapper">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12 data-p">
+                                    <div class="data-description-wrapper">
+                                        <a class="hover" href="initiatives-individual.html">
+                                        <h4 class="no-margin grantsdao-data-heading padding-right">Debt Hedging Zaps</h4>
+                                        <p class="no-margin bio-info-p grants-excerpt bio-info-p no-margin padding-right">Coinbase is one of the main Cryptocurrency spot-trading exchanges out there. San Fransisco based Coinbase was founded in June 2012. Coinbase provides a digital currency wallet service and a platform.. <span class="sm-font synth-blue bold">View Details</span></p></a>
+                                    </div>
+                                    <div class="request-details-wrapper">
+                                        <span class="request no-margin bio-info"><span class="bio-info">Initiated by</span> <span class=" bio-info synth-blue">ΔLΞXΔNDΞR</span> in <span class="bio-info synth-pink">xxx</span> <span class="sm-font bio-info">on <span class="synth-blue">23 April 2021</span></span></span>
+                                    </div>
+                                    <div class="request-details-wrapper">
+										<span class="request no-margin bio-info">
+                                            <span class="bio-info">Transaction ID</span>
+                                            <span class="bio-info synth-blue"> xxxxxxxxxxx</span>
+                                        </span>
+									</div>
+                                </div>
+                                <div class="col-md-1"></div>
+                                <div class="vertical-align align-center col-md-3 col-sm-12">
+                                    800 SNX
+                                </div>
+                                <div class="vertical-align align-center col-md-2 col-sm-12">
+                                    <div class="utility-btn vertical-align">
+                                        <div class="voting-wrapper">
+                                            <div class="grants-completed">
+                                                COMPLETED
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- ========================= Repeat Data End ========================= -->
+                            <div class="soft-divider"></div>
+                        </div>
+                        <!-- ========================= Data Wrapper End ========================= -->
+					</div>
+				</div>
+				<!-- Initiatives End-->
+			</div>
+			<!-- Tab panes End-->
+            
 
 		<footer class="synth-footer-section">
 			<div class="container">

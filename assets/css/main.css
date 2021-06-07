@@ -1525,7 +1525,7 @@ h1.synth-hero-h-index.wow.fadeInUp.animated {
 
 .active-tab-header {
 	color: #00D1FF;
-	font-size: 18px;
+	font-size: 15px;
 	font-weight: bold;
     text-transform: uppercase;
 }
@@ -2673,6 +2673,20 @@ h1.synth-current-balance {
     box-shadow: 0px 0px 8px 2px #BD18D4;
 }
 
+.treasury-seth {
+    border: 2px solid #F8CF0C!important;
+    color: #F8CF0C!important;
+    letter-spacing: 1px;
+    text-shadow: 0px 1px 1px #00000057;
+    font-size: 17px!important;
+    width: 100%;
+    border-radius: 40px;
+    text-align: center;
+    padding: 10px 15px;
+    font-family: 'GT America CM';
+    box-shadow: 0px 0px 8px 2px #f8cf0c;
+}
+
 .treasury-max-width {
     max-width: 900px;
     margin: auto;
@@ -2688,7 +2702,7 @@ h1.synth-current-balance {
 }
 
 .current-balance-h {
-    padding: 20px 0;
+    padding: 10px 0;
     font-family: 'GT America CM';
     letter-spacing: 1px;
     font-size: 16px;
@@ -3555,7 +3569,48 @@ h1.synth-current-balance {
 	}
 	.synth-hero-section .hero-img img {
 		width: 100%;
-	}
+	}  
+    .treasury-snx {
+        margin-bottom: 30px;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .treasury-susd {
+        margin-bottom: 30px;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .treasury-eth {
+        margin-bottom: 30px;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .treasury-seth {
+        margin-bottom: 30px;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .device-margin {
+        margin-top: 0;
+    }
+    .synth-treasury-hero-section {
+    position: relative;
+    background-image: linear-gradient(to bottom, #000000f7 0%, #0000005c 62%, #08071e40 88%, #08071e 100%, #00000000 100%), url(../img/hero/synth_treasury_hero.png);
+    height: 444px;
+    }
+    .padding-top {
+    padding-top: 0;
+    }
+    .current-balance-h {
+    padding: 5px 0 20px 0;
+    }
+    .max-width {
+    margin: 15px auto!important;
+    }
 }
 
 @media only screen and (min-width: 1600px) {
