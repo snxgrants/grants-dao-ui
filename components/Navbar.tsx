@@ -25,19 +25,19 @@ export const Navbar = () => {
                                             <Link href="/grants">Grants</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <Link  href="initiatives">initiatives</Link>
+                                            <Link  href="/initiatives">Initiatives</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <Link  href="competitions">Competitions</Link>
+                                            <Link  href="/competitions">Competitions</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <Link  href="blog">Blog</Link>
+                                            <Link  href="/blogs">Blog</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <Link  href="voting">Voting</Link>
+                                            <Link  href="/voting">Voting</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <Link  href="treasury">Treasury</Link>
+                                            <Link  href="/treasury">Treasury</Link>
                                         </li>
                                     </ul>
                                 </div>

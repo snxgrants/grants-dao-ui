@@ -2,15 +2,26 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Link from "next/link";
+import { useRouter } from 'next/router'
 import {Header} from "../../components/Header";
 import {Navbar} from "../../components/Navbar";
 import {Footer} from "../../components/Footer";
+import {initiativesData} from "../domain/InitiativesData";
 
-export default function GrantApplicationThankYou() {
+export default function Initiative() {
+
+    const { id } = useRouter().query;
+
+    console.log(id);
+
+    const initiativeValue = initiativesData[id] ;
+
+    console.log(initiativeValue);
+
     return (
         <>
             <Head>
-                <title>Meme Site Design and Build: Multi Asset V2 | Synthetix Initiatives</title>
+                <title> Home | Synthetix Initiatives </title>
             </Head>
 
             <Header />
@@ -27,7 +38,9 @@ export default function GrantApplicationThankYou() {
                                 <div className="hero-content grants-individual-vh">
                                     <div className="synth-gdao-grants-mini-logo"><img alt="Logo" className="gdao-mini-logo" src="/img/logo/synthetix_gdao_logo_mini.svg" /></div>
                                     <h1 className="synth-grants-h wow fadeInUp" data-wow-delay=".2s">INITIATIVES</h1>
-                                    <h4 className="wow fadeInUp grants-indi-description align-center" data-wow-delay=".6s" style={{color: '#00D1FF'}}>Meme Site Design and Build: Multi Asset V2</h4>
+                                    <h4 className="wow fadeInUp grants-indi-description align-center" data-wow-delay=".6s" style={{color: '#00D1FF'}}>
+                                        {initiativeValue.title}
+                                    </h4>
                                 </div>
                             </div>
                         </div>
@@ -40,10 +53,24 @@ export default function GrantApplicationThankYou() {
                             <div className="col-md-12">
                                 <ul className="pager">
                                     <li className="previous">
-                                        <a className="grants-pager-link" href="initiatives.html"><span className="synth-up-arrow"><img alt="Arrow" className="pager-icons" src="/img/grants/gdao-previous.svg" /></span> Back</a>
+                                        <Link href="/initiatives">
+                                            <a className="grants-pager-link">
+                                                <span className="synth-up-arrow">
+                                                    <img alt="Arrow" className="pager-icons" src="/img/grants/gdao-previous.svg" />
+                                                </span>
+                                                Back
+                                            </a>
+                                        </Link>
                                     </li>
                                     <li className="next">
-                                        <a className="grants-pager-link" href="initiative-stsla-meme-site-design-comp-v1.html">NEXT INITIATIVE <span className="synth-up-arrow"><img alt="Arrow" className="pager-icons" src="/img/grants/gdao-next.svg" /></span></a>
+                                        <Link href="/initiatives">
+                                            <a className="grants-pager-link">
+                                                NEXT INITIATIVE
+                                                <span className="synth-up-arrow">
+                                                    <img alt="Arrow" className="pager-icons" src="/img/grants/gdao-next.svg" />
+                                                </span>
+                                            </a>
+                                        </Link>
                                     </li>
                                 </ul>
                             </div>
@@ -56,7 +83,7 @@ export default function GrantApplicationThankYou() {
                                 <div className="row">
                                     <div className="col-md-12">
                                         <div className="synth-tabs">
-                                            <span className="request no-margin bio-info"><span className="bio-info">Initiated by</span> <span className="bio-info synth-blue">david</span> in <span className="bio-info synth-pink">Initiatives</span> <span className="sm-font bio-info">on <span className="synth-blue">23 April 2021</span></span></span>
+                                            <span className="request no-margin bio-info"><span className="bio-info">Initiated by</span> <span className="bio-info synth-blue">Andy</span> in <span className="bio-info synth-pink">Initiatives</span> <span className="sm-font bio-info">on <span className="synth-blue">20 April 2021</span></span></span>
                                         </div>
                                     </div>
                                 </div>
@@ -108,7 +135,7 @@ export default function GrantApplicationThankYou() {
                                     <div className="vertical-align align-center col-md-3 col-sm-12">
                                         <div className="indi-amount-wrapper">
                                             <div className="grants-indi-amount">
-                                                800 SNX
+                                                1500 SNX
                                             </div>
                                         </div>
                                     </div>
@@ -129,13 +156,13 @@ export default function GrantApplicationThankYou() {
                                                         Initiated by
                                                     </div>
                                                     <div className="info-right col-md-2">
-                                                        david
+                                                        Andy
                                                     </div>
                                                     <div className="info-left col-md-3">
                                                         Initiation date
                                                     </div>
                                                     <div className="info-right col-md-4">
-                                                        April 23, 2022, 2:00 AM
+                                                        April 20, 2022, 2:00 AM
                                                     </div>
                                                 </div>
                                                 <div className="row">
@@ -201,18 +228,31 @@ export default function GrantApplicationThankYou() {
                             <div className="col-md-12">
                                 <ul className="pager">
                                     <li className="previous">
-                                        <a className="grants-pager-link" href="initiatives.html"><span className="synth-up-arrow"><img alt="Arrow" className="pager-icons" src="/img/grants/gdao-previous.svg" /></span> Back</a>
+                                        <Link href="/initiatives">
+                                            <a className="grants-pager-link" href="initiatives.html">
+                                                <span className="synth-up-arrow">
+                                                    <img alt="Arrow" className="pager-icons" src="/img/grants/gdao-previous.svg" />
+                                                </span>
+                                                Back
+                                            </a>
+                                        </Link>
                                     </li>
                                     <li className="next">
-                                        <a className="grants-pager-link" href="initiative-stsla-meme-site-design-comp-v1.html">NEXT INITIATIVE <span className="synth-up-arrow"><img alt="Arrow" className="pager-icons" src="/img/grants/gdao-next.svg" /></span></a>
+                                        <Link href="/initiatives">
+                                            <a className="grants-pager-link" href="chainlink-hackathon-initiative.html">
+                                                NEXT INITIATIVE
+                                                <span className="synth-up-arrow">
+                                                    <img alt="Arrow" className="pager-icons" src="/img/grants/gdao-next.svg" />
+                                                </span>
+                                            </a>
+                                        </Link>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
+                    {/* ========================= Pager End ========================= */}
                 </div>
-                {/* ========================= Pager End ========================= */}
-
 
 
                 <Footer />

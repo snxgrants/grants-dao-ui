@@ -5,12 +5,16 @@ import Link from "next/link";
 import {Header} from "../../components/Header";
 import {Navbar} from "../../components/Navbar";
 import {Footer} from "../../components/Footer";
+import {grantsData} from "../domain/GrantsData";
 
-export default function GrantApplicationGnosisSafeSponsoring() {
+export default function Grant() {
+
+
+
     return (
         <>
             <Head>
-                <title>Gnosis Safe Sponsoring | Synthetix grantsDAO</title>
+                <title>Coinbase Hedging Bot | Synthetix Initiatives</title>
             </Head>
 
             <Header />
@@ -25,14 +29,16 @@ export default function GrantApplicationGnosisSafeSponsoring() {
                         <div className="row align-items-center position-relative">
                             <div className="col-md-12">
                                 <div className="hero-content grants-individual-vh">
-                                    <div className="synth-gdao-grants-mini-logo"><img alt="Logo" className="gdao-mini-logo" src="/img/logo/synthetix_gdao_logo_mini.svg" /></div>
+                                    <div className="synth-gdao-grants-mini-logo"><img alt="Logo" className="gdao-mini-logo" src="/img/logo/synthetix_gdao_logo_mini.svg" />
+                                    </div>
                                     <h1 className="synth-grants-h wow fadeInUp" data-wow-delay=".2s">GRANT APPLICATION</h1>
-                                    <h4 className="wow fadeInUp grants-indi-description align-center" data-wow-delay=".6s" style={{color: '#00D1FF'}}>Gnosis Safe Sponsoring</h4>
+                                    <h4 className="wow fadeInUp grants-indi-description align-center" data-wow-delay=".6s" style={{color: '#00D1FF'}}>Coinbase Hedging Bot</h4>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </section>{/* ========================= Synthetix Grants Individual hero-section Start End ========================= */}
+                </section>
+                {/* ========================= Synthetix Grants Individual hero-section Start End ========================= */}
                 {/* ========================= Pager Start ========================= */}
                 <div className="grant-indi-bg">
                     <div className="container">
@@ -40,15 +46,30 @@ export default function GrantApplicationGnosisSafeSponsoring() {
                             <div className="col-md-12">
                                 <ul className="pager">
                                     <li className="previous">
-                                        <a className="grants-pager-link" href="grants.html"><span className="synth-up-arrow"><img alt="Arrow" className="pager-icons" src="/img/grants/gdao-previous.svg" /></span> BACK TO GRANTS</a>
+                                        <Link href="/grants">
+                                            <a className="grants-pager-link">
+                                                <span className="synth-up-arrow">
+                                                    <img alt="Arrow" className="pager-icons" src="/img/grants/gdao-previous.svg" />
+                                                </span>
+                                                BACK TO GRANTS
+                                            </a>
+                                        </Link>
                                     </li>
                                     <li className="next">
-                                        <a className="grants-pager-link" href="grant-application-discord-bot-maintenance.html">NEXT GRANT <span className="synth-up-arrow"><img alt="Arrow" className="pager-icons" src="/img/grants/gdao-next.svg" /></span></a>
+                                        <Link href="/grants">
+                                            <a className="grants-pager-link">
+                                                NEXT GRANT
+                                                <span className="synth-up-arrow">
+                                                    <img alt="Arrow" className="pager-icons" src="/img/grants/gdao-next.svg" />
+                                                </span>
+                                            </a>
+                                        </Link>
                                     </li>
                                 </ul>
                             </div>
                         </div>
-                    </div>{/* ========================= Pager End ========================= */}
+                    </div>
+                    {/* ========================= Pager End ========================= */}
                     {/* ========================= Blue Banner Start ========================= */}
                     <div className="container-fluid synth-tab-styling">
                         <div className="indi-grants-h-wrapper">
@@ -56,13 +77,14 @@ export default function GrantApplicationGnosisSafeSponsoring() {
                                 <div className="row">
                                     <div className="col-md-12">
                                         <div className="synth-tabs">
-                                            <span className="request no-margin bio-info"><span className="bio-info">Requested by</span> <span className="bio-info synth-blue">GS</span> in <span className="bio-info synth-pink">Grants</span> <span className="sm-font bio-info">on <span className="synth-blue">23 April 2021</span></span></span>
+                                            <span className="request no-margin bio-info"><span className="bio-info">Requested by</span> <span className="bio-info synth-blue">DeepFakingValue</span> in <span className="bio-info synth-pink">Grants</span> <span className="sm-font bio-info">on <span className="synth-blue">17 April 2021</span></span></span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>{/* ========================= Blue Banner End ========================= */}
+                    </div>
+                    {/* ========================= Blue Banner End ========================= */}
                     {/* ========================= grantsDAO Introduction ========================= */}
                     <section className="grants-introduction">
                         <div className="container">
@@ -97,7 +119,8 @@ export default function GrantApplicationGnosisSafeSponsoring() {
                                 <p className="gdao-descriptor">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. Dynamic data for this section budget breakdown content submitted.</p>
                             </div>
                         </div>
-                    </section>{/* ========================= grantsDAO Introduction End ========================= */}{/* ========================= Blue Banner Start ========================= */}
+                    </section>
+                    {/* ========================= grantsDAO Introduction End ========================= */}{/* ========================= Blue Banner Start ========================= */}
                     <div className="container-fluid synth-tab-styling">
                         <div className="indi-grants-h-wrapper">
                             <div className="container">
@@ -112,7 +135,9 @@ export default function GrantApplicationGnosisSafeSponsoring() {
                                 </div>
                             </div>
                         </div>
-                    </div>{/* ========================= Blue Banner End ========================= */}{/* ========================= grantsDAO Info Summary Start ========================= */}
+                    </div>
+                    {/* ========================= Blue Banner End ========================= */}
+                    {/* ========================= grantsDAO Info Summary Start ========================= */}
                     <section className="grants-info-summary">
                         <div className="row grants-descr-wrapper grants-info-summary-wrapper padding-bottom">
                             <div className="col-md-12">
@@ -165,25 +190,27 @@ export default function GrantApplicationGnosisSafeSponsoring() {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="col-md-1" />
+                                    <div className="col-md-1">
+                                    </div>
                                     <div className="col-md-3">
                                         <div className="indi-btn-wrapper">
                                             <div className="utility-btn">
                                                 <div className="voting-wrapper">
                                                     <div className="vertical-align grants-active">
-                                                        COMPLETED
+                                                        ACTIVE
                                                     </div>
                                                 </div>
                                             </div>
                                             <div className="utility-btn">
-                                                <button className="vertical-align grants-cancel wow fadeInUp animated" data-wow-delay=".6s" style={{visibility: 'visible', animationDelay: '0.6s', animationName: 'fadeInUp'}}>CLOSED</button>
+                                                <a href="#"><button className="vertical-align grants-cancel wow fadeInUp animated" data-wow-delay=".6s" style={{visibility: 'visible', animationDelay: '0.6s', animationName: 'fadeInUp'}}>CANCEL GRANT</button></a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </section>{/* ========================= grantsDAO Info Summary End ========================= */}
+                    </section>
+                    {/* ========================= grantsDAO Info Summary End ========================= */}
                     {/* ========================= Yes No Votes Start ========================= */}
                     <div className="container-fluid synth-tab-styling">
                         <div className="indi-grants-h-wrapper">
@@ -192,16 +219,17 @@ export default function GrantApplicationGnosisSafeSponsoring() {
                                     <div className="col-md-12">
                                         <div className="row">
                                             <div className="col-md-4 synth-tabs">
-                                                <span className="candidates-h">YES VOTES</span> <span className="votes-amount">5/5</span>
+                                                <span className="candidates-h">YES VOTES</span> <span className="votes-amount">4/5</span>
                                             </div>
                                             <div className="col-md-4 synth-tabs">
                                                 <span className="candidates-h">NO VOTES</span><span className="votes-amount">0</span>
                                             </div>
-                                            <div className="col-md-1 synth-tabs" />
+                                            <div className="col-md-1">
+                                            </div>
                                             <div className="vertical-align align-center col-md-3 col-sm-12">
                                                 <div className="indi-amount-wrapper">
                                                     <div className="grants-indi-amount">
-                                                        1,500.00 SNX
+                                                        0 SNX
                                                     </div>
                                                 </div>
                                             </div>
@@ -210,7 +238,8 @@ export default function GrantApplicationGnosisSafeSponsoring() {
                                 </div>
                             </div>
                         </div>
-                    </div>{/* ========================= Yes No Votes End ========================= */}{/* ========================= Voting Info Start========================= */}
+                    </div>
+                    {/* ========================= Yes No Votes End ========================= */}{/* ========================= Voting Info Start========================= */}
                     <section className="candidates-info anchor" id="candidates-info">
                         {/* ========================= Tab Data Headings========================= */}
                         <div className="container">
@@ -227,13 +256,15 @@ export default function GrantApplicationGnosisSafeSponsoring() {
                                     </div>
                                 </div>
                             </div>
-                        </div>{/* ========================= Tab Data Headings End========================= */}
+                        </div>
+                        {/* ========================= Tab Data Headings End========================= */}
                         {/* ========================= Tabs All Data Start - Repeat these items...========================= */}
                         <div className="container">
-                            <div className="gi-input-wrapper max-width padding-15 margin-0">
+                            <div className="gi-input-wrapper max-width">
                                 <div className="voter-wrapper">
                                     <div className="row">
-                                        <div className="col-md-1"><img alt="Avatar" className="member-avatar" src="/img/grants/alexander.png" /></div>
+                                        <div className="col-md-1"><img alt="Avatar" className="member-avatar" src="/img/grants/alexander.png" />
+                                        </div>
                                         <div className="col-md-5 col-sm-12 vertical-align">
                                             <a href="#">
                                                 <h4 className="member-acc-nr no-margin grantsdao-data-heading padding-right">0xCD36e4F3D64B6B0c4EE8e414F0Ef288FC54325432534f</h4></a>
@@ -254,7 +285,8 @@ export default function GrantApplicationGnosisSafeSponsoring() {
                                 </div>
                                 <div className="voter-wrapper">
                                     <div className="row">
-                                        <div className="col-md-1"><img alt="Avatar" className="member-avatar" src="/img/grants/andy.png" /></div>
+                                        <div className="col-md-1"><img alt="Avatar" className="member-avatar" src="/img/grants/andy.png" />
+                                        </div>
                                         <div className="col-md-5 col-sm-12 vertical-align">
                                             <a href="#">
                                                 <h4 className="member-acc-nr no-margin grantsdao-data-heading padding-right">0xCD36e4F3D64B6B0c4EE8e414F0Ef288FCFE6653654</h4></a>
@@ -275,7 +307,8 @@ export default function GrantApplicationGnosisSafeSponsoring() {
                                 </div>
                                 <div className="voter-wrapper">
                                     <div className="row">
-                                        <div className="col-md-1"><img alt="Avatar" className="member-avatar" src="/img/grants/cryptotoit.png" /></div>
+                                        <div className="col-md-1"><img alt="Avatar" className="member-avatar" src="/img/grants/cryptotoit.png" />
+                                        </div>
                                         <div className="col-md-5 col-sm-12 vertical-align">
                                             <a href="#">
                                                 <h4 className="member-acc-nr no-margin grantsdao-data-heading padding-right">0xCD36e4F3D64B6B0c4EE8e414F0Ef288FCF432543245</h4></a>
@@ -286,8 +319,8 @@ export default function GrantApplicationGnosisSafeSponsoring() {
                                         <div className="align-center col-md-3 col-sm-12 vertical-align">
                                             <div className="utility-btn">
                                                 <div className>
-                                                    <div className="vertical-align grants-yes">
-                                                        YES
+                                                    <div className="vertical-align grants-to-vote">
+                                                        TO VOTE
                                                     </div>
                                                 </div>
                                             </div>
@@ -296,7 +329,8 @@ export default function GrantApplicationGnosisSafeSponsoring() {
                                 </div>
                                 <div className="voter-wrapper">
                                     <div className="row">
-                                        <div className="col-md-1"><img alt="Avatar" className="member-avatar" src="/img/grants/david.png" /></div>
+                                        <div className="col-md-1"><img alt="Avatar" className="member-avatar" src="/img/grants/david.png" />
+                                        </div>
                                         <div className="col-md-5 col-sm-12 vertical-align">
                                             <a href="#">
                                                 <h4 className="member-acc-nr no-margin grantsdao-data-heading padding-right">0xCD36e4F3D64B6B0c4EE8e414F0Ef288FCFE1f9876987</h4></a>
@@ -317,7 +351,8 @@ export default function GrantApplicationGnosisSafeSponsoring() {
                                 </div>
                                 <div className="voter-wrapper-last">
                                     <div className="row">
-                                        <div className="col-md-1"><img alt="Avatar" className="member-avatar" src="/img/grants/member-avatar.png" /></div>
+                                        <div className="col-md-1"><img alt="Avatar" className="member-avatar" src="/img/grants/member-avatar.png" />
+                                        </div>
                                         <div className="col-md-5 col-sm-12 vertical-align">
                                             <a href="#">
                                                 <h4 className="member-acc-nr no-margin grantsdao-data-heading padding-right">0xCD36e4F3D64B6B0c4EE8e414F0Ef288FCFE543245324</h4></a>
@@ -337,15 +372,19 @@ export default function GrantApplicationGnosisSafeSponsoring() {
                                     </div>
                                 </div>
                             </div>
-                        </div>{/* ========================= Tabs Data End========================= */}{/* ========================= Candidates Info End========================= */}{/* ========================= Divider Start ========================= */}
+                        </div>
+                        {/* ========================= Tabs Data End========================= */}{/* ========================= Candidates Info End========================= */}{/* ========================= Divider Start ========================= */}
                         <div className="container">
                             <div className="row max-width-grant-divider">
-                                <div style={{height: 20}} />
+                                <div style={{height: 20}}>
+                                </div>
                                 <div className="col-md-12">
-                                    <div className="grants-end" />
+                                    <div className="grants-end">
+                                    </div>
                                 </div>
                             </div>
-                        </div>{/* ========================= Divider End ========================= */}
+                        </div>
+                        {/* ========================= Divider End ========================= */}
                         {/* ========================= grantsDAO Data End========================= */}
                         {/* ========================= Grants Section End ========================= */}
                         {/* ========================= Pager Start ========================= */}
@@ -354,19 +393,32 @@ export default function GrantApplicationGnosisSafeSponsoring() {
                                 <div className="col-md-12">
                                     <ul className="pager">
                                         <li className="previous">
-                                            <a className="grants-pager-link" href="grants.html"><span className="synth-up-arrow"><img alt="Arrow" className="pager-icons" src="/img/grants/gdao-previous.svg" /></span> BACK TO GRANTS</a>
+                                            <Link href="/grants">
+                                                <a className="grants-pager-link">
+                                                    <span className="synth-up-arrow">
+                                                        <img alt="Arrow" className="pager-icons" src="/img/grants/gdao-previous.svg" />
+                                                    </span>
+                                                    BACK TO GRANTS
+                                                </a>
+                                            </Link>
                                         </li>
                                         <li className="next">
-                                            <a className="grants-pager-link" href="grant-application-gnosis-safe-sponsoring.html">NEXT GRANT <span className="synth-up-arrow"><img alt="Arrow" className="pager-icons" src="/img/grants/gdao-next.svg" /></span></a>
+                                            <Link href="/grants">
+                                                <a className="grants-pager-link" href="grant-application-gnosis-safe-sponsoring.html">
+                                                    NEXT GRANT
+                                                    <span className="synth-up-arrow">
+                                                        <img alt="Arrow" className="pager-icons" src="/img/grants/gdao-next.svg" />
+                                                    </span>
+                                                </a>
+                                            </Link>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </section>
-                </div>{/* ========================= Pager End ========================= */}
-
-
+                </div>
+                {/* ========================= Pager End ========================= */}
 
                 <Footer />
 
