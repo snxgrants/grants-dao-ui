@@ -6,7 +6,7 @@ import Link from "next/link";
 import {Header} from "../../components/Header";
 import {Navbar} from "../../components/Navbar";
 import {Footer} from "../../components/Footer";
-import {initiativesData} from "../domain/InitiativesData";
+import {initiativesData} from "../../domainData/InitiativesData";
 
 export default function Initiatives() {
 
@@ -111,7 +111,7 @@ export default function Initiatives() {
                                         </div>
                                     </div>
                                     <div className="vertical-align align-center col-md-2 col-sm-12">
-                                        <div className>
+                                        <div >
                                             <a href="grant-application.html">
                                                 <div className="vertical-align initiatives-active-btn wow fadeInUp" data-wow-delay=".6s" style={{visibility: 'visible', animationDelay: '0.6s', animationName: 'fadeInUp'}}>
                                                     5 ACTIVE INITIATIVES
@@ -142,7 +142,8 @@ export default function Initiatives() {
                                         </div>
                                     </div>
                                 </div>
-                            </div>{/* ========================= Tab Data Headings End========================= */}
+                            </div>
+                            {/* ========================= Tab Data Headings End========================= */}
                             {/* ========================= Tabs Data Start .========================= */}
                             <div className="container">
                                 {/* ========================= Repeat Data Start ========================= */}
@@ -155,7 +156,6 @@ export default function Initiatives() {
                         </div>
                     </div>
                 </div>
-
 
                 <Footer />
 

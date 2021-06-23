@@ -5,9 +5,9 @@ import Link from "next/link";
 import {Header} from "../../components/Header";
 import {Navbar} from "../../components/Navbar";
 import {Footer} from "../../components/Footer";
-import {blogsData} from "../domain/BlogsData";
+import {blogsData} from "../../domainData/BlogsData";
 import {useRouter} from "next/router";
-import {initiativesData} from "../domain/InitiativesData";
+import {initiativesData} from "../../domainData/InitiativesData";
 
 export default function Blog() {
 

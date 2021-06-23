@@ -5,7 +5,7 @@ import Link from "next/link";
 import {Header} from "../../components/Header";
 import {Navbar} from "../../components/Navbar";
 import {Footer} from "../../components/Footer";
-import {blogsData} from "../domain/BlogsData";
+import {blogsData} from "../../domainData/BlogsData";
 
 export default function Blogs() {
 

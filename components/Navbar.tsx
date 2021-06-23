@@ -1,6 +1,6 @@
 
 import Link from "next/link";
-import {onboard, connect, isConnected} from "../pages/domain/Wallet"
+import {connect, isConnected} from "../services/Wallet"
 
 export const Navbar = () => {
 

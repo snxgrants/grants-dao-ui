@@ -5,7 +5,7 @@ import Link from "next/link";
 import {Header} from "../../components/Header";
 import {Navbar} from "../../components/Navbar";
 import {Footer} from "../../components/Footer";
-import {grantsData} from "../domain/GrantsData";
+import {grantsData} from "../../domainData/GrantsData";
 
 export default function Grants() {
 
@@ -17,7 +17,7 @@ export default function Grants() {
                 <div className="col-md-6 col-sm-12 data-p">
                     <div className="data-description-wrapper">
                         <Link href={'/grants/'+key}>
-                            <a className="hover" href="grant-application-discord-bot-maintenance.html">
+                            <a className="hover">
                                 <h4 className="no-margin grantsdao-data-heading padding-right">
                                     {grant.title}
                                 </h4>

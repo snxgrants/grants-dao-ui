@@ -6,7 +6,7 @@ import { useRouter } from 'next/router'
 import {Header} from "../../components/Header";
 import {Navbar} from "../../components/Navbar";
 import {Footer} from "../../components/Footer";
-import {initiativesData} from "../domain/InitiativesData";
+import {initiativesData} from "../../domainData/InitiativesData";
 
 export default function Initiative() {
 
@@ -83,7 +83,22 @@ export default function Initiative() {
                                 <div className="row">
                                     <div className="col-md-12">
                                         <div className="synth-tabs">
-                                            <span className="request no-margin bio-info"><span className="bio-info">Initiated by</span> <span className="bio-info synth-blue">Andy</span> in <span className="bio-info synth-pink">Initiatives</span> <span className="sm-font bio-info">on <span className="synth-blue">20 April 2021</span></span></span>
+                                            <span className="request no-margin bio-info">
+                                                <span className="bio-info">Initiated by</span>
+                                                <span className="bio-info synth-blue">
+                                                    {initiativeValue.requestedBy}
+                                                </span>
+                                                in
+                                                <span className="bio-info synth-pink">
+                                                    Grants
+                                                </span>
+                                                <span className="sm-font bio-info">
+                                                    on
+                                                    <span className="synth-blue">
+                                                        {initiativeValue.startDate}
+                                                    </span>
+                                                </span>
+                                            </span>
                                         </div>
                                     </div>
                                 </div>

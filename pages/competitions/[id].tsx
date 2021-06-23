@@ -5,23 +5,23 @@ import Link from "next/link";
 import {Header} from "../../components/Header";
 import {Navbar} from "../../components/Navbar";
 import {Footer} from "../../components/Footer";
-import {grantsData} from "../../domainData/GrantsData";
+import {competitionsData} from "../../domainData/CompetitionsData";
 import {useRouter} from "next/router";
 
-export default function Grant() {
+export default function Competitino() {
 
     const { id } = useRouter().query;
 
     console.log(id);
 
-    const grantsValue = grantsData[id] ;
+    const competitionValue = competitionsData[id] ;
 
-    console.log(grantsValue);
+    console.log(competitionValue);
 
     return (
         <>
             <Head>
-                <title>{grantsValue.title} | Synthetix Initiatives</title>
+                <title>{competitionValue.title} | Synthetix Initiatives</title>
             </Head>
 
             <Header />
@@ -30,7 +30,7 @@ export default function Grant() {
 
                 <Navbar />
 
-                {/* ========================= Synthetix Grants Individual hero-section Start ========================= */}
+                {/* ========================= Synthetix Competitions Individual hero-section Start ========================= */}
                 <section className="synth-grants-indi-section" id="grants">
                     <div className="container">
                         <div className="row align-items-center position-relative">
@@ -38,14 +38,14 @@ export default function Grant() {
                                 <div className="hero-content grants-individual-vh">
                                     <div className="synth-gdao-grants-mini-logo"><img alt="Logo" className="gdao-mini-logo" src="/img/logo/synthetix_gdao_logo_mini.svg" />
                                     </div>
-                                    <h1 className="synth-grants-h wow fadeInUp" data-wow-delay=".2s">GRANT APPLICATION</h1>
-                                    <h4 className="wow fadeInUp grants-indi-description align-center" data-wow-delay=".6s" style={{color: '#00D1FF'}}>{grantsValue.title}</h4>
+                                    <h1 className="synth-grants-h wow fadeInUp" data-wow-delay=".2s">COMPETITION APPLICATION</h1>
+                                    <h4 className="wow fadeInUp grants-indi-description align-center" data-wow-delay=".6s" style={{color: '#00D1FF'}}>{competitionValue.title}</h4>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
-                {/* ========================= Synthetix Grants Individual hero-section Start End ========================= */}
+                {/* ========================= Synthetix Competitions Individual hero-section Start End ========================= */}
                 {/* ========================= Pager Start ========================= */}
                 <div className="grant-indi-bg">
                     <div className="container">
@@ -53,19 +53,19 @@ export default function Grant() {
                             <div className="col-md-12">
                                 <ul className="pager">
                                     <li className="previous">
-                                        <Link href="/grants">
+                                        <Link href="/competitions">
                                             <a className="grants-pager-link">
                                                 <span className="synth-up-arrow">
                                                     <img alt="Arrow" className="pager-icons" src="/img/grants/gdao-previous.svg" />
                                                 </span>
-                                                BACK TO GRANTS
+                                                BACK TO COMPETITIONS
                                             </a>
                                         </Link>
                                     </li>
                                     <li className="next">
                                         <Link href="/grants">
                                             <a className="grants-pager-link">
-                                                NEXT GRANT
+                                                NEXT COMPETITION
                                                 <span className="synth-up-arrow">
                                                     <img alt="Arrow" className="pager-icons" src="/img/grants/gdao-next.svg" />
                                                 </span>
@@ -84,22 +84,7 @@ export default function Grant() {
                                 <div className="row">
                                     <div className="col-md-12">
                                         <div className="synth-tabs">
-                                            <span className="request no-margin bio-info">
-                                                <span className="bio-info">Requested by</span>
-                                                <span className="bio-info synth-blue">
-                                                    {grantsValue.requestedBy}
-                                                </span>
-                                                in
-                                                <span className="bio-info synth-pink">
-                                                    Grants
-                                                </span>
-                                                <span className="sm-font bio-info">
-                                                    on
-                                                    <span className="synth-blue">
-                                                        {grantsValue.startDate}
-                                                    </span>
-                                                </span>
-                                            </span>
+                                            <span className="request no-margin bio-info"><span className="bio-info">Requested by</span> <span className="bio-info synth-blue">{competitionValue.author}</span> in <span className="bio-info synth-pink">Competitions</span> <span className="sm-font bio-info">on <span className="synth-blue">{competitionValue.startDate}</span></span></span>
                                         </div>
                                     </div>
                                 </div>
@@ -115,43 +100,43 @@ export default function Grant() {
                                     DESCRIPTION
                                 </div>
                                 <p className="gdao-descriptor">
-                                    {grantsValue.description}
+                                    {competitionValue.description}
                                 </p>
                                 <div className="h4-grants-dao-descr">
                                     OVERVIEW
                                 </div>
                                 <p className="gdao-descriptor">
-                                    {grantsValue.overview}
+                                    {competitionValue.overview}
                                 </p>
                                 <div className="h4-grants-dao-descr">
                                     VALUE TO SYNTHETIX
                                 </div>
                                 <p className="gdao-descriptor">
-                                    {grantsValue.valueStatement}
+                                    {competitionValue.valueStatement}
                                 </p>
                                 <div className="h4-grants-dao-descr">
                                     APPLICANT BACKGROUND
                                 </div>
                                 <p className="gdao-descriptor">
-                                    {grantsValue.background}
+                                    {competitionValue.background}
                                 </p>
                                 <div className="h4-grants-dao-descr">
                                     PROJECT IMPLEMENTATION PLAN
                                 </div>
                                 <p className="gdao-descriptor">
-                                    {grantsValue.background}
+                                    {competitionValue.background}
                                 </p>
                                 <div className="h4-grants-dao-descr">
                                     ADDITIONAL INFORMATION
                                 </div>
                                 <p className="gdao-descriptor">
-                                    {grantsValue.additionalInformation}
+                                    {competitionValue.additionalInformation}
                                 </p>
                                 <div className="h4-grants-dao-descr">
                                     BUDGET BREAKDOWN
                                 </div>
                                 <p className="gdao-descriptor">
-                                    {grantsValue.budgetBreakdown}
+                                    {competitionValue.budgetBreakdown}
                                 </p>
                             </div>
                         </div>
@@ -192,7 +177,7 @@ export default function Grant() {
                                                         Start Date
                                                     </div>
                                                     <div className="info-right col-md-4">
-                                                        {grantsValue.startDate}
+                                                        {competitionValue.startDate}
                                                     </div>
                                                 </div>
                                                 <div className="row">
@@ -200,13 +185,13 @@ export default function Grant() {
                                                         Author
                                                     </div>
                                                     <div className="info-right col-md-4">
-                                                        {grantsValue.author}
+                                                        {competitionValue.author}
                                                     </div>
                                                     <div className="info-left col-md-2">
                                                         End Date
                                                     </div>
                                                     <div className="info-right col-md-4">
-                                                        {grantsValue.endDate}
+                                                        {competitionValue.endDate}
                                                     </div>
                                                 </div>
                                                 <div className="row">
@@ -233,12 +218,12 @@ export default function Grant() {
                                             <div className="utility-btn">
                                                 <div className="voting-wrapper">
                                                     <div className="vertical-align grants-active">
-                                                        {grantsValue.status}
+                                                        {competitionValue.status}
                                                     </div>
                                                 </div>
                                             </div>
                                             <div className="utility-btn">
-                                                <a href="#"><button className="vertical-align grants-cancel wow fadeInUp animated" data-wow-delay=".6s" style={{visibility: 'visible', animationDelay: '0.6s', animationName: 'fadeInUp'}}>CANCEL GRANT</button></a>
+                                                <a href="#"><button className="vertical-align grants-cancel wow fadeInUp animated" data-wow-delay=".6s" style={{visibility: 'visible', animationDelay: '0.6s', animationName: 'fadeInUp'}}>CANCEL COMPETITION</button></a>
                                             </div>
                                         </div>
                                     </div>
@@ -422,7 +407,7 @@ export default function Grant() {
                         </div>
                         {/* ========================= Divider End ========================= */}
                         {/* ========================= grantsDAO Data End========================= */}
-                        {/* ========================= Grants Section End ========================= */}
+                        {/* ========================= Competitions Section End ========================= */}
                         {/* ========================= Pager Start ========================= */}
                         <div className="container">
                             <div className="row grants-pager-wrapper">
@@ -434,14 +419,14 @@ export default function Grant() {
                                                     <span className="synth-up-arrow">
                                                         <img alt="Arrow" className="pager-icons" src="/img/grants/gdao-previous.svg" />
                                                     </span>
-                                                    BACK TO GRANTS
+                                                    BACK TO COMPETITIONS
                                                 </a>
                                             </Link>
                                         </li>
                                         <li className="next">
                                             <Link href="/grants">
                                                 <a className="grants-pager-link" href="grant-application-gnosis-safe-sponsoring.html">
-                                                    NEXT GRANT
+                                                    NEXT COMPETITION
                                                     <span className="synth-up-arrow">
                                                         <img alt="Arrow" className="pager-icons" src="/img/grants/gdao-next.svg" />
                                                     </span>
