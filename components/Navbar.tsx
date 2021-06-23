@@ -1,7 +1,24 @@
 
 import Link from "next/link";
+import {isConnected, connect} from "../pages/domain/Wallet"
 
 export const Navbar = () => {
+
+    let walletRender;
+    if(isConnected()){
+        walletRender = <>
+            <li className="nav-item" onClick={connect}>
+                Connect Wallet
+            </li>
+            </>
+    }else{
+        walletRender = <>
+            <li className="nav-item" >
+                Wallet
+            </li>
+        </>
+    }
+
     return (
         <>
         {/* ========================= Navigation Start ========================= */}
@@ -39,6 +56,7 @@ export const Navbar = () => {
                                         <li className="nav-item">
                                             <Link  href="/treasury">Treasury</Link>
                                         </li>
+                                        {walletRender}
                                     </ul>
                                 </div>
                                 {/* navbar collapse */}

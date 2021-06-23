@@ -155,7 +155,7 @@ export default function Home() {
                   <div className="synth-scenery-img-left">
                       <div className="container">
                           <div className="row align-items-center">
-                              <div className="col-xl-6 col-md-6 col-sm-12 col-lg-6" col-md-6>
+                              <div className="col-xl-6 col-md-6 col-sm-12 col-lg-6">
                                   <div className="scenery-wrapper">
                                       <img alt="Synth Scenery" className="synth-process-scenery wow fadeInLeft" data-wow-delay=".2s" src="/img/home/synth-process-scenery.png" />
                                   </div>
