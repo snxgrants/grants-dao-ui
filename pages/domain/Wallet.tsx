@@ -1,6 +1,10 @@
 import Web3 from 'web3'
 import BlocknativeSdk from 'bnc-sdk'
 
+/**
+ * Followed https://docs.blocknative.com/notify-sdk#initialize-the-library
+ */
+
 const DAPP_API = '4e4e9227-9dfe-4db1-b76b-17513380a045';
 const NETWORK_ID = 42;
 
