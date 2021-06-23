@@ -1,20 +1,21 @@
 
 import Link from "next/link";
-import {isConnected, connect} from "../pages/domain/Wallet"
+import {onboard, connect, isConnected} from "../pages/domain/Wallet"
 
 export const Navbar = () => {
 
     let walletRender;
+
     if(isConnected()){
         walletRender = <>
             <li className="nav-item" onClick={connect}>
-                Connect Wallet
+                <a>Wallet Connected</a>
             </li>
             </>
     }else{
         walletRender = <>
-            <li className="nav-item" >
-                Wallet
+            <li className="nav-item" onClick={connect}>
+                <a onClick={connect}>Connect Wallet</a>
             </li>
         </>
     }
