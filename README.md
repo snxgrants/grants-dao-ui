@@ -10,7 +10,7 @@ yarn add bnc-onboard
 yarn add web3
 ```
 
-Run the development server:
+Run the development server locally:
 
 ```bash
 yarn dev
