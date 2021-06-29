@@ -8,7 +8,6 @@ Adding packages:
 ```bash
 yarn add bnc-onboard
 yarn add web3
-
 ```
 
 Run the development server:
