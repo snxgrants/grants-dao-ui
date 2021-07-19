@@ -440,7 +440,7 @@ export default function Grant() {
                                         </li>
                                         <li className="next">
                                             <Link href="/grants">
-                                                <a className="grants-pager-link" href="grant-application-gnosis-safe-sponsoring.html">
+                                                <a className="grants-pager-link" >
                                                     NEXT GRANT
                                                     <span className="synth-up-arrow">
                                                         <img alt="Arrow" className="pager-icons" src="/img/grants/gdao-next.svg" />
