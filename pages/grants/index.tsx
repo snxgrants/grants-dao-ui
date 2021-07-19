@@ -15,6 +15,8 @@ const Grants = () => {
 	const snapshotSpaceQuery = useGetSnapshotSpace();
 	const space = snapshotSpaceQuery?.data ?? null;
 
+	console.log(space);
+
 	const snapshotProposalsQuery = useGetSnapshotProposals();
 	const proposals = snapshotProposalsQuery?.data ?? null;
 	const proposalIds = proposals && proposals.length > 0 ? proposals.map(({ id }) => id) : null;
@@ -22,6 +24,8 @@ const Grants = () => {
 	const snapshotVotesQuery = useGetSnapshotVotes(proposalIds);
 	const votes = snapshotVotesQuery?.data ?? null;
 
+
+	console.log('votes');
 	console.log(votes);
 
 	let grantsRender = [];
@@ -234,19 +238,21 @@ const Grants = () => {
 									</div>
 									<div className="vertical-align align-center col-md-2 col-sm-12">
 										<div className="utility-btn">
-											<a href="grant-application.html">
-												<button
-													className="vertical-align grants-apply-btn wow fadeInUp"
-													data-wow-delay=".6s"
-													style={{
-														visibility: 'visible',
-														animationDelay: '0.6s',
-														animationName: 'fadeInUp',
-													}}
-												>
-													APPLY FOR GRANT
-												</button>
-											</a>
+                                            <Link href="/grants/grant-application">
+												<a>
+													<button
+														className="vertical-align grants-apply-btn wow fadeInUp"
+														data-wow-delay=".6s"
+														style={{
+															visibility: 'visible',
+															animationDelay: '0.6s',
+															animationName: 'fadeInUp',
+														}}
+													>
+														APPLY FOR GRANT
+													</button>
+												</a>
+											</Link>
 										</div>
 									</div>
 								</div>
@@ -278,7 +284,7 @@ const Grants = () => {
 											</span>
 										</div>
 										<div className="data-header align-center col-md-3 col-sm-12">
-											AMOUNT{' '}
+											DUE{' '}
 											<span className="synth-up-arrow">
 												<img
 													alt="Arrow"

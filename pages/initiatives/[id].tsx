@@ -244,7 +244,7 @@ export default function Initiative() {
                                 <ul className="pager">
                                     <li className="previous">
                                         <Link href="/initiatives">
-                                            <a className="grants-pager-link" href="initiatives.html">
+                                            <a className="grants-pager-link" >
                                                 <span className="synth-up-arrow">
                                                     <img alt="Arrow" className="pager-icons" src="/img/grants/gdao-previous.svg" />
                                                 </span>
@@ -254,7 +254,7 @@ export default function Initiative() {
                                     </li>
                                     <li className="next">
                                         <Link href="/initiatives">
-                                            <a className="grants-pager-link" href="chainlink-hackathon-initiative.html">
+                                            <a className="grants-pager-link" >
                                                 NEXT INITIATIVE
                                                 <span className="synth-up-arrow">
                                                     <img alt="Arrow" className="pager-icons" src="/img/grants/gdao-next.svg" />
