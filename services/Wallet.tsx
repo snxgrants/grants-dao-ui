@@ -31,10 +31,11 @@ export const onboard = Onboard({
 
 
 export async function connect() {
+    Router.push('/');
     await onboard.walletSelect();
     await onboard.walletCheck();
     walletConnected = true;
-    Router.push('/')
+    Router.push('/');
 }
 
 export function isConnected() {
