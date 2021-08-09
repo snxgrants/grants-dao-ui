@@ -1,6 +1,10 @@
 
 import Link from "next/link";
 import {connect, isConnected} from "../services/Wallet"
+import Button from "./Button";
+
+import styled, { css } from 'styled-components';
+import {FlexDivCentered, gray, mediumBlue, navy, UpperCased, white} from "../styles/common";
 
 export const Navbar = () => {
 
@@ -14,9 +18,12 @@ export const Navbar = () => {
             </>
     }else{
         walletRender = <>
-            <li className="nav-item" onClick={connect}>
-                <a onClick={connect}>Connect Wallet</a>
-            </li>
+            <WalletButton variant="solid" onClick={connect}>
+                <FlexDivCentered>
+                    <StyledConnectionDot />
+                    <UpperCased>Connect</UpperCased>
+                </FlexDivCentered>
+            </WalletButton>
         </>
     }
 
@@ -74,4 +81,57 @@ export const Navbar = () => {
         {/* ========================= Navigation End ========================= */}
         </>
     )
-}
+};
+
+const NetworkTag = styled(FlexDivCentered)`
+	background: ${mediumBlue};
+	font-size: 10px;
+	font-family: 'GT America Condensed-Medium';
+	padding: 2px 5px;
+	border-radius: 100px;
+	height: 18px;
+	text-align: center;
+	justify-content: center;
+	text-transform: uppercase;
+`;
+
+const WalletButton = styled(Button).attrs({
+    size: 'md',
+})`
+	width: 175px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid ${mediumBlue};
+	background: ${navy};
+
+	svg {
+		margin-left: 5px;
+		width: 10px;
+		height: 10px;
+		color: ${gray};
+		${(props) =>
+    props.isActive &&
+    css`
+				color: ${white};
+			`}
+	}
+	&:hover {
+		${NetworkTag} {
+			background: ${navy};
+		}
+	}
+`;
+
+
+const Dot = styled.span<{ background: string }>`
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	border-radius: 100%;
+	background-color: '#29B6AF';
+`;
+
+const StyledConnectionDot = styled(Dot)`
+	margin-right: 8px;
+`;

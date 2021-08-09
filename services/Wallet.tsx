@@ -24,7 +24,8 @@ export const onboard = Onboard({
     networkId: NETWORK_ID,
     subscriptions: {
         wallet: wallet => {
-            web3 = new Web3(wallet.provider)
+            web3 = new Web3(wallet.provider);
+            window.localStorage.setItem('selectedWallet', wallet.name);
         }
     }
 });
@@ -33,13 +34,26 @@ export const onboard = Onboard({
 export async function connect() {
     Router.push('/');
     await onboard.walletSelect();
-    await onboard.walletCheck();
-    walletConnected = true;
+    walletConnected = await onboard.walletCheck();
     Router.push('/');
 }
 
-export function isConnected() {
+
+export async function isConnected() {
+    if (!walletConnected) {
+        await autoConnectConnected();
+    }
     return walletConnected;
+}
+
+export async function autoConnectConnected() {
+    const previouslySelectedWallet = window.localStorage.getItem('selectedWallet');
+
+    // call wallet select with that value if it exists
+    if (previouslySelectedWallet != null) {
+        await onboard.walletSelect(previouslySelectedWallet);
+        walletConnected = await onboard.walletCheck();
+    }
 }
 
 
