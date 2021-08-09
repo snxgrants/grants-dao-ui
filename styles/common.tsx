@@ -1,5 +1,9 @@
 import styled, { css } from 'styled-components';
+import Button from "../components/Button";
 
+export const condensedMedium = `GT America Condensed-Medium`;
+
+export const white = '#FFFFFF';
 export const black = '#06061B';
 export const blackHover = '#070725';
 export const navy = '#09092F';
@@ -44,3 +48,5 @@ export const resetButtonCSS = css`
 	cursor: pointer;
 	padding: 0;
 `;
+
+
