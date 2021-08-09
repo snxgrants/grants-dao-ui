@@ -21,6 +21,7 @@ let truncatedAddress = '';
 export const onboard = Onboard({
     dappId: DAPP_API,
     networkId: NETWORK_ID,
+    darkMode: true,
     subscriptions: {
         wallet: wallet => {
             if (wallet) {
