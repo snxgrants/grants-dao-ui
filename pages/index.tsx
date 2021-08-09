@@ -1,7 +1,9 @@
-import Head from 'next/head'
+import Head from 'next/head';
 import {Navbar} from "../components/Navbar";
 import {Header} from "../components/Header";
 import {Footer} from "../components/Footer";
+
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -37,14 +39,18 @@ export default function Home() {
                               </div>
                               <div className="col-md-12 index-btn-wrapper">
                                   <span className="synth-hero-btn">
-                                      <a className="hero-btn wow fadeInUp" data-wow-delay=".2s" href="grants.html" rel="nofollow">
-                                        <img alt="Apply for a Grant" className="join-innitiative-btn" src="/img/buttons/grant-application-btn.png" />
-                                      </a>
+                                      <Link href="/grants/grant-application">
+                                          <a className="hero-btn wow fadeInUp" data-wow-delay=".2s" rel="nofollow">
+                                            <img alt="Apply for a Grant" className="join-innitiative-btn" src="/img/buttons/grant-application-btn.png" />
+                                          </a>
+                                      </Link>
                                   </span>
                                   <span className="synth-hero-btn">
-                                      <a className="hero-btn wow fadeInUp" data-wow-delay=".2s" href="initiatives.html" rel="nofollow">
-                                        <img alt="Join an Innitiative" className="apply-for-grant-btn" src="/img/buttons/join-initiative-btn.png" />
-                                      </a>
+                                      <Link href="/initiatives">
+                                          <a className="hero-btn wow fadeInUp" data-wow-delay=".2s" rel="nofollow">
+                                            <img alt="Join an Innitiative" className="apply-for-grant-btn" src="/img/buttons/join-initiative-btn.png" />
+                                          </a>
+                                      </Link>
                                   </span>
                               </div>
                           </div>
@@ -184,7 +190,11 @@ export default function Home() {
                                           </li>
                                       </ul>
                                       <div className="synth-grants-btn">
-                                          <a className="process-btn wow fadeInUp" data-wow-delay=".2s" href="grants.html" rel="nofollow"><img alt="Apply for a Grant" className="synth-grant-btn" src="/img/buttons/grants-btn.png" /></a>
+                                          <Link href="/grants">
+                                            <a className="process-btn wow fadeInUp" data-wow-delay=".2s" rel="nofollow">
+                                                <img alt="Apply for a Grant" className="synth-grant-btn" src="/img/buttons/grants-btn.png" />
+                                            </a>
+                                          </Link>
                                       </div>
                                   </div>
                               </div>
@@ -241,7 +251,11 @@ export default function Home() {
                                       </p>
                                   </div>
                                   <div className="synth-treasury-btn-wrapper">
-                                      <a className="process-btn wow fadeInUp" data-wow-delay=".2s" href="/treasury.html" rel="nofollow"><img alt="Go To Treasury" className="synth-treasury-btn" src="/img/buttons/treasury-btn.png" /></a>
+                                      <Link href="/treasury">
+                                      <a className="process-btn wow fadeInUp" data-wow-delay=".2s" rel="nofollow">
+                                          <img alt="Go To Treasury" className="synth-treasury-btn" src="/img/buttons/treasury-btn.png" />
+                                      </a>
+                                    </Link>
                                   </div>
                               </div>
                           </div>

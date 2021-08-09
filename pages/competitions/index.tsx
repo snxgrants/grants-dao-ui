@@ -129,10 +129,13 @@ export default function Competitions() {
                                     </div>
                                     <div className="vertical-align align-center col-md-2 col-sm-12">
                                         <div className>
-                                            <a href="grant-application.html">
-                                                <div className="vertical-align initiatives-active-btn wow fadeInUp" data-wow-delay=".6s" style={{visibility: 'visible', animationDelay: '0.6s', animationName: 'fadeInUp'}}>
-                                                    5 ACTIVE Competitions
-                                                </div></a>
+                                            <Link href="/grants/grant-application">
+                                                <a>
+                                                    <div className="vertical-align initiatives-active-btn wow fadeInUp" data-wow-delay=".6s" style={{visibility: 'visible', animationDelay: '0.6s', animationName: 'fadeInUp'}}>
+                                                        5 ACTIVE Competitions
+                                                    </div>
+                                                </a>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>
