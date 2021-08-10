@@ -1,12 +1,17 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/Home.module.css'
 import Link from "next/link";
 import {Header} from "../../components/Header";
 import {Navbar} from "../../components/Navbar";
 import {Footer} from "../../components/Footer";
-import {grantsData} from "../../domainData/GrantsData";
 import {useRouter} from "next/router";
+import {useState} from "react";
+import useGetSnapshotSpace from "../../queries/useGetSnapshotSpace";
+import useGetSnapshotProposals from "../../queries/useGetSnapshotProposals";
+import useGetSnapshotVotes from "../../queries/useGetSnapshotVotes";
+import Moment from "react-moment";
+import {connect, isConnected, onboard, state} from "../../services/Wallet"
+import {MEMBERS} from "../../queries/constants";
 
 export default function Grant() {
 
@@ -14,14 +19,124 @@ export default function Grant() {
 
     console.log(id);
 
-    const grantsValue = grantsData[id] ;
+    const snapshotSpaceQuery = useGetSnapshotSpace();
+    const space = snapshotSpaceQuery?.data ?? {};
 
-    console.log(grantsValue);
+    const admins = space.admins;
+
+    const snapshotProposalsQuery = useGetSnapshotProposals();
+    const proposals = snapshotProposalsQuery?.data ?? null;
+    const proposalIds = proposals && proposals.length > 0 ? proposals.map(({ id }) => id) : null;
+
+    console.log('proposals');
+    console.log(proposals);
+
+    const snapshotVotesQuery = useGetSnapshotVotes(proposalIds);
+    const votes = snapshotVotesQuery?.data ?? null;
+
+    console.log('votes');
+    console.log(votes);
+
+    var proposal = {};
+    if (proposals) {
+        var proposalsFiltered = proposals.filter ( item => item.id === id);
+
+        console.log('proposalsFiltered');
+        console.log(proposalsFiltered);
+
+
+        proposal = proposalsFiltered[0]
+    }
+
+    console.log(proposal);
+
+    let userAddress = '';
+
+    if (isConnected()) {
+        console.log('onboard.state()');
+        console.log(onboard.getState());
+
+        console.log('userAddress');
+        console.log(onboard.getState().address);
+
+        userAddress = onboard.getState().address;
+    }
+
+    userAddress = 'Qmevstpy6Bf9LHC9znkf43Rarn5pVfv33Jr3aqXrcHKVVG'; //admin address test
+
+    let adminsRender = [];
+
+    if (userAddress && admins) {
+        Object.entries(admins).forEach(([key, adminAddress]) => {
+
+            let voter = MEMBERS.filter ( item => item.address === adminAddress);
+
+            let voterHandle = 'Not Found';
+            let logoUrl = '';
+
+            console.log(voter);
+
+            if (voter && voter.length > 0){
+                voter = voter[0];
+
+                console.log(voter);
+
+                voterHandle = voter.displayName;
+                logoUrl = voter.logoUrl;
+            }
+
+            let choices = proposal.choices;
+
+            let vote = 'to vote';
+
+            console.log('userAddress');
+            console.log(onboard.getState().address);
+
+            if (votes && votes[adminAddress]) {
+                console.log('votes');
+                console.log(votes[adminAddress]);
+
+                console.log(votes[adminAddress].choice);
+                console.log(choices);
+
+                vote = choices[votes[adminAddress].choice-1];
+
+                console.log(vote);
+            }
+
+            adminsRender.push(
+                <div className="voter-wrapper">
+                    <div className="row">
+                        <div className="col-md-1"><img alt="Avatar" className="member-avatar"
+                                                       src={logoUrl}/>
+                        </div>
+                        <div className="col-md-5 col-sm-12 vertical-align">
+                            <a href="#">
+                                <h4 className="member-acc-nr no-margin grantsdao-data-heading padding-right">{adminAddress}</h4>
+                            </a>
+                        </div>
+                        <div className="align-center col-md-3 col-sm-12 vertical-align">
+                            {voterHandle}
+                        </div>
+                        <div className="align-center col-md-3 col-sm-12 vertical-align">
+                            <div className="utility-btn">
+                                <div className>
+                                    <div className="vertical-align grants-yes">
+                                        {vote}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        });
+    }
 
     return (
         <>
             <Head>
-                <title>{grantsValue.title} | Synthetix Initiatives</title>
+                <title>{proposal.title} | Synthetix Initiatives</title>
             </Head>
 
             <Header />
@@ -39,7 +154,7 @@ export default function Grant() {
                                     <div className="synth-gdao-grants-mini-logo"><img alt="Logo" className="gdao-mini-logo" src="/img/logo/synthetix_gdao_logo_mini.svg" />
                                     </div>
                                     <h1 className="synth-grants-h wow fadeInUp" data-wow-delay=".2s">GRANT APPLICATION</h1>
-                                    <h4 className="wow fadeInUp grants-indi-description align-center" data-wow-delay=".6s" style={{color: '#00D1FF'}}>{grantsValue.title}</h4>
+                                    <h4 className="wow fadeInUp grants-indi-description align-center" data-wow-delay=".6s" style={{color: '#00D1FF'}}>{proposal.title}</h4>
                                 </div>
                             </div>
                         </div>
@@ -85,18 +200,15 @@ export default function Grant() {
                                     <div className="col-md-12">
                                         <div className="synth-tabs">
                                             <span className="request no-margin bio-info">
-                                                <span className="bio-info">Requested by</span>
+                                                <span className="bio-info">Requested by </span>
                                                 <span className="bio-info synth-blue">
-                                                    {grantsValue.requestedBy}
+                                                    {proposal.author}
                                                 </span>
                                                 in
-                                                <span className="bio-info synth-pink">
-                                                    Grants
-                                                </span>
+                                                <span className="bio-info synth-pink"> Grants </span>
                                                 <span className="sm-font bio-info">
-                                                    on
-                                                    <span className="synth-blue">
-                                                        {grantsValue.startDate}
+                                                    on <span className="synth-blue">
+                                                        <Moment date={proposal.start} format="D MMM YYYY"/>
                                                     </span>
                                                 </span>
                                             </span>
@@ -115,43 +227,7 @@ export default function Grant() {
                                     DESCRIPTION
                                 </div>
                                 <p className="gdao-descriptor">
-                                    {grantsValue.description}
-                                </p>
-                                <div className="h4-grants-dao-descr">
-                                    OVERVIEW
-                                </div>
-                                <p className="gdao-descriptor">
-                                    {grantsValue.overview}
-                                </p>
-                                <div className="h4-grants-dao-descr">
-                                    VALUE TO SYNTHETIX
-                                </div>
-                                <p className="gdao-descriptor">
-                                    {grantsValue.valueStatement}
-                                </p>
-                                <div className="h4-grants-dao-descr">
-                                    APPLICANT BACKGROUND
-                                </div>
-                                <p className="gdao-descriptor">
-                                    {grantsValue.background}
-                                </p>
-                                <div className="h4-grants-dao-descr">
-                                    PROJECT IMPLEMENTATION PLAN
-                                </div>
-                                <p className="gdao-descriptor">
-                                    {grantsValue.background}
-                                </p>
-                                <div className="h4-grants-dao-descr">
-                                    ADDITIONAL INFORMATION
-                                </div>
-                                <p className="gdao-descriptor">
-                                    {grantsValue.additionalInformation}
-                                </p>
-                                <div className="h4-grants-dao-descr">
-                                    BUDGET BREAKDOWN
-                                </div>
-                                <p className="gdao-descriptor">
-                                    {grantsValue.budgetBreakdown}
+                                    {proposal.body}
                                 </p>
                             </div>
                         </div>
@@ -192,7 +268,7 @@ export default function Grant() {
                                                         Start Date
                                                     </div>
                                                     <div className="info-right col-md-4">
-                                                        {grantsValue.startDate}
+                                                        <Moment date={proposal.start} format="D MMM YYYY"/>
                                                     </div>
                                                 </div>
                                                 <div className="row">
@@ -200,13 +276,13 @@ export default function Grant() {
                                                         Author
                                                     </div>
                                                     <div className="info-right col-md-4">
-                                                        {grantsValue.author}
+                                                        {proposal.author}
                                                     </div>
                                                     <div className="info-left col-md-2">
                                                         End Date
                                                     </div>
                                                     <div className="info-right col-md-4">
-                                                        {grantsValue.endDate}
+                                                        <Moment date={proposal.end} format="D MMM YYYY"/>
                                                     </div>
                                                 </div>
                                                 <div className="row">
@@ -233,7 +309,7 @@ export default function Grant() {
                                             <div className="utility-btn">
                                                 <div className="voting-wrapper">
                                                     <div className="vertical-align grants-active">
-                                                        {grantsValue.status}
+                                                        {proposal.state}
                                                     </div>
                                                 </div>
                                             </div>
@@ -297,116 +373,7 @@ export default function Grant() {
                         {/* ========================= Tabs All Data Start - Repeat these items...========================= */}
                         <div className="container">
                             <div className="gi-input-wrapper max-width">
-                                <div className="voter-wrapper">
-                                    <div className="row">
-                                        <div className="col-md-1"><img alt="Avatar" className="member-avatar" src="/img/grants/alexander.png" />
-                                        </div>
-                                        <div className="col-md-5 col-sm-12 vertical-align">
-                                            <a href="#">
-                                                <h4 className="member-acc-nr no-margin grantsdao-data-heading padding-right">0xCD36e4F3D64B6B0c4EE8e414F0Ef288FC54325432534f</h4></a>
-                                        </div>
-                                        <div className="align-center col-md-3 col-sm-12 vertical-align">
-                                            ΔLΞXΔNDΞR
-                                        </div>
-                                        <div className="align-center col-md-3 col-sm-12 vertical-align">
-                                            <div className="utility-btn">
-                                                <div className>
-                                                    <div className="vertical-align grants-yes">
-                                                        YES
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="voter-wrapper">
-                                    <div className="row">
-                                        <div className="col-md-1"><img alt="Avatar" className="member-avatar" src="/img/grants/andy.png" />
-                                        </div>
-                                        <div className="col-md-5 col-sm-12 vertical-align">
-                                            <a href="#">
-                                                <h4 className="member-acc-nr no-margin grantsdao-data-heading padding-right">0xCD36e4F3D64B6B0c4EE8e414F0Ef288FCFE6653654</h4></a>
-                                        </div>
-                                        <div className="align-center col-md-3 col-sm-12 vertical-align">
-                                            andy
-                                        </div>
-                                        <div className="align-center col-md-3 col-sm-12 vertical-align">
-                                            <div className="utility-btn">
-                                                <div className>
-                                                    <div className="vertical-align grants-yes">
-                                                        YES
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="voter-wrapper">
-                                    <div className="row">
-                                        <div className="col-md-1"><img alt="Avatar" className="member-avatar" src="/img/grants/cryptotoit.png" />
-                                        </div>
-                                        <div className="col-md-5 col-sm-12 vertical-align">
-                                            <a href="#">
-                                                <h4 className="member-acc-nr no-margin grantsdao-data-heading padding-right">0xCD36e4F3D64B6B0c4EE8e414F0Ef288FCF432543245</h4></a>
-                                        </div>
-                                        <div className="align-center col-md-3 col-sm-12 vertical-align">
-                                            cryptotoit
-                                        </div>
-                                        <div className="align-center col-md-3 col-sm-12 vertical-align">
-                                            <div className="utility-btn">
-                                                <div className>
-                                                    <div className="vertical-align grants-to-vote">
-                                                        TO VOTE
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="voter-wrapper">
-                                    <div className="row">
-                                        <div className="col-md-1"><img alt="Avatar" className="member-avatar" src="/img/grants/david.png" />
-                                        </div>
-                                        <div className="col-md-5 col-sm-12 vertical-align">
-                                            <a href="#">
-                                                <h4 className="member-acc-nr no-margin grantsdao-data-heading padding-right">0xCD36e4F3D64B6B0c4EE8e414F0Ef288FCFE1f9876987</h4></a>
-                                        </div>
-                                        <div className="align-center col-md-3 col-sm-12 vertical-align">
-                                            david
-                                        </div>
-                                        <div className="align-center col-md-3 col-sm-12 vertical-align">
-                                            <div className="utility-btn">
-                                                <div className>
-                                                    <div className="vertical-align grants-yes">
-                                                        YES
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="voter-wrapper-last">
-                                    <div className="row">
-                                        <div className="col-md-1"><img alt="Avatar" className="member-avatar" src="/img/grants/member-avatar.png" />
-                                        </div>
-                                        <div className="col-md-5 col-sm-12 vertical-align">
-                                            <a href="#">
-                                                <h4 className="member-acc-nr no-margin grantsdao-data-heading padding-right">0xCD36e4F3D64B6B0c4EE8e414F0Ef288FCFE543245324</h4></a>
-                                        </div>
-                                        <div className="align-center col-md-3 col-sm-12 vertical-align">
-                                            RubberˆDuck
-                                        </div>
-                                        <div className="align-center col-md-3 col-sm-12 vertical-align">
-                                            <div className="utility-btn">
-                                                <div className>
-                                                    <div className="vertical-align grants-yes">
-                                                        YES
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                {adminsRender}
                             </div>
                         </div>
                         {/* ========================= Tabs Data End========================= */}{/* ========================= Candidates Info End========================= */}{/* ========================= Divider Start ========================= */}
