@@ -1,75 +1,122 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import styles from '../styles/Home.module.css';
 import Link from 'next/link';
+
+import Moment from 'react-moment';
+
 import { Header } from '../../components/Header';
 import { Navbar } from '../../components/Navbar';
 import { Footer } from '../../components/Footer';
-import { grantsData } from '../../domainData/GrantsData';
 
 import useGetSnapshotSpace from '../../queries/useGetSnapshotSpace';
 import useGetSnapshotProposals from '../../queries/useGetSnapshotProposals';
 import useGetSnapshotVotes from '../../queries/useGetSnapshotVotes';
+import {useState} from "react";
 
 const Grants = () => {
+
+	const statuses = ['all', 'active', 'closed'];
+
+	const [currentStatus, setCurrentStatus] = useState('all');
+
 	const snapshotSpaceQuery = useGetSnapshotSpace();
 	const space = snapshotSpaceQuery?.data ?? null;
 
+	console.log('space');
 	console.log(space);
 
 	const snapshotProposalsQuery = useGetSnapshotProposals();
 	const proposals = snapshotProposalsQuery?.data ?? null;
 	const proposalIds = proposals && proposals.length > 0 ? proposals.map(({ id }) => id) : null;
 
+	console.log('proposals');
+	console.log(proposals);
+
+	console.log('proposalIds');
+	console.log(proposalIds);
+
 	const snapshotVotesQuery = useGetSnapshotVotes(proposalIds);
 	const votes = snapshotVotesQuery?.data ?? null;
-
 
 	console.log('votes');
 	console.log(votes);
 
+	let statusesRender = [];
+
+	Object.entries(statuses).forEach(([key, statusItem]) => {
+		statusesRender.push(
+			<li className="nav-item" role="presentation">
+				<div
+					aria-controls={statusItem}
+					aria-selected={ currentStatus === statusItem ? 'true' : 'false'}
+					className={"nav-link " +(currentStatus === statusItem ? 'active' : '')}
+					data-bs-target={'#'+statusItem}
+					data-bs-toggle="tab"
+					id={statusItem+'-tab'}
+					role="tab"
+					style={{cursor: "pointer;"}}
+					onClick={() => setCurrentStatus(statusItem)}
+				>
+					{statusItem}
+				</div>
+			</li>
+		);
+	});
+
 	let grantsRender = [];
 
-	Object.entries(grantsData).forEach(([key, grant]) =>
-		grantsRender.push(
-			<div className="data-wrapper">
-				<div className="row">
-					<div className="col-md-6 col-sm-12 data-p">
-						<div className="data-description-wrapper">
-							<Link href={'/grants/' + key}>
-								<a className="hover">
-									<h4 className="no-margin grantsdao-data-heading padding-right">{grant.title}</h4>
-									<p className="no-margin bio-info-p grants-excerpt bio-info-p no-margin padding-right">
-										{grant.description}
-										<span className="sm-font synth-blue bold">View Details</span>
-									</p>
-								</a>
-							</Link>
-						</div>
-						<div className="request-details-wrapper">
+	if (proposals) {
+
+		var proposalsFiltered = proposals.filter ( item => currentStatus === 'all' || item.state === currentStatus);
+
+		Object.entries(proposalsFiltered).forEach(([key, proposal]) => {
+
+			let voteCount = 3; //votes[proposal.id].length;
+
+			grantsRender.push(
+				<div className="data-wrapper">
+					<div className="row">
+						<div className="col-md-6 col-sm-12 data-p">
+							<div className="data-description-wrapper">
+								<Link href={'/grants/' + proposal.id}>
+									<a className="hover">
+										<h4 className="no-margin grantsdao-data-heading padding-right">{proposal.title}</h4>
+										<p className="no-margin bio-info-p grants-excerpt bio-info-p no-margin padding-right">
+											{proposal.body}
+											<span className="sm-font synth-blue bold"> View Details</span>
+										</p>
+									</a>
+								</Link>
+							</div>
+							<div className="request-details-wrapper">
 							<span className="sm-font no-margin bio-info">
-								<span className="bio-info">Requested by</span>{' '}
-								<span className="bio-info synth-blue">{grant.requesterBy}</span> in{' '}
-								<span className="sm-font bio-info synth-pink">Grants</span>{' '}
-								<span className="sm-font bio-info">
-									on <span className="synth-blue">{grant.requestedDate}</span>
+								<span className="bio-info"> Requested by </span>
+								<span className="bio-info synth-blue"> {proposal.requesterBy} </span> in
+								<span className="sm-font bio-info synth-pink"> Grants </span>
+									<span className="sm-font bio-info">
+										on <span className="synth-blue">
+										<Moment date={proposal.start} format="D MMM YYYY"/>
+									</span>
 								</span>
 							</span>
+							</div>
+						</div>
+						<div className="vertical-align align-center col-md-1 col-sm-12 votes">{voteCount}</div>
+						<div className="vertical-align align-center col-md-3 col-sm-12">
+							<Moment date={proposal.end} format="D MMM YYYY"/>
+						</div>
+						<div className="vertical-align align-center col-md-2 col-sm-12">
+							<div className="voting-wrapper">
+								<div className="vertical-align grants-applied">{proposal.state}</div>
+							</div>
 						</div>
 					</div>
-					<div className="vertical-align align-center col-md-1 col-sm-12 votes">{grant.votes}</div>
-					<div className="vertical-align align-center col-md-3 col-sm-12">{grant.budget}</div>
-					<div className="vertical-align align-center col-md-2 col-sm-12">
-						<div className="voting-wrapper">
-							<div className="vertical-align grants-applied">{grant.status}</div>
-						</div>
-					</div>
+					{/* ========================= Repeat Data End ========================= */}
+					<div className="soft-divider"></div>
 				</div>
-				{/* ========================= Repeat Data End ========================= */}
-				<div className="soft-divider"></div>
-			</div>
-		)
-	);
+			)
+		})
+	}
 
 	return (
 		<>
@@ -136,109 +183,13 @@ const Grants = () => {
 									<div className="col-md-10">
 										<div className="synth-tabs">
 											<ul className="tabs nav nav-tabs" id="myTab" role="tablist">
-												<li className="nav-item" role="presentation">
-													<div
-														aria-controls="home"
-														aria-selected="true"
-														className="nav-link active"
-														data-bs-target="#all"
-														data-bs-toggle="tab"
-														id="home-tab"
-														role="tab"
-													>
-														All
-													</div>
-												</li>
-												<li className="nav-item" role="presentation">
-													<button
-														aria-controls="applied"
-														aria-selected="false"
-														className="nav-link"
-														data-bs-target="#applied"
-														data-bs-toggle="tab"
-														id="applied-tab"
-														role="tab"
-														type="button"
-													>
-														Applied
-													</button>
-												</li>
-												<li className="nav-item" role="presentation">
-													<button
-														aria-controls="approved"
-														aria-selected="false"
-														className="nav-link"
-														data-bs-target="#approved"
-														data-bs-toggle="tab"
-														id="approved-tab"
-														role="tab"
-														type="button"
-													>
-														Approved
-													</button>
-												</li>
-												<li className="nav-item" role="presentation">
-													<button
-														aria-controls="rejected"
-														aria-selected="false"
-														className="nav-link"
-														data-bs-target="#rejected"
-														data-bs-toggle="tab"
-														id="rejected-tab"
-														role="tab"
-														type="button"
-													>
-														Rejected
-													</button>
-												</li>
-												<li className="nav-item" role="presentation">
-													<button
-														aria-controls="active"
-														aria-selected="false"
-														className="nav-link"
-														data-bs-target="#active"
-														data-bs-toggle="tab"
-														id="active-tab"
-														role="tab"
-														type="button"
-													>
-														Active
-													</button>
-												</li>
-												<li className="nav-item" role="presentation">
-													<button
-														aria-controls="completed"
-														aria-selected="false"
-														className="nav-link"
-														data-bs-target="#completed"
-														data-bs-toggle="tab"
-														id="completed-tab"
-														role="tab"
-														type="button"
-													>
-														Completed
-													</button>
-												</li>
-												<li className="nav-item" role="presentation">
-													<button
-														aria-controls="cancelled"
-														aria-selected="false"
-														className="nav-link"
-														data-bs-target="#cancelled"
-														data-bs-toggle="tab"
-														id="cancelled-tab"
-														role="tab"
-														type="button"
-													>
-														Cancelled
-													</button>
-												</li>
+												{statusesRender}
 											</ul>
 										</div>
 									</div>
 									<div className="vertical-align align-center col-md-2 col-sm-12">
 										<div className="utility-btn">
-                                            <Link href="/grants/grant-application">
+											<Link href="/grants/grant-application">
 												<a>
 													<button
 														className="vertical-align grants-apply-btn wow fadeInUp"
