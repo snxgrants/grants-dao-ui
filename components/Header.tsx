@@ -1,5 +1,6 @@
 
 import Head from "next/head";
+import Button from "./Button";
 
 export const Header = () => {
     return (
@@ -25,4 +26,4 @@ export const Header = () => {
             </Head>
         </>
     )
-}
+};
