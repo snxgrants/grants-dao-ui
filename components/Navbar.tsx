@@ -35,6 +35,14 @@ export const Navbar = () => {
     setWalletOptionsModalOpened(false);
   });
 
+  const onConnectWallet = () => {
+    if (!!walletAddress) {
+      setWalletOptionsModalOpened(!walletOptionsModalOpened);
+    } else {
+      connectWallet();
+    }
+  };
+
   if (!!walletAddress) {
     walletRender = (
       <>
@@ -45,65 +53,6 @@ export const Navbar = () => {
           <FlexDivCentered>
             <StyledConnectionDot />
             <UpperCased>{truncateAddress(walletAddress)}</UpperCased>
-          </FlexDivCentered>
-        </WalletButton>
-        {walletOptionsModalOpened && (
-          <StyledMenuModal ref={walletOptionsModalDismiss}>
-            <Buttons>
-              <StyledButton
-                onClick={() => {
-                  setWalletOptionsModalOpened(false);
-                  connectWallet();
-                }}
-              >
-                <svg
-                  width="16"
-                  height="16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M13.333 3.333v1.52c.394.234.667.654.667 1.147v4c0 .493-.273.913-.667 1.147v1.52c0 .733-.6 1.333-1.333 1.333H2.667c-.74 0-1.334-.6-1.334-1.333V3.333C1.333 2.6 1.927 2 2.667 2H12c.733 0 1.333.6 1.333 1.333zM8 10h4.667V6H8v4zm-5.333 2.667V3.333H12v1.334H8c-.733 0-1.333.6-1.333 1.333v4c0 .733.6 1.333 1.333 1.333h4v1.334H2.667zM9 8a1 1 0 112 0 1 1 0 01-2 0z"
-                    fill="#828295"
-                  ></path>
-                </svg>
-                Change Wallet
-              </StyledButton>
-              <StyledTextButton
-                onClick={() => {
-                  setWalletOptionsModalOpened(false);
-                  disconnectWallet();
-                }}
-              >
-                <svg
-                  width="16"
-                  height="16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M3.333 2h9.334C13.4 2 14 2.6 14 3.333v9.334C14 13.4 13.4 14 12.667 14H3.333C2.593 14 2 13.4 2 12.667V10h1.333v2.667h9.334V3.333H3.333V6H2V3.333C2 2.6 2.593 2 3.333 2zm4.334 9.333l-.94-.94 1.72-1.726H2V7.333h6.447l-1.72-1.726.94-.94L11 8l-3.333 3.333z"
-                    fill="#ED1EFF"
-                  ></path>
-                </svg>
-                Disconnect
-              </StyledTextButton>
-            </Buttons>
-          </StyledMenuModal>
-        )}
-      </>
-    );
-  } else {
-    walletRender = (
-      <>
-        <WalletButton variant="solid" onClick={connectWallet}>
-          <FlexDivCentered>
-            <StyledConnectionDot />
-            <UpperCased>Connect</UpperCased>
           </FlexDivCentered>
         </WalletButton>
       </>
@@ -161,7 +110,71 @@ export const Navbar = () => {
                       <li className="nav-item">
                         <Link href="/treasury">Treasury</Link>
                       </li>
-                      <li className="nav-item">{walletRender}</li>
+                      <li className="nav-item">
+                        <WalletButtonWrapper>
+                          <WalletButton
+                            variant="solid"
+                            onClick={onConnectWallet}
+                          >
+                            <FlexDivCentered>
+                              <StyledConnectionDot />
+                              <UpperCased>
+                                {!!walletAddress
+                                  ? truncateAddress(walletAddress)
+                                  : "Connect"}
+                              </UpperCased>
+                            </FlexDivCentered>
+                          </WalletButton>
+                          {walletOptionsModalOpened && (
+                            <StyledMenuModal ref={walletOptionsModalDismiss}>
+                              <Buttons>
+                                <StyledButton
+                                  onClick={() => {
+                                    setWalletOptionsModalOpened(false);
+                                    connectWallet();
+                                  }}
+                                >
+                                  <svg
+                                    width="16"
+                                    height="16"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      fill-rule="evenodd"
+                                      clip-rule="evenodd"
+                                      d="M13.333 3.333v1.52c.394.234.667.654.667 1.147v4c0 .493-.273.913-.667 1.147v1.52c0 .733-.6 1.333-1.333 1.333H2.667c-.74 0-1.334-.6-1.334-1.333V3.333C1.333 2.6 1.927 2 2.667 2H12c.733 0 1.333.6 1.333 1.333zM8 10h4.667V6H8v4zm-5.333 2.667V3.333H12v1.334H8c-.733 0-1.333.6-1.333 1.333v4c0 .733.6 1.333 1.333 1.333h4v1.334H2.667zM9 8a1 1 0 112 0 1 1 0 01-2 0z"
+                                      fill="#828295"
+                                    ></path>
+                                  </svg>
+                                  Change Wallet
+                                </StyledButton>
+                                <StyledTextButton
+                                  onClick={() => {
+                                    setWalletOptionsModalOpened(false);
+                                    disconnectWallet();
+                                  }}
+                                >
+                                  <svg
+                                    width="16"
+                                    height="16"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      fill-rule="evenodd"
+                                      clip-rule="evenodd"
+                                      d="M3.333 2h9.334C13.4 2 14 2.6 14 3.333v9.334C14 13.4 13.4 14 12.667 14H3.333C2.593 14 2 13.4 2 12.667V10h1.333v2.667h9.334V3.333H3.333V6H2V3.333C2 2.6 2.593 2 3.333 2zm4.334 9.333l-.94-.94 1.72-1.726H2V7.333h6.447l-1.72-1.726.94-.94L11 8l-3.333 3.333z"
+                                      fill="#ED1EFF"
+                                    ></path>
+                                  </svg>
+                                  Disconnect
+                                </StyledTextButton>
+                              </Buttons>
+                            </StyledMenuModal>
+                          )}
+                        </WalletButtonWrapper>
+                      </li>
                     </ul>
                   </div>
                   {/* navbar collapse */}
@@ -183,7 +196,7 @@ export const Navbar = () => {
 const NetworkTag = styled(FlexDivCentered)`
   background: ${mediumBlue};
   font-size: 10px;
-  font-family: "GT America Condensed-Medium";
+  font-family: ${condensedMedium};
   padding: 2px 5px;
   border-radius: 100px;
   height: 18px;
@@ -192,12 +205,18 @@ const NetworkTag = styled(FlexDivCentered)`
   text-transform: uppercase;
 `;
 
+const WalletButtonWrapper = styled.div`
+  position: relative;
+`;
+
 const WalletButton = styled(Button).attrs({
   size: "md",
 })`
   width: 175px;
+  color: ${white};
   display: inline-flex;
   align-items: center;
+  font-family: ${condensedMedium};
   justify-content: center;
   border: 1px solid ${mediumBlue};
   background: ${navy};
@@ -233,7 +252,8 @@ const StyledConnectionDot = styled(Dot)`
 `;
 
 const StyledMenuModal = styled(FlexDivColCentered)`
-  margin-top: 12px;
+  position: absolute;
+  top: calc(100% + 6px);
   background: ${navy};
   border: 1px solid ${mediumBlue};
   border-radius: 4px;
