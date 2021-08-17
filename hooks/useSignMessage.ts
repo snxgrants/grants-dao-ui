@@ -1,12 +1,9 @@
-import { useRecoilValue } from "recoil";
-import { useMutation } from "react-query";
+import { ethers } from "ethers";
+import { useMutation, useQueryClient } from "react-query";
 import axios from "axios";
 
-import { MESSAGE_URL, SPACE_KEY } from "constants/snapshot";
-import { walletAddressState } from "store/wallet";
-import Connector from "containers/Connector";
-import { QUERY_KEYS } from "../queries/constants";
-import { ethers } from "ethers";
+import { MESSAGE_URL, SNAPSHOT_ENS, QUERY_KEYS } from "../constants/snapshot";
+import Connector from "../containers/Connector";
 
 type VotePayload = {
   proposal: string;
@@ -42,14 +39,14 @@ export enum SignatureType {
 }
 
 type SignaturePayload = {
-  spaceKey: SPACE_KEY;
+  spaceKey: string;
   type: SignatureType;
   payload: VotePayload | ProposalPayload;
 };
 
 const useSignMessage = () => {
-  const { signer } = Connector.useContainer();
-  const walletAddress = useRecoilValue(walletAddressState);
+  const { signer, walletAddress } = Connector.useContainer();
+  const queryClient = useQueryClient();
 
   return useMutation(
     async (payload: SignaturePayload) => {
@@ -75,7 +72,11 @@ const useSignMessage = () => {
         },
       });
     },
+
     {
+      onSuccess: () => {
+        // queryClient.invalidateQueries(QUERY_KEYS.Snapshot.Proposals);
+      },
       onError: (e: any) => {
         return e;
       },
