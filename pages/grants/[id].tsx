@@ -10,13 +10,15 @@ import useGetSnapshotSpace from "../../queries/useGetSnapshotSpace";
 import useGetSnapshotProposals from "../../queries/useGetSnapshotProposals";
 import useGetSnapshotVotes from "../../queries/useGetSnapshotVotes";
 import Moment from "react-moment";
-import { isConnected, onboard, state } from "../../services/Wallet";
+// import { isConnected, onboard, state } from "../../services/Wallet";
+import Connector from "../../containers/Connector";
 import { MEMBERS } from "../../queries/constants";
 
 export default function Grant() {
   const { id } = useRouter().query;
 
   console.log(id);
+  const { onboard, walletAddress } = Connector.useContainer();
 
   const snapshotSpaceQuery = useGetSnapshotSpace();
   const space = snapshotSpaceQuery?.data ?? {};
@@ -49,21 +51,21 @@ export default function Grant() {
 
   console.log(proposal);
 
-  let userAddress = "";
+  let userAddress = walletAddress;
 
-  if (isConnected()) {
-    console.log("onboard.state()");
-    console.log(onboard.getState());
+  // if (isConnected()) {
+  //   console.log("onboard.state()");
+  //   console.log(onboard?.getState());
 
-    console.log("userAddress");
-    console.log(onboard.getState().address);
+  //   console.log("userAddress");
+  //   console.log(onboard?.getState().address);
 
-    userAddress = onboard.getState().address;
-  }
+  //   userAddress = onboard?.getState().address;
+  // }
 
   userAddress = "Qmevstpy6Bf9LHC9znkf43Rarn5pVfv33Jr3aqXrcHKVVG"; //admin address test
 
-  let adminsRender = [];
+  let adminsRender: JSX.Element[] = [];
 
   if (userAddress && admins) {
     Object.entries(admins).forEach(([key, adminAddress]) => {
@@ -88,7 +90,7 @@ export default function Grant() {
       let vote = "to vote";
 
       console.log("userAddress");
-      console.log(onboard.getState().address);
+      console.log(onboard?.getState().address);
 
       if (votes && votes[adminAddress]) {
         console.log("votes");
@@ -120,7 +122,7 @@ export default function Grant() {
             </div>
             <div className="align-center col-md-3 col-sm-12 vertical-align">
               <div className="utility-btn">
-                <div className>
+                <div>
                   <div className="vertical-align grants-yes">{vote}</div>
                 </div>
               </div>

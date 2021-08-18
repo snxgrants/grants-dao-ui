@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { createContainer } from "unstated-next";
-import Onboard from "bnc-onboard";
 import { ethers } from "ethers";
 import { Wallet as OnboardWallet } from "bnc-onboard/dist/src/interfaces";
 
