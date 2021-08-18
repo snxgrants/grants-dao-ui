@@ -5,45 +5,43 @@ import Link from "next/link";
 import { Header } from "../../components/Header";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
-import { addressMapping } from "../../domainData/AddressMappingData";
+import { MEMBERS } from "../../queries/constants";
 
 export default function Voting() {
-  let addressesLength = Object.keys(addressMapping).length;
-  let renderAddressRows = Object.entries(addressMapping).map(
-    ([key, value], i) => {
-      let isLast = i === addressesLength - 1;
-      return (
-        <div key={key} className={`voter-wrapper${isLast ? "-last" : ""}`}>
-          <div className="row">
-            <div className="col-md-1">
-              <img
-                alt="Avatar"
-                className="member-avatar"
-                src="/img/grants/alexander.png"
-              />
-            </div>
-            <div className="col-md-5 col-sm-12 vertical-align">
-              <a href="#">
-                <h4 className="member-acc-nr no-margin grantsdao-data-heading padding-right">
-                  {key}
-                </h4>
-              </a>
-            </div>
-            <div className="align-center col-md-3 col-sm-12 vertical-align">
-              {value}
-            </div>
-            <div className="align-center col-md-3 col-sm-12 vertical-align">
-              <div className="utility-btn">
-                <div>
-                  <div className="vertical-align member-votes">40 Votes</div>
-                </div>
+  let addressesLength = MEMBERS.length;
+  let renderAddressRows = MEMBERS.map(({ address, displayName }, i) => {
+    let isLast = i === addressesLength - 1;
+    return (
+      <div key={address} className={`voter-wrapper${isLast ? "-last" : ""}`}>
+        <div className="row">
+          <div className="col-md-1">
+            <img
+              alt="Avatar"
+              className="member-avatar"
+              src="/img/grants/alexander.png"
+            />
+          </div>
+          <div className="col-md-5 col-sm-12 vertical-align">
+            <a href="#">
+              <h4 className="member-acc-nr no-margin grantsdao-data-heading padding-right">
+                {address}
+              </h4>
+            </a>
+          </div>
+          <div className="align-center col-md-3 col-sm-12 vertical-align">
+            {displayName}
+          </div>
+          <div className="align-center col-md-3 col-sm-12 vertical-align">
+            <div className="utility-btn">
+              <div>
+                <div className="vertical-align member-votes">40 Votes</div>
               </div>
             </div>
           </div>
         </div>
-      );
-    }
-  );
+      </div>
+    );
+  });
 
   return (
     <>

@@ -16,6 +16,8 @@ export type Proposal = {
   end: number;
   state: string;
   author: string;
+  ipfs: string;
+  snapshot: string;
 };
 
 const useGetSnapshotProposals = (
@@ -43,6 +45,8 @@ const useGetSnapshotProposals = (
               end
               state
               author
+              ipfs
+              snapshot
             }
           }
         `,

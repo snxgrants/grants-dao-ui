@@ -62,8 +62,6 @@ const Grants = () => {
       (item) => currentStatus === "all" || item.state === currentStatus
     );
 
-    // let voteCount = 3; //votes[proposal.id].length;
-
     grantsRender = Object.entries(proposalsFiltered).map(([key, proposal]) => {
       let voteCount =
         votes && votes[proposal.id]

@@ -7,37 +7,33 @@ import { Footer } from "../../components/Footer";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import useGetSnapshotSpace from "../../queries/useGetSnapshotSpace";
-import useGetSnapshotProposals from "../../queries/useGetSnapshotProposals";
+import useGetSnapshotProposals, {
+  Proposal,
+} from "../../queries/useGetSnapshotProposals";
 import useGetSnapshotVotes from "../../queries/useGetSnapshotVotes";
 import Moment from "react-moment";
-import { isConnected, onboard, state } from "../../services/Wallet";
+// import { isConnected } from "../../services/Wallet";
 import { MEMBERS } from "../../queries/constants";
+import Connector from "../../containers/Connector";
+import { truncateAddress } from "../../utils/wallet";
 
 export default function Grant() {
   const { id } = useRouter().query;
-
-  console.log(id);
+  const { onboard, walletAddress } = Connector.useContainer();
 
   const snapshotSpaceQuery = useGetSnapshotSpace();
   const space = snapshotSpaceQuery?.data;
-
   const admins = space?.admins;
 
   const snapshotProposalsQuery = useGetSnapshotProposals();
-  const proposals = snapshotProposalsQuery?.data ?? null;
+  const proposals = snapshotProposalsQuery?.data;
   const proposalIds =
     proposals && proposals.length > 0 ? proposals.map(({ id }) => id) : null;
 
-  console.log("proposals");
-  console.log(proposals);
-
   const snapshotVotesQuery = useGetSnapshotVotes(proposalIds);
-  const votes = snapshotVotesQuery?.data ?? null;
+  const votes = snapshotVotesQuery?.data;
 
-  console.log("votes");
-  console.log(votes);
-
-  var proposal = {};
+  var proposal = {} as Proposal;
   if (proposals) {
     var proposalsFiltered = proposals.filter((item) => item.id === id);
 
@@ -47,23 +43,23 @@ export default function Grant() {
     proposal = proposalsFiltered[0];
   }
 
-  console.log(proposal);
+  let userAddress = walletAddress;
 
-  let userAddress = "";
+  // if (isConnected()) {
+  //   console.log("onboard.state()");
+  //   console.log(onboard.getState());
 
-  if (isConnected()) {
-    console.log("onboard.state()");
-    console.log(onboard.getState());
+  //   console.log("userAddress");
+  //   console.log(onboard.getState().address);
 
-    console.log("userAddress");
-    console.log(onboard.getState().address);
-
-    userAddress = onboard.getState().address;
-  }
+  //   userAddress = onboard.getState().address;
+  // }
 
   userAddress = "Qmevstpy6Bf9LHC9znkf43Rarn5pVfv33Jr3aqXrcHKVVG"; //admin address test
 
   let adminsRender: JSX.Element[] = [];
+  let yesVotes = 0;
+  let noVotes = 0;
 
   if (userAddress && admins) {
     Object.entries(admins).forEach(([key, adminAddress]) => {
@@ -71,8 +67,6 @@ export default function Grant() {
 
       let voterHandle = "Not Found";
       let logoUrl = "";
-
-      console.log(voter);
 
       if (voter) {
         console.log(voter);
@@ -86,18 +80,15 @@ export default function Grant() {
       let vote = "to vote";
 
       console.log("userAddress");
-      console.log(onboard.getState().address);
+      console.log(onboard?.getState().address);
 
-      if (votes && votes[adminAddress]) {
+      if (votes && votes[proposal.id]) {
         console.log("votes");
-        console.log(votes[adminAddress]);
+        console.log(votes[proposal.id][adminAddress]);
 
-        console.log(votes[adminAddress].choice);
-        console.log(choices);
-
-        vote = choices[votes[adminAddress].choice - 1];
-
-        console.log(vote);
+        console.log(votes[proposal.id][adminAddress]?.choice);
+        vote =
+          choices[votes[proposal.id][adminAddress]?.choice - 1] || "to vote";
       }
 
       adminsRender.push(
@@ -118,7 +109,7 @@ export default function Grant() {
             </div>
             <div className="align-center col-md-3 col-sm-12 vertical-align">
               <div className="utility-btn">
-                <div className>
+                <div>
                   <div className="vertical-align grants-yes">{vote}</div>
                 </div>
               </div>
@@ -222,13 +213,17 @@ export default function Grant() {
                         <span className="bio-info">Requested by </span>
                         <span className="bio-info synth-blue">
                           {proposal.author}
-                        </span>
+                        </span>{" "}
                         in
                         <span className="bio-info synth-pink"> Grants </span>
                         <span className="sm-font bio-info">
                           on{" "}
                           <span className="synth-blue">
-                            <Moment date={proposal.start} format="D MMM YYYY" />
+                            <Moment
+                              unix
+                              date={proposal.start}
+                              format="D MMM YYYY"
+                            />
                           </span>
                         </span>
                       </span>
@@ -277,24 +272,36 @@ export default function Grant() {
                           <div className="info-right col-md-4">Icon</div>
                           <div className="info-left col-md-2">Start Date</div>
                           <div className="info-right col-md-4">
-                            <Moment date={proposal.start} format="D MMM YYYY" />
+                            <Moment
+                              unix
+                              date={proposal.start}
+                              format="D MMM YYYY"
+                            />
                           </div>
                         </div>
                         <div className="row">
                           <div className="info-left col-md-2">Author</div>
                           <div className="info-right col-md-4">
-                            {proposal.author}
+                            {truncateAddress(proposal.author || "")}
                           </div>
                           <div className="info-left col-md-2">End Date</div>
                           <div className="info-right col-md-4">
-                            <Moment date={proposal.end} format="D MMM YYYY" />
+                            <Moment
+                              unix
+                              date={proposal.end}
+                              format="D MMM YYYY"
+                            />
                           </div>
                         </div>
                         <div className="row">
                           <div className="info-left col-md-2">IPFS</div>
-                          <div className="info-right col-md-4">#QmaniFD</div>
+                          <div className="info-right col-md-4">
+                            {truncateAddress(proposal.ipfs || "")}
+                          </div>
                           <div className="info-left col-md-2">Snapshot</div>
-                          <div className="info-right col-md-4">11,646,734</div>
+                          <div className="info-right col-md-4">
+                            {proposal.snapshot}
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -340,11 +347,11 @@ export default function Grant() {
                     <div className="row">
                       <div className="col-md-4 synth-tabs">
                         <span className="candidates-h">YES VOTES</span>{" "}
-                        <span className="votes-amount">4/5</span>
+                        <span className="votes-amount">{yesVotes}/5</span>
                       </div>
                       <div className="col-md-4 synth-tabs">
                         <span className="candidates-h">NO VOTES</span>
-                        <span className="votes-amount">0</span>
+                        <span className="votes-amount">{noVotes}/5</span>
                       </div>
                       <div className="col-md-1"></div>
                       <div className="vertical-align align-center col-md-3 col-sm-12">
