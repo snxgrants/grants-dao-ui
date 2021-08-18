@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
@@ -15,31 +16,22 @@ import { useState } from "react";
 
 const Grants = () => {
   const statuses = ["all", "active", "closed"];
-
   const [currentStatus, setCurrentStatus] = useState("all");
 
   const snapshotSpaceQuery = useGetSnapshotSpace();
-  const space = snapshotSpaceQuery?.data ?? null;
-
-  console.log("space");
-  console.log(space);
+  const space = snapshotSpaceQuery?.data;
 
   const snapshotProposalsQuery = useGetSnapshotProposals();
   const proposals = snapshotProposalsQuery?.data ?? null;
   const proposalIds =
     proposals && proposals.length > 0 ? proposals.map(({ id }) => id) : null;
 
-  console.log("proposals");
-  console.log(proposals);
-
-  console.log("proposalIds");
-  console.log(proposalIds);
-
   const snapshotVotesQuery = useGetSnapshotVotes(proposalIds);
-  const votes = snapshotVotesQuery?.data ?? null;
+  const votes = snapshotVotesQuery?.data;
 
-  console.log("votes");
-  console.log(votes);
+  useEffect(() => {
+    console.log(votes);
+  }, [votes]);
 
   let statusesRender = Object.entries(statuses).map(([key, statusItem]) => {
     return (
@@ -54,7 +46,7 @@ const Grants = () => {
           data-bs-toggle="tab"
           id={statusItem + "-tab"}
           role="tab"
-          style={{ cursor: "pointer;" }}
+          style={{ cursor: "pointer" }}
           onClick={() => setCurrentStatus(statusItem)}
         >
           {statusItem}
@@ -70,9 +62,13 @@ const Grants = () => {
       (item) => currentStatus === "all" || item.state === currentStatus
     );
 
-    let voteCount = 3; //votes[proposal.id].length;
+    // let voteCount = 3; //votes[proposal.id].length;
 
     grantsRender = Object.entries(proposalsFiltered).map(([key, proposal]) => {
+      let voteCount =
+        votes && votes[proposal.id]
+          ? Object.keys(votes[proposal.id]).length
+          : 0;
       return (
         <div key={key} className="data-wrapper">
           <div className="row">

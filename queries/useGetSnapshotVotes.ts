@@ -8,12 +8,12 @@ import {
 } from "../constants/snapshot";
 
 export type Vote = {
-  choice: string;
+  choice: number;
   created: number;
   voter: string;
 };
 
-export type Votes = { [key: string]: Vote };
+export type Votes = Record<string, Record<string, Vote>>;
 
 const useGetSnapshotVotes = (
   proposalIds: string[] | null,
@@ -41,7 +41,8 @@ const useGetSnapshotVotes = (
       );
       return votes.reduce((acc: any, vote: any) => {
         const { proposal, choice, created, voter } = vote;
-        acc[proposal.id] = {
+        acc[proposal.id] = acc[proposal.id] || {};
+        acc[proposal.id][voter] = {
           choice,
           created,
           voter,
