@@ -19,9 +19,9 @@ export type Proposal = {
 };
 
 const useGetSnapshotProposals = (
-  options?: UseQueryOptions<[Proposal] | null>
+  options?: UseQueryOptions<Proposal[] | null>
 ) => {
-  return useQuery<[Proposal] | null>(
+  return useQuery<Proposal[] | null>(
     QUERY_KEYS.Snapshot.Proposals(SNAPSHOT_ENS),
     async () => {
       const { proposals } = await request(

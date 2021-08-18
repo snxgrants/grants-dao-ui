@@ -10,20 +10,18 @@ import useGetSnapshotSpace from "../../queries/useGetSnapshotSpace";
 import useGetSnapshotProposals from "../../queries/useGetSnapshotProposals";
 import useGetSnapshotVotes from "../../queries/useGetSnapshotVotes";
 import Moment from "react-moment";
-// import { isConnected, onboard, state } from "../../services/Wallet";
-import Connector from "../../containers/Connector";
+import { isConnected, onboard, state } from "../../services/Wallet";
 import { MEMBERS } from "../../queries/constants";
 
 export default function Grant() {
   const { id } = useRouter().query;
 
   console.log(id);
-  const { onboard, walletAddress } = Connector.useContainer();
 
   const snapshotSpaceQuery = useGetSnapshotSpace();
-  const space = snapshotSpaceQuery?.data ?? {};
+  const space = snapshotSpaceQuery?.data;
 
-  const admins = space.admins;
+  const admins = space?.admins;
 
   const snapshotProposalsQuery = useGetSnapshotProposals();
   const proposals = snapshotProposalsQuery?.data ?? null;
@@ -51,17 +49,17 @@ export default function Grant() {
 
   console.log(proposal);
 
-  let userAddress = walletAddress;
+  let userAddress = "";
 
-  // if (isConnected()) {
-  //   console.log("onboard.state()");
-  //   console.log(onboard?.getState());
+  if (isConnected()) {
+    console.log("onboard.state()");
+    console.log(onboard.getState());
 
-  //   console.log("userAddress");
-  //   console.log(onboard?.getState().address);
+    console.log("userAddress");
+    console.log(onboard.getState().address);
 
-  //   userAddress = onboard?.getState().address;
-  // }
+    userAddress = onboard.getState().address;
+  }
 
   userAddress = "Qmevstpy6Bf9LHC9znkf43Rarn5pVfv33Jr3aqXrcHKVVG"; //admin address test
 
@@ -69,16 +67,14 @@ export default function Grant() {
 
   if (userAddress && admins) {
     Object.entries(admins).forEach(([key, adminAddress]) => {
-      let voter = MEMBERS.filter((item) => item.address === adminAddress);
+      let [voter] = MEMBERS.filter((item) => item.address === adminAddress);
 
       let voterHandle = "Not Found";
       let logoUrl = "";
 
       console.log(voter);
 
-      if (voter && voter.length > 0) {
-        voter = voter[0];
-
+      if (voter) {
         console.log(voter);
 
         voterHandle = voter.displayName;
@@ -90,7 +86,7 @@ export default function Grant() {
       let vote = "to vote";
 
       console.log("userAddress");
-      console.log(onboard?.getState().address);
+      console.log(onboard.getState().address);
 
       if (votes && votes[adminAddress]) {
         console.log("votes");
@@ -122,7 +118,7 @@ export default function Grant() {
             </div>
             <div className="align-center col-md-3 col-sm-12 vertical-align">
               <div className="utility-btn">
-                <div>
+                <div className>
                   <div className="vertical-align grants-yes">{vote}</div>
                 </div>
               </div>
