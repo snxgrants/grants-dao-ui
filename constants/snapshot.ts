@@ -1,8 +1,8 @@
 export const SNAPSHOT_ENS = "grantsdao.eth";
 
-export const SNAPSHOT_ENDPOINT = `https://hub.snapshot.page/graphql`;
+export const SNAPSHOT_ENDPOINT = `https://hub.snapshot.org/graphql`;
 
-export const MESSAGE_URL = `https://hub.snapshot.page/api/message`;
+export const MESSAGE_URL = `https://hub.snapshot.org/api/message`;
 
 export const QUERY_KEYS = {
   Snapshot: {
