@@ -21,12 +21,8 @@ const sanitiseTimestamp = (timestamp: number) => {
 };
 
 export default function GrantApplication() {
-  const {
-    walletAddress,
-    connectWallet,
-    provider,
-    signer,
-  } = Connector.useContainer();
+  const { walletAddress, connectWallet, provider, signer } =
+    Connector.useContainer();
   const createProposal = useSignMessage();
   const router = useRouter();
 
@@ -60,7 +56,7 @@ export default function GrantApplication() {
   const onSubmit = async () => {
     if (!!walletAddress) {
       if (validSubmission && !!block) {
-        router.push("/grant-application-thank-you");
+        router.push("/grants/grant-application-thank-you");
         try {
           const proposalStartDate = sanitiseTimestamp(new Date().getTime());
           const proposalEndDate =
@@ -216,8 +212,7 @@ export default function GrantApplication() {
                             className="form-control"
                             id="title"
                             placeholder="Enter your title"
-                            rows="4"
-                            defaultValue=""
+                            rows={4}
                           />
                         </div>
                       </div>
@@ -253,8 +248,7 @@ export default function GrantApplication() {
                             className="form-control"
                             id="overview"
                             placeholder="Add your description"
-                            rows="4"
-                            defaultValue=""
+                            rows={4}
                           />
                         </div>
                       </div>

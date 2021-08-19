@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Link from "next/link";
+// @ts-ignore
 import useDismiss from "use-dismiss";
 import styled, { css } from "styled-components";
 
@@ -64,10 +65,11 @@ export const Navbar = () => {
             <div className="row align-items-center">
               <div className="col-lg-12">
                 <nav className="navbar navbar-expand-lg">
-                  <Link className="navbar-brand" href="/">
+                  <Link href="/" passHref>
                     <img
                       alt="Logo"
                       src="/img/logo/synthetix_grantsDAO_logo.svg"
+                      style={{ cursor: "pointer" }}
                     />
                   </Link>
                   <button
@@ -235,12 +237,12 @@ const WalletButton = styled(Button).attrs({
   }
 `;
 
-const Dot = styled.span<{ background: string }>`
+const Dot = styled.span<{ background?: string }>`
   display: inline-block;
   width: 8px;
   height: 8px;
   border-radius: 100%;
-  background-color: "#29B6AF";
+  background-color: #29b6af;
 `;
 
 const StyledConnectionDot = styled(Dot)`

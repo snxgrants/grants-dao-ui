@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { Navbar } from "../../components/Navbar";
@@ -40,7 +41,7 @@ const ThankYou = () => {
                   </p>
                   <div className="vertical-align align-center col-md-2 col-sm-12 margin-auto">
                     <div className="utility-btn">
-                      <a href="grants.html">
+                      <Link href="/grants" passHref>
                         <button
                           className="vertical-align back-to-grants-btn wow fadeInUp"
                           data-wow-delay=".6s"
@@ -52,7 +53,7 @@ const ThankYou = () => {
                         >
                           BACK TO GRANTS
                         </button>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>

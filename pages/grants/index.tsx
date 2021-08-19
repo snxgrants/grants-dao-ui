@@ -13,13 +13,11 @@ import useGetSnapshotSpace from "../../queries/useGetSnapshotSpace";
 import useGetSnapshotProposals from "../../queries/useGetSnapshotProposals";
 import useGetSnapshotVotes from "../../queries/useGetSnapshotVotes";
 import { useState } from "react";
+import { truncateAddress } from "../../utils/wallet";
 
 const Grants = () => {
   const statuses = ["all", "active", "closed"];
   const [currentStatus, setCurrentStatus] = useState("all");
-
-  const snapshotSpaceQuery = useGetSnapshotSpace();
-  const space = snapshotSpaceQuery?.data;
 
   const snapshotProposalsQuery = useGetSnapshotProposals();
   const proposals = snapshotProposalsQuery?.data ?? null;
@@ -28,10 +26,6 @@ const Grants = () => {
 
   const snapshotVotesQuery = useGetSnapshotVotes(proposalIds);
   const votes = snapshotVotesQuery?.data;
-
-  useEffect(() => {
-    console.log(votes);
-  }, [votes]);
 
   let statusesRender = Object.entries(statuses).map(([key, statusItem]) => {
     return (
@@ -92,7 +86,7 @@ const Grants = () => {
                   <span className="bio-info"> Requested by </span>
                   <span className="bio-info synth-blue">
                     {" "}
-                    {proposal.author}{" "}
+                    {truncateAddress(proposal.author || "")}{" "}
                   </span>{" "}
                   in
                   <span className="sm-font bio-info synth-pink"> Grants </span>
