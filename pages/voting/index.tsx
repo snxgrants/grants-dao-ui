@@ -6,11 +6,31 @@ import { Header } from "../../components/Header";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
 import { MEMBERS } from "../../queries/constants";
+import useGetSnapshotProposals from "../../queries/useGetSnapshotProposals";
+import useGetSnapshotVotes from "../../queries/useGetSnapshotVotes";
 
 export default function Voting() {
+  const snapshotProposalsQuery = useGetSnapshotProposals();
+  const proposals = snapshotProposalsQuery?.data;
+  const proposalIds =
+    proposals && proposals.length > 0 ? proposals.map(({ id }) => id) : null;
+  const snapshotVotesQuery = useGetSnapshotVotes(proposalIds);
+  const votes = snapshotVotesQuery?.data;
+
   let addressesLength = MEMBERS.length;
   let renderAddressRows = MEMBERS.map(({ address, displayName }, i) => {
     let isLast = i === addressesLength - 1;
+
+    let votesCount = 0;
+
+    if (votes) {
+      Object.values(votes).forEach((proposal) => {
+        votesCount += Object.values(proposal).filter(
+          (v) => v.voter === address
+        ).length;
+      });
+    }
+
     return (
       <div key={address} className={`voter-wrapper${isLast ? "-last" : ""}`}>
         <div className="row">
@@ -34,7 +54,9 @@ export default function Voting() {
           <div className="align-center col-md-3 col-sm-12 vertical-align">
             <div className="utility-btn">
               <div>
-                <div className="vertical-align member-votes">40 Votes</div>
+                <div className="vertical-align member-votes">
+                  {votesCount} Votes
+                </div>
               </div>
             </div>
           </div>
@@ -91,8 +113,8 @@ export default function Voting() {
                   </div>
                   <div className="vertical-align align-center col-md-6 col-sm-12">
                     <div className="epoch">
-                      <span className="synth-h-start">start: </span> 15/03/2021
-                      - <span className="synth-h-end">End: </span> 15/06/2021
+                      <span className="synth-h-start">start: </span> 15/06/2021
+                      - <span className="synth-h-end">End: </span> 15/09/2021
                     </div>
                   </div>
                 </div>
