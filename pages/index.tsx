@@ -67,19 +67,18 @@ export default function Home() {
                     </Link>
                   </span>
                   <span className="synth-hero-btn">
-                    <Link href="/initiatives">
-                      <a
-                        className="hero-btn wow fadeInUp"
-                        data-wow-delay=".2s"
-                        rel="nofollow"
-                      >
-                        <img
-                          alt="Join an Innitiative"
-                          className="apply-for-grant-btn"
-                          src="/img/buttons/join-initiative-btn.png"
-                        />
-                      </a>
-                    </Link>
+                    <a
+                      className="hero-btn wow fadeInUp"
+                      data-wow-delay=".2s"
+                      rel="nofollow"
+                      style={{ cursor: "not-allowed" }}
+                    >
+                      <img
+                        alt="Join an Initiative"
+                        className="apply-for-grant-btn"
+                        src="/img/buttons/join-initiative-btn.png"
+                      />
+                    </a>
                   </span>
                 </div>
               </div>
