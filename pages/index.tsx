@@ -71,7 +71,6 @@ export default function Home() {
                       className="hero-btn wow fadeInUp"
                       data-wow-delay=".2s"
                       rel="nofollow"
-                      style={{ cursor: "not-allowed" }}
                     >
                       <img
                         alt="Join an Initiative"

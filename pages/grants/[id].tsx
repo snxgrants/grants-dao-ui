@@ -35,12 +35,7 @@ export default function Grant() {
 
   var proposal = {} as Proposal;
   if (proposals) {
-    var proposalsFiltered = proposals.filter((item) => item.id === id);
-
-    console.log("proposalsFiltered");
-    console.log(proposalsFiltered);
-
-    proposal = proposalsFiltered[0];
+    [proposal] = proposals.filter((item) => item.id === id);
   }
 
   let userAddress = walletAddress;
@@ -62,15 +57,13 @@ export default function Grant() {
   let noVotes = 0;
 
   if (userAddress && admins) {
-    Object.entries(admins).forEach(([key, adminAddress]) => {
+    adminsRender = Object.entries(admins).map(([key, adminAddress]) => {
       let [voter] = MEMBERS.filter((item) => item.address === adminAddress);
 
       let voterHandle = "Not Found";
       let logoUrl = "";
 
       if (voter) {
-        console.log(voter);
-
         voterHandle = voter.displayName;
         logoUrl = voter.logoUrl;
       }
@@ -83,16 +76,20 @@ export default function Grant() {
       console.log(onboard?.getState().address);
 
       if (votes && votes[proposal.id]) {
-        console.log("votes");
-        console.log(votes[proposal.id][adminAddress]);
-
-        console.log(votes[proposal.id][adminAddress]?.choice);
-        vote =
-          choices[votes[proposal.id][adminAddress]?.choice - 1] || "to vote";
+        const voteIndex = votes[proposal.id][adminAddress]?.choice - 1;
+        if (choices[voteIndex]) {
+          vote = choices[voteIndex];
+          // (voteIndex === 0 ? yesVotes : noVotes)++;
+          if (voteIndex == 0) {
+            yesVotes++;
+          } else {
+            noVotes++;
+          }
+        }
       }
 
-      adminsRender.push(
-        <div className="voter-wrapper">
+      return (
+        <div key={adminAddress} className="voter-wrapper">
           <div className="row">
             <div className="col-md-1">
               <img alt="Avatar" className="member-avatar" src={logoUrl} />
