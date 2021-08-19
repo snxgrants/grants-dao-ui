@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
@@ -5,8 +6,28 @@ import Link from "next/link";
 import { Header } from "../../components/Header";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
+import useGetGnosisBalances from "../../queries/useGetGnosisBalances";
+import { parseGnosisBalances } from "../../utils/balances";
 
 export default function Treasury() {
+  const gnosisBalancesData = useGetGnosisBalances();
+  const data = gnosisBalancesData?.data;
+
+  const parsedBalanceData = useMemo(
+    () => parseGnosisBalances((data as any) || []),
+    [data]
+  );
+
+  const renderBalances = useMemo(() => {
+    return Object.entries(parsedBalanceData).map(([key, value]) => (
+      <div key={key} className="col-md-3">
+        <div className="vertical-align treasury-snx">
+          {value} {key}
+        </div>
+      </div>
+    ));
+  }, [parsedBalanceData]);
+
   return (
     <>
       <Head>
@@ -77,20 +98,7 @@ export default function Treasury() {
           <div className="container">
             <div className="row">
               <div className="col-md-12 max-width">
-                <div className="row">
-                  <div className="col-md-3">
-                    <div className="vertical-align treasury-snx">xxx SNX</div>
-                  </div>
-                  <div className="col-md-3">
-                    <div className="vertical-align treasury-susd">xxx sUSD</div>
-                  </div>
-                  <div className="col-md-3">
-                    <div className="vertical-align treasury-eth">xxx ETH</div>
-                  </div>
-                  <div className="col-md-3">
-                    <div className="vertical-align treasury-seth">xxx sETH</div>
-                  </div>
-                </div>
+                <div className="row">{renderBalances}</div>
               </div>
             </div>
           </div>
