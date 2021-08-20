@@ -35,11 +35,24 @@ export default function Voting() {
       <div key={address} className={`voter-wrapper${isLast ? "-last" : ""}`}>
         <div className="row">
           <div className="col-md-1">
-            <img
-              alt="Avatar"
-              className="member-avatar"
-              src="/img/grants/alexander.png"
-            />
+            <div
+              style={{
+                height: 50,
+                width: 50,
+                borderRadius: "50%",
+                border: "2px solid #29b6af",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <img
+                alt="Avatar"
+                className="member-avatar"
+                src="/img/blue-x.png"
+                style={{ transform: "scale(0.7)" }}
+              />
+            </div>
           </div>
           <div className="col-md-5 col-sm-12 vertical-align">
             <a href="#">

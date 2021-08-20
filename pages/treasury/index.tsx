@@ -21,7 +21,7 @@ export default function Treasury() {
   const renderBalances = useMemo(() => {
     return Object.entries(parsedBalanceData).map(([key, value]) => (
       <div key={key} className="col-md-3">
-        <div className="vertical-align treasury-snx">
+        <div className={`vertical-align treasury-${key.toLowerCase()}`}>
           {value} {key}
         </div>
       </div>
