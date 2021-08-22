@@ -1,202 +1,153 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import Image from "next/image";
+import styles from "../styles/Home.module.css";
 import Link from "next/link";
-import {Header} from "../../components/Header";
-import {Navbar} from "../../components/Navbar";
-import {Footer} from "../../components/Footer";
+import { Header } from "../../components/Header";
+import { Navbar } from "../../components/Navbar";
+import { Footer } from "../../components/Footer";
+import { MEMBERS } from "../../queries/constants";
+import useGetSnapshotProposals from "../../queries/useGetSnapshotProposals";
+import useGetSnapshotVotes from "../../queries/useGetSnapshotVotes";
 
 export default function Voting() {
+  const snapshotProposalsQuery = useGetSnapshotProposals();
+  const proposals = snapshotProposalsQuery?.data;
+  const proposalIds =
+    proposals && proposals.length > 0 ? proposals.map(({ id }) => id) : null;
+  const snapshotVotesQuery = useGetSnapshotVotes(proposalIds);
+  const votes = snapshotVotesQuery?.data;
+
+  let addressesLength = MEMBERS.length;
+  let renderAddressRows = MEMBERS.map(({ address, displayName }, i) => {
+    let isLast = i === addressesLength - 1;
+
+    let votesCount = 0;
+
+    if (votes) {
+      Object.values(votes).forEach((proposal) => {
+        votesCount += Object.values(proposal).filter(
+          (v) => v.voter === address
+        ).length;
+      });
+    }
+
     return (
-        <>
-            <Head>
-                <title>Home | Synthetix grantsDAO</title>
-            </Head>
-
-            <Header />
-
-            <main>
-
-                <Navbar />
-
-                {/* ========================= Synthetix hero-section start ========================= */}
-                <section className="synth-voting-hero-section" id="voting" />
-                {/* ========================= Synthetix hero-section end ========================= */}
-                <div className="voting-bg">
-                    <div className="container">
-                        <div className="row align-items-center position-relative">
-                            <div className="hero-content synth-vh voting-hero-content">
-                                <div className="col-md-12">
-                                    <div className="synth-gdao-grants-mini-logo">
-                                        <img alt="Logo" className="gdao-mini-logo" src="/img/logo/synthetix_gdao_logo_mini.svg" />
-                                    </div>
-                                    <h1 className="synth-hero-h-index wow fadeInUp" data-wow-delay=".2s">
-                                        VOTING
-                                    </h1>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {/* Current gDAO council heading*/}
-                    <div className="container-fluid voting-tab-styling">
-                        <div className="filter-wrapper">
-                            <div className="container">
-                                <div className="row max-width">
-                                    <div className="col-md-6 voting-header-height">
-                                        <div className="synth-tabs voting-header">
-                                            current Members
-                                        </div>
-                                    </div>
-                                    <div className="vertical-align align-center col-md-6 col-sm-12">
-                                        <div className="epoch">
-                                            <span className="synth-h-start">start: </span> 15/03/2021 - <span className="synth-h-end">End: </span> 15/06/2021
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {/* Current gDAO council heading end*/}
-                    {/* Current Members*/}
-                    <div className="container">
-                        <div className="row">
-                            <div className="gi-input-wrapper max-width margin-0">
-                                <div className="voter-wrapper">
-                                    <div className="row">
-                                        <div className="col-md-1">
-                                            <img alt="Avatar" className="member-avatar" src="/img/grants/alexander.png" />
-                                        </div>
-                                        <div className="col-md-5 col-sm-12 vertical-align">
-                                            <a href="#">
-                                                <h4 className="member-acc-nr no-margin grantsdao-data-heading padding-right">
-                                                    0xCD36e4F3D64B6B0c4EE8e414F0Ef288FC54325432534f
-                                                </h4></a>
-                                        </div>
-                                        <div className="align-center col-md-3 col-sm-12 vertical-align">
-                                            ΔLΞXΔNDΞR
-                                        </div>
-                                        <div className="align-center col-md-3 col-sm-12 vertical-align">
-                                            <div className="utility-btn">
-                                                <div className>
-                                                    <div className="vertical-align member-votes">
-                                                        40 Votes
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="voter-wrapper">
-                                    <div className="row">
-                                        <div className="col-md-1">
-                                            <img alt="Avatar" className="member-avatar" src="/img/grants/andy.png" />
-                                        </div>
-                                        <div className="col-md-5 col-sm-12 vertical-align">
-                                            <a href="#">
-                                                <h4 className="member-acc-nr no-margin grantsdao-data-heading padding-right">
-                                                    0xCD36e4F3D64B6B0c4EE8e414F0Ef288FCFE6653654
-                                                </h4></a>
-                                        </div>
-                                        <div className="align-center col-md-3 col-sm-12 vertical-align">
-                                            andy
-                                        </div>
-                                        <div className="align-center col-md-3 col-sm-12 vertical-align">
-                                            <div className="utility-btn">
-                                                <div className>
-                                                    <div className="vertical-align member-votes">
-                                                        51 Votes
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="voter-wrapper">
-                                    <div className="row">
-                                        <div className="col-md-1">
-                                            <img alt="Avatar" className="member-avatar" src="/img/grants/cryptotoit.png" />
-                                        </div>
-                                        <div className="col-md-5 col-sm-12 vertical-align">
-                                            <a href="#">
-                                                <h4 className="member-acc-nr no-margin grantsdao-data-heading padding-right">
-                                                    0xCD36e4F3D64B6B0c4EE8e414F0Ef288FCF432543245
-                                                </h4></a>
-                                        </div>
-                                        <div className="align-center col-md-3 col-sm-12 vertical-align">
-                                            cryptotoit
-                                        </div>
-                                        <div className="align-center col-md-3 col-sm-12 vertical-align">
-                                            <div className="utility-btn">
-                                                <div className>
-                                                    <div className="vertical-align member-votes">
-                                                        60 Votes
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="voter-wrapper">
-                                    <div className="row">
-                                        <div className="col-md-1">
-                                            <img alt="Avatar" className="member-avatar" src="/img/grants/david.png" />
-                                        </div>
-                                        <div className="col-md-5 col-sm-12 vertical-align">
-                                            <a href="#">
-                                                <h4 className="member-acc-nr no-margin grantsdao-data-heading padding-right">
-                                                    0xCD36e4F3D64B6B0c4EE8e414F0Ef288FCFE1f9876987
-                                                </h4></a>
-                                        </div>
-                                        <div className="align-center col-md-3 col-sm-12 vertical-align">
-                                            david
-                                        </div>
-                                        <div className="align-center col-md-3 col-sm-12 vertical-align">
-                                            <div className="utility-btn">
-                                                <div className>
-                                                    <div className="vertical-align member-votes">
-                                                        41 Votes
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="voter-wrapper-last">
-                                    <div className="row">
-                                        <div className="col-md-1">
-                                            <img alt="Avatar" className="member-avatar" src="/img/grants/member-avatar.png" />
-                                        </div>
-                                        <div className="col-md-5 col-sm-12 vertical-align">
-                                            <a href="#">
-                                                <h4 className="member-acc-nr no-margin grantsdao-data-heading padding-right">
-                                                    0xCD36e4F3D64B6B0c4EE8e414F0Ef288FCFE543245324
-                                                </h4></a>
-                                        </div>
-                                        <div className="align-center col-md-3 col-sm-12 vertical-align">
-                                            RubberˆDuck
-                                        </div>
-                                        <div className="align-center col-md-3 col-sm-12 vertical-align">
-                                            <div className="utility-btn">
-                                                <div className>
-                                                    <div className="vertical-align member-votes">
-                                                        42 votes
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {/* End Current Members*/}
-
+      <div key={address} className={`voter-wrapper${isLast ? "-last" : ""}`}>
+        <div className="row">
+          <div className="col-md-1">
+            <div
+              style={{
+                height: 50,
+                width: 50,
+                borderRadius: "50%",
+                border: "2px solid #29b6af",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <img
+                alt="Avatar"
+                className="member-avatar"
+                src="/img/blue-x.png"
+                style={{ transform: "scale(0.7)" }}
+              />
+            </div>
+          </div>
+          <div className="col-md-5 col-sm-12 vertical-align">
+            <a href="#">
+              <h4 className="member-acc-nr no-margin grantsdao-data-heading padding-right">
+                {address}
+              </h4>
+            </a>
+          </div>
+          <div className="align-center col-md-3 col-sm-12 vertical-align">
+            {displayName}
+          </div>
+          <div className="align-center col-md-3 col-sm-12 vertical-align">
+            <div className="utility-btn">
+              <div>
+                <div className="vertical-align member-votes">
+                  {votesCount} Votes
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  });
 
-                <Footer />
+  return (
+    <>
+      <Head>
+        <title>Home | Synthetix grantsDAO</title>
+      </Head>
 
-            </main>
-        </>
-    )
+      <Header />
 
+      <main>
+        <Navbar />
+
+        {/* ========================= Synthetix hero-section start ========================= */}
+        <section className="synth-voting-hero-section" id="voting" />
+        {/* ========================= Synthetix hero-section end ========================= */}
+        <div className="voting-bg">
+          <div className="container">
+            <div className="row align-items-center position-relative">
+              <div className="hero-content synth-vh voting-hero-content">
+                <div className="col-md-12">
+                  <div className="synth-gdao-grants-mini-logo">
+                    <img
+                      alt="Logo"
+                      className="gdao-mini-logo"
+                      src="/img/logo/synthetix_gdao_logo_mini.svg"
+                    />
+                  </div>
+                  <h1
+                    className="synth-hero-h-index wow fadeInUp"
+                    data-wow-delay=".2s"
+                  >
+                    VOTING
+                  </h1>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* Current gDAO council heading*/}
+          <div className="container-fluid voting-tab-styling">
+            <div className="filter-wrapper">
+              <div className="container">
+                <div className="row max-width">
+                  <div className="col-md-6 voting-header-height">
+                    <div className="synth-tabs voting-header">
+                      current Members
+                    </div>
+                  </div>
+                  <div className="vertical-align align-center col-md-6 col-sm-12">
+                    <div className="epoch">
+                      <span className="synth-h-start">start: </span> 15/06/2021
+                      - <span className="synth-h-end">End: </span> 15/09/2021
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* Current gDAO council heading end*/}
+          {/* Current Members*/}
+          <div className="container">
+            <div className="row">
+              <div className="gi-input-wrapper max-width margin-0">
+                {renderAddressRows}
+              </div>
+            </div>
+          </div>
+          {/* End Current Members*/}
+        </div>
+
+        <Footer />
+      </main>
+    </>
+  );
 }

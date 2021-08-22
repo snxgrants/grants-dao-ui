@@ -1569,6 +1569,10 @@ img.synth-proto-footer.wow.fadeInUp {
   margin-top: 40%;
 }
 
+a.hero-btn-disabled {
+  opacity: 0.9;
+}
+
 h1.synth-hero-h-index.wow.fadeInUp.animated {
   margin: 0 0 0 20px;
 }

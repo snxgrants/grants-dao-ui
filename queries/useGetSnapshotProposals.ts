@@ -16,12 +16,14 @@ export type Proposal = {
   end: number;
   state: string;
   author: string;
+  ipfs: string;
+  snapshot: string;
 };
 
 const useGetSnapshotProposals = (
-  options?: UseQueryOptions<[Proposal] | null>
+  options?: UseQueryOptions<Proposal[] | null>
 ) => {
-  return useQuery<[Proposal] | null>(
+  return useQuery<Proposal[] | null>(
     QUERY_KEYS.Snapshot.Proposals(SNAPSHOT_ENS),
     async () => {
       const { proposals } = await request(
@@ -43,6 +45,8 @@ const useGetSnapshotProposals = (
               end
               state
               author
+              ipfs
+              snapshot
             }
           }
         `,
