@@ -10,6 +10,8 @@ export default function Blog() {
   const { id } = useRouter().query;
   const blogValue = blogsData[id as string];
 
+  if (!blogValue) return null;
+
   return (
     <>
       <Head>
@@ -195,4 +197,3 @@ export default function Blog() {
     </>
   );
 }
-

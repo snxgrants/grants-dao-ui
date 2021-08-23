@@ -6,9 +6,11 @@ import { Footer } from "../../components/Footer";
 import { competitionsData } from "../../domainData/CompetitionsData";
 import { useRouter } from "next/router";
 
-export default function Competitino() {
+export default function Competition() {
   const { id } = useRouter().query;
   const competitionValue = competitionsData[id as string];
+
+  if (!competitionValue) return null;
 
   return (
     <>

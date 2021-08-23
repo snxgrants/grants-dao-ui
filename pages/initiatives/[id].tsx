@@ -10,6 +10,8 @@ export default function Initiative() {
   const { id } = useRouter().query;
   const initiativeValue = initiativesData[id as string];
 
+  if (!initiativeValue) return null;
+
   return (
     <>
       <Head>
