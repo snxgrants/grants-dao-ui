@@ -1,6 +1,4 @@
 import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Header } from "../../components/Header";
@@ -10,12 +8,7 @@ import { initiativesData } from "../../domainData/InitiativesData";
 
 export default function Initiative() {
   const { id } = useRouter().query;
-
-  console.log(id);
-
-  const initiativeValue = initiativesData[id];
-
-  console.log(initiativeValue);
+  const initiativeValue = initiativesData[id as string];
 
   return (
     <>
@@ -112,14 +105,14 @@ export default function Initiative() {
                       <span className="request no-margin bio-info">
                         <span className="bio-info">Initiated by</span>
                         <span className="bio-info synth-blue">
-                          {initiativeValue.requestedBy}
+                          {initiativeValue.initiatedBy}
                         </span>
                         in
                         <span className="bio-info synth-pink">Grants</span>
                         <span className="sm-font bio-info">
                           on
                           <span className="synth-blue">
-                            {initiativeValue.startDate}
+                            {initiativeValue.endDate}
                           </span>
                         </span>
                       </span>
