@@ -74,14 +74,14 @@ const Button = styled.button<ButtonProps>`
     props.variant === "primary" &&
     css`
       color: ${black};
-      background: ${blue};
+      background: ${grayBlue};
       box-shadow: 0px 0px 10px rgba(0, 209, 255, 0.6);
       border: 1px solid transparent;
       &:hover {
         &:not(:disabled) {
           background: ${blueHover};
           box-shadow: 0px 0px 10px rgba(0, 209, 255, 0.9);
-          border: 1px solid ${blue};
+          border: 1px solid ${grayBlue};
         }
       }
     `}
@@ -89,10 +89,10 @@ const Button = styled.button<ButtonProps>`
 		${(props) =>
     props.variant === "secondary" &&
     css`
-      color: ${blue};
+      color: ${grayBlue};
       background: ${grayBlue};
       box-shadow: 0px 0px 10px rgba(0, 209, 255, 0.9);
-      border: 1px solid ${blue};
+      border: 1px solid ${grayBlue};
       &:hover {
         &:not(:disabled) {
           background: ${blueHover};
@@ -143,7 +143,7 @@ const Button = styled.button<ButtonProps>`
       color: ${white};
       &:hover {
         &:not(:disabled) {
-          color: ${blue};
+          color: ${grayBlue};
         }
       }
     `}
