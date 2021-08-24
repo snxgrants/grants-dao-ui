@@ -1,25 +1,20 @@
 import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
 import { Header } from "../../components/Header";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
 import { useRouter } from "next/router";
-import { useState } from "react";
 import useGetSnapshotSpace from "../../queries/useGetSnapshotSpace";
 import useGetSnapshotProposals, {
   Proposal,
 } from "../../queries/useGetSnapshotProposals";
 import useGetSnapshotVotes from "../../queries/useGetSnapshotVotes";
 import Moment from "react-moment";
-// import { isConnected } from "../../services/Wallet";
 import { MEMBERS } from "../../queries/constants";
-import Connector from "../../containers/Connector";
 import { truncateAddress } from "../../utils/wallet";
 
 export default function Grant() {
   const { id } = useRouter().query;
-  const { onboard, walletAddress } = Connector.useContainer();
 
   const snapshotSpaceQuery = useGetSnapshotSpace();
   const space = snapshotSpaceQuery?.data;
@@ -38,48 +33,27 @@ export default function Grant() {
     [proposal] = proposals.filter((item) => item.id === id);
   }
 
-  let userAddress = walletAddress;
-
-  // if (isConnected()) {
-  //   console.log("onboard.state()");
-  //   console.log(onboard.getState());
-
-  //   console.log("userAddress");
-  //   console.log(onboard.getState().address);
-
-  //   userAddress = onboard.getState().address;
-  // }
-
-  userAddress = "Qmevstpy6Bf9LHC9znkf43Rarn5pVfv33Jr3aqXrcHKVVG"; //admin address test
-
   let adminsRender: JSX.Element[] = [];
   let yesVotes = 0;
   let noVotes = 0;
 
-  if (userAddress && admins) {
-    adminsRender = Object.entries(admins).map(([key, adminAddress]) => {
+  if (admins) {
+    adminsRender = Object.entries(admins).map(([_, adminAddress]) => {
       let [voter] = MEMBERS.filter((item) => item.address === adminAddress);
 
       let voterHandle = "Not Found";
-      let logoUrl = "";
 
       if (voter) {
         voterHandle = voter.displayName;
-        logoUrl = voter.logoUrl;
       }
 
       let choices = proposal.choices;
-
       let vote = "to vote";
-
-      console.log("userAddress");
-      console.log(onboard?.getState().address);
 
       if (votes && votes[proposal.id]) {
         const voteIndex = votes[proposal.id][adminAddress]?.choice - 1;
         if (choices[voteIndex]) {
           vote = choices[voteIndex];
-          // (voteIndex === 0 ? yesVotes : noVotes)++;
           if (voteIndex == 0) {
             yesVotes++;
           } else {
