@@ -107,7 +107,11 @@ const Grants = () => {
             </div>
             <div className="vertical-align align-center col-md-2 col-sm-12">
               <div className="voting-wrapper">
-                <div className="vertical-align grants-applied">
+                <div
+                  className={`vertical-align grants-${
+                    proposal.state === "active" ? "yes" : "applied"
+                  }`}
+                >
                   {proposal.state}
                 </div>
               </div>
