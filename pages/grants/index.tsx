@@ -1,6 +1,4 @@
-import { useEffect } from "react";
 import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
 
 import Moment from "react-moment";
@@ -9,11 +7,11 @@ import { Header } from "../../components/Header";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
 
-import useGetSnapshotSpace from "../../queries/useGetSnapshotSpace";
 import useGetSnapshotProposals from "../../queries/useGetSnapshotProposals";
 import useGetSnapshotVotes from "../../queries/useGetSnapshotVotes";
 import { useState } from "react";
 import { truncateAddress } from "../../utils/wallet";
+import { getGrantStatus } from "../../utils/grants";
 
 const Grants = () => {
   const statuses = ["all", "active", "closed"];
@@ -27,27 +25,23 @@ const Grants = () => {
   const snapshotVotesQuery = useGetSnapshotVotes(proposalIds);
   const votes = snapshotVotesQuery?.data;
 
-  let statusesRender = Object.entries(statuses).map(([key, statusItem]) => {
-    return (
-      <li key={key} className="nav-item" role="presentation">
-        <div
-          aria-controls={statusItem}
-          aria-selected={currentStatus === statusItem ? "true" : "false"}
-          className={
-            "nav-link " + (currentStatus === statusItem ? "active" : "")
-          }
-          data-bs-target={"#" + statusItem}
-          data-bs-toggle="tab"
-          id={statusItem + "-tab"}
-          role="tab"
-          style={{ cursor: "pointer" }}
-          onClick={() => setCurrentStatus(statusItem)}
-        >
-          {statusItem}
-        </div>
-      </li>
-    );
-  });
+  let statusesRender = Object.entries(statuses).map(([key, statusItem]) => (
+    <li key={key} className="nav-item" role="presentation">
+      <div
+        aria-controls={statusItem}
+        aria-selected={currentStatus === statusItem ? "true" : "false"}
+        className={"nav-link " + (currentStatus === statusItem ? "active" : "")}
+        data-bs-target={"#" + statusItem}
+        data-bs-toggle="tab"
+        id={statusItem + "-tab"}
+        role="tab"
+        style={{ cursor: "pointer" }}
+        onClick={() => setCurrentStatus(statusItem)}
+      >
+        {statusItem}
+      </div>
+    </li>
+  ));
 
   let grantsRender: JSX.Element[] = [];
 
@@ -61,6 +55,14 @@ const Grants = () => {
         votes && votes[proposal.id]
           ? Object.keys(votes[proposal.id]).length
           : 0;
+
+      let yesVotes =
+        votes && votes[proposal.id]
+          ? Object.values(votes[proposal.id]).filter(
+              (vote) => vote.choice === 1
+            ).length
+          : 0;
+
       return (
         <div key={key} className="data-wrapper">
           <div className="row">
@@ -112,7 +114,7 @@ const Grants = () => {
                     proposal.state === "active" ? "yes" : "applied"
                   }`}
                 >
-                  {proposal.state}
+                  {getGrantStatus(proposal.state, yesVotes)}
                 </div>
               </div>
             </div>
