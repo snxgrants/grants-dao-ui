@@ -1,7 +1,4 @@
 import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
-import Link from "next/link";
 import { Header } from "../../components/Header";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
@@ -25,9 +22,8 @@ export default function Voting() {
 
     if (votes) {
       Object.values(votes).forEach((proposal) => {
-        votesCount += Object.values(proposal).filter(
-          (v) => v.voter === address
-        ).length;
+        votesCount += Object.values(proposal).filter((v) => v.voter === address)
+          .length;
       });
     }
 

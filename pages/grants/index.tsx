@@ -68,7 +68,7 @@ const Grants = () => {
           <div className="row">
             <div className="col-md-6 col-sm-12 data-p">
               <div className="data-description-wrapper">
-                <Link href={"/grants/" + proposal.id}>
+                <Link href={"/grants/" + proposal.id} scroll={false}>
                   <a className="hover">
                     <h4 className="no-margin grantsdao-data-heading padding-right">
                       {proposal.title}
@@ -204,7 +204,7 @@ const Grants = () => {
                   </div>
                   <div className="vertical-align align-center col-md-2 col-sm-12">
                     <div className="utility-btn">
-                      <Link href="/grants/grant-application">
+                      <Link href="/grants/grant-application" scroll={false}>
                         <a>
                           <button
                             className="vertical-align grants-apply-btn wow fadeInUp"

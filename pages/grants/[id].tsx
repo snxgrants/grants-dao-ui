@@ -158,7 +158,7 @@ export default function Grant() {
                 <div className="col-md-12">
                   <ul className="pager">
                     <li className="previous">
-                      <Link href="/grants">
+                      <Link href="/grants" scroll={false}>
                         <a className="grants-pager-link">
                           <span className="synth-up-arrow">
                             <img
@@ -172,7 +172,7 @@ export default function Grant() {
                       </Link>
                     </li>
                     <li className="next">
-                      <Link href="/grants">
+                      <Link href="/grants" scroll={false}>
                         <a className="grants-pager-link">
                           NEXT GRANT
                           <span className="synth-up-arrow">

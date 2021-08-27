@@ -1,8 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 
 import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
 import { Header } from "../../components/Header";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
@@ -82,7 +80,9 @@ export default function GrantApplication() {
               type: "single-choice",
             },
           });
-          router.push("/grants/grant-application-thank-you");
+          router.push("/grants/grant-application-thank-you", undefined, {
+            scroll: false,
+          });
         } catch (e) {
           console.log(e);
         }

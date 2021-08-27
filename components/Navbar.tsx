@@ -21,10 +21,14 @@ import Connector from "../containers/Connector";
 import { truncateAddress } from "../utils/wallet";
 
 export const Navbar = () => {
-  const [walletOptionsModalOpened, setWalletOptionsModalOpened] =
-    useState<boolean>(false);
-  const { walletAddress, connectWallet, disconnectWallet } =
-    Connector.useContainer();
+  const [walletOptionsModalOpened, setWalletOptionsModalOpened] = useState<
+    boolean
+  >(false);
+  const {
+    walletAddress,
+    connectWallet,
+    disconnectWallet,
+  } = Connector.useContainer();
 
   let walletRender;
 
@@ -65,7 +69,7 @@ export const Navbar = () => {
             <div className="row align-items-center">
               <div className="col-lg-12">
                 <nav className="navbar navbar-expand-lg">
-                  <Link href="/" passHref>
+                  <Link href="/" passHref scroll={false}>
                     <img
                       alt="Logo"
                       src="/img/logo/synthetix_grantsDAO_logo.svg"
@@ -91,7 +95,9 @@ export const Navbar = () => {
                   >
                     <ul className="navbar-nav ml-auto" id="nav">
                       <li className="nav-item">
-                        <Link href="/grants">Grants</Link>
+                        <Link href="/grants" scroll={false}>
+                          Grants
+                        </Link>
                       </li>
                       {/* <li className="nav-item">
                         <Link href="/initiatives">Initiatives</Link>
@@ -100,13 +106,19 @@ export const Navbar = () => {
                         <Link href="/competitions">Competitions</Link>
                       </li> */}
                       <li className="nav-item">
-                        <Link href="/blogs">Blog</Link>
+                        <Link href="/blogs" scroll={false}>
+                          Blog
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <Link href="/voting">Voting</Link>
+                        <Link href="/voting" scroll={false}>
+                          Voting
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <Link href="/treasury">Treasury</Link>
+                        <Link href="/treasury" scroll={false}>
+                          Treasury
+                        </Link>
                       </li>
                       <li className="nav-item">
                         <WalletButtonWrapper>
