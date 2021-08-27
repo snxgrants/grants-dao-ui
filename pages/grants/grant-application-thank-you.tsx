@@ -41,7 +41,7 @@ const ThankYou = () => {
                   </p>
                   <div className="vertical-align align-center col-md-2 col-sm-12 margin-auto">
                     <div className="utility-btn">
-                      <Link href="/grants" passHref>
+                      <Link href="/grants" passHref scroll={false}>
                         <button
                           className="vertical-align back-to-grants-btn wow fadeInUp"
                           data-wow-delay=".6s"

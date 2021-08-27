@@ -1,6 +1,4 @@
-import { useEffect } from "react";
 import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
 
 import Moment from "react-moment";
@@ -9,11 +7,11 @@ import { Header } from "../../components/Header";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
 
-import useGetSnapshotSpace from "../../queries/useGetSnapshotSpace";
 import useGetSnapshotProposals from "../../queries/useGetSnapshotProposals";
 import useGetSnapshotVotes from "../../queries/useGetSnapshotVotes";
 import { useState } from "react";
 import { truncateAddress } from "../../utils/wallet";
+import { getGrantStatus } from "../../utils/grants";
 
 const Grants = () => {
   const statuses = ["all", "active", "closed"];
@@ -27,27 +25,23 @@ const Grants = () => {
   const snapshotVotesQuery = useGetSnapshotVotes(proposalIds);
   const votes = snapshotVotesQuery?.data;
 
-  let statusesRender = Object.entries(statuses).map(([key, statusItem]) => {
-    return (
-      <li key={key} className="nav-item" role="presentation">
-        <div
-          aria-controls={statusItem}
-          aria-selected={currentStatus === statusItem ? "true" : "false"}
-          className={
-            "nav-link " + (currentStatus === statusItem ? "active" : "")
-          }
-          data-bs-target={"#" + statusItem}
-          data-bs-toggle="tab"
-          id={statusItem + "-tab"}
-          role="tab"
-          style={{ cursor: "pointer" }}
-          onClick={() => setCurrentStatus(statusItem)}
-        >
-          {statusItem}
-        </div>
-      </li>
-    );
-  });
+  let statusesRender = Object.entries(statuses).map(([key, statusItem]) => (
+    <li key={key} className="nav-item" role="presentation">
+      <div
+        aria-controls={statusItem}
+        aria-selected={currentStatus === statusItem ? "true" : "false"}
+        className={"nav-link " + (currentStatus === statusItem ? "active" : "")}
+        data-bs-target={"#" + statusItem}
+        data-bs-toggle="tab"
+        id={statusItem + "-tab"}
+        role="tab"
+        style={{ cursor: "pointer" }}
+        onClick={() => setCurrentStatus(statusItem)}
+      >
+        {statusItem}
+      </div>
+    </li>
+  ));
 
   let grantsRender: JSX.Element[] = [];
 
@@ -61,12 +55,20 @@ const Grants = () => {
         votes && votes[proposal.id]
           ? Object.keys(votes[proposal.id]).length
           : 0;
+
+      let yesVotes =
+        votes && votes[proposal.id]
+          ? Object.values(votes[proposal.id]).filter(
+              (vote) => vote.choice === 1
+            ).length
+          : 0;
+
       return (
         <div key={key} className="data-wrapper">
           <div className="row">
             <div className="col-md-6 col-sm-12 data-p">
               <div className="data-description-wrapper">
-                <Link href={"/grants/" + proposal.id}>
+                <Link href={"/grants/" + proposal.id} scroll={false}>
                   <a className="hover">
                     <h4 className="no-margin grantsdao-data-heading padding-right">
                       {proposal.title}
@@ -107,8 +109,12 @@ const Grants = () => {
             </div>
             <div className="vertical-align align-center col-md-2 col-sm-12">
               <div className="voting-wrapper">
-                <div className="vertical-align grants-applied">
-                  {proposal.state}
+                <div
+                  className={`vertical-align grants-${
+                    proposal.state === "active" ? "yes" : "applied"
+                  }`}
+                >
+                  {getGrantStatus(proposal.state, yesVotes)}
                 </div>
               </div>
             </div>
@@ -198,7 +204,7 @@ const Grants = () => {
                   </div>
                   <div className="vertical-align align-center col-md-2 col-sm-12">
                     <div className="utility-btn">
-                      <Link href="/grants/grant-application">
+                      <Link href="/grants/grant-application" scroll={false}>
                         <a>
                           <button
                             className="vertical-align grants-apply-btn wow fadeInUp"

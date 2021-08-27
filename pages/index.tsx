@@ -52,7 +52,7 @@ export default function Home() {
                 </div>
                 <div className="col-md-12 index-btn-wrapper">
                   <span className="synth-hero-btn">
-                    <Link href="/grants/grant-application">
+                    <Link href="/grants/grant-application" scroll={false}>
                       <a
                         className="hero-btn wow fadeInUp"
                         data-wow-delay=".2s"
@@ -253,7 +253,7 @@ export default function Home() {
                       </li>
                     </ul>
                     <div className="synth-grants-btn">
-                      <Link href="/grants">
+                      <Link href="/grants" scroll={false}>
                         <a
                           className="process-btn wow fadeInUp"
                           data-wow-delay=".2s"
@@ -345,7 +345,7 @@ export default function Home() {
                     </p>
                   </div>
                   <div className="synth-treasury-btn-wrapper">
-                    <Link href="/treasury">
+                    <Link href="/treasury" scroll={false}>
                       <a
                         className="process-btn wow fadeInUp"
                         data-wow-delay=".2s"

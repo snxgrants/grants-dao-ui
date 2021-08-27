@@ -1,8 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 
 import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
 import { Header } from "../../components/Header";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
@@ -21,8 +19,12 @@ const sanitiseTimestamp = (timestamp: number) => {
 };
 
 export default function GrantApplication() {
-  const { walletAddress, connectWallet, provider, signer } =
-    Connector.useContainer();
+  const {
+    walletAddress,
+    connectWallet,
+    provider,
+    signer,
+  } = Connector.useContainer();
   const createProposal = useSignMessage();
   const router = useRouter();
 
@@ -56,12 +58,11 @@ export default function GrantApplication() {
   const onSubmit = async () => {
     if (!!walletAddress) {
       if (validSubmission && !!block) {
-        router.push("/grants/grant-application-thank-you");
         try {
           const proposalStartDate = sanitiseTimestamp(new Date().getTime());
           const proposalEndDate =
             proposalStartDate + sanitiseTimestamp(PROPOSAL_PERIOD);
-          const proposalResponse = await createProposal.mutateAsync({
+          await createProposal.mutateAsync({
             spaceKey: SNAPSHOT_ENS,
             type: SignatureType.PROPOSAL,
             payload: {
@@ -78,6 +79,9 @@ export default function GrantApplication() {
               },
               type: "single-choice",
             },
+          });
+          router.push("/grants/grant-application-thank-you", undefined, {
+            scroll: false,
           });
         } catch (e) {
           console.log(e);

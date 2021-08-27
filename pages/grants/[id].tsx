@@ -12,6 +12,7 @@ import useGetSnapshotVotes from "../../queries/useGetSnapshotVotes";
 import Moment from "react-moment";
 import { MEMBERS } from "../../queries/constants";
 import { truncateAddress } from "../../utils/wallet";
+import { getGrantStatus } from "../../utils/grants";
 
 export default function Grant() {
   const { id } = useRouter().query;
@@ -157,7 +158,7 @@ export default function Grant() {
                 <div className="col-md-12">
                   <ul className="pager">
                     <li className="previous">
-                      <Link href="/grants">
+                      <Link href="/grants" scroll={false}>
                         <a className="grants-pager-link">
                           <span className="synth-up-arrow">
                             <img
@@ -171,7 +172,7 @@ export default function Grant() {
                       </Link>
                     </li>
                     <li className="next">
-                      <Link href="/grants">
+                      <Link href="/grants" scroll={false}>
                         <a className="grants-pager-link">
                           NEXT GRANT
                           <span className="synth-up-arrow">
@@ -298,8 +299,12 @@ export default function Grant() {
                       <div className="indi-btn-wrapper">
                         <div className="utility-btn">
                           <div className="voting-wrapper">
-                            <div className="vertical-align grants-active">
-                              {proposal.state}
+                            <div
+                              className={`vertical-align grants-${
+                                proposal.state === "active" ? "yes" : "applied"
+                              }`}
+                            >
+                              {getGrantStatus(proposal.state, yesVotes)}
                             </div>
                           </div>
                         </div>
