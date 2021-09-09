@@ -21,8 +21,12 @@ const sanitiseTimestamp = (timestamp: number) => {
 };
 
 export default function GrantApplication() {
-  const { walletAddress, connectWallet, provider, signer } =
-    Connector.useContainer();
+  const {
+    walletAddress,
+    connectWallet,
+    provider,
+    signer,
+  } = Connector.useContainer();
   const createProposal = useSignMessage();
   const router = useRouter();
 
@@ -221,21 +225,25 @@ export default function GrantApplication() {
                 </div>
                 <div className="h4-grants-dao-descr">DESCRIPTION</div>
                 <p className="ga">
-                  The Description section is where the the applicant should
-                  provide a high-level description of what the proposal hopes to
-                  achieve. The purpose is to describe the project and to give
-                  more color, background, and goals of the effort. A
-                  paragraph-based prose is best for this section, and it will
-                  serve as the first impression of the project.
+                  Version 1 of this site will require the full Grant application
+                  to be submitted in this one text field. Please ensure that you
+                  cover the following sections for the Grant Application in as
+                  much detail as possible:
                 </p>
+                <br />
+                <ul>
+                  <li>- Overview</li>
+                  <li>- Value to the Synthetix Protocol or Community</li>
+                  <li>- Applicant Background</li>
+                  <li>- Implementation Plan</li>
+                  <li>- Additional Information</li>
+                  <li>- Funding Required ($ Value)</li>
+                </ul>
                 <p>
-                  By the end of this section, the reader should be fully
-                  understand what the project will produce, as well as enough
-                  background context to understand it’s place within the broader
-                  Synthetix/crypto ecosystem. This section should avoid more
-                  mechanical information, such as in-depth
-                  outlines/timelines/funding/etc., which have their own sections
-                  later in the proposal.
+                  By the end, the reader should be fully understand what the
+                  project will produce, as well as enough background context to
+                  understand it’s place within the broader Synthetix/crypto
+                  ecosystem.
                 </p>
                 <div className="row">
                   <div className="col-md-12">
@@ -248,7 +256,7 @@ export default function GrantApplication() {
                             className="form-control"
                             id="overview"
                             placeholder="Add your description"
-                            rows={4}
+                            rows={12}
                           />
                         </div>
                       </div>
