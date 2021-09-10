@@ -61,7 +61,7 @@ export const Footer = () => {
                 <div className="social-icons-wrapper">
                   <div className="synth-social">
                     <a
-                      href="https://discord.com/invite/AEdUHzt"
+                      href="https://discord.gg/eKWkTxZ4VQ"
                       target="_blank"
                       rel="noreferrer"
                     >
@@ -72,7 +72,7 @@ export const Footer = () => {
                       />
                     </a>
                     <a
-                      href="https://github.com/synthetixio"
+                      href="https://github.com/snxgrants"
                       target="_blank"
                       rel="noreferrer"
                     >
@@ -83,7 +83,7 @@ export const Footer = () => {
                       />
                     </a>
                     <a
-                      href="https://twitter.com/synthetix_io"
+                      href="https://twitter.com/snxgrants"
                       target="_blank"
                       rel="noreferrer"
                     >
