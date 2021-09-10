@@ -227,30 +227,43 @@ export default function Home() {
                     </div>
                     <ul>
                       <li className="process-li">
-                        Fork the grantsDAO repo on Github, and write a grant
-                        proposal using this template
-                      </li>
-                      <li className="process-li">Submit a PR</li>
-                      <li className="process-li">
-                        Notify a grantsDAO member via Discord.
+                        Follow the link and go to the GRANTS page
                       </li>
                       <li className="process-li">
-                        If a DAO member believes it warrants consideration, they
-                        can submit it at{" "}
-                        <a href="https://snxgrants.io.">snxgrants.io.</a>
+                        {'Click on the "APPLY FOR GRANT" button'}
                       </li>
                       <li className="process-li">
-                        There will be a two day ‘grace period,’ in which no
-                        votes are taken, in which the DAO members and community
-                        members can discuss the viability of the proposal.
+                        Fill in the TITLE & DESCRIPTION
                       </li>
                       <li className="process-li">
-                        At the completion of the grace period, DAO members can
-                        vote Yes, No or Abstain.
+                        Ensure you cover all the following sections:
+                      </li>
+                      <li className="process-li li-ml">Overview</li>
+                      <li className="process-li li-ml">
+                        Value to the Synthetix Protocol or Community
+                      </li>
+                      <li className="process-li li-ml">Applicant Background</li>
+                      <li className="process-li li-ml">Implementation Plan</li>
+                      <li className="process-li li-ml">
+                        Additional Information
+                      </li>
+                      <li className="process-li li-ml">
+                        Funding Required ($ Value)
                       </li>
                       <li className="process-li">
-                        If four members vote ‘Yes,’ the proposal is approved.
+                        This will automatically create a Snapshot where the
+                        grantsDAO members will vote on the Application after
+                        deliberations.
                       </li>
+                      <li className="process-li">
+                        A 3/5 YES vote will mean the Grant has been approved.
+                      </li>
+                      <p>
+                        NOTE: This is Version 1 of our site. We will be rolling
+                        out regular enhancements on how we technically manage
+                        the Grant application process and introduce our smart
+                        contract.
+                      </p>
                     </ul>
                     <div className="synth-grants-btn">
                       <Link href="/grants" scroll={false}>
