@@ -230,7 +230,7 @@ export default function Home() {
                         Follow the link and go to the GRANTS page
                       </li>
                       <li className="process-li">
-                        Click on the "APPLY FOR GRANT" button
+                        {'Click on the "APPLY FOR GRANT" button'}
                       </li>
                       <li className="process-li">
                         Fill in the TITLE & DESCRIPTION
