@@ -4140,3 +4140,7 @@ h1.synth-current-balance {
 .bn-onboard-custom.bn-onboard-modal {
   z-index: 1;
 }
+
+.li-ml {
+	margin-left: 32px;
+}
