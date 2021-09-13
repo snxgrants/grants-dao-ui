@@ -44,10 +44,8 @@ export default function Home() {
                     className="wow fadeInUp synth-p-opti align-center"
                     data-wow-delay=".2s"
                   >
-                    Synthetix grantsDAO is a decentralized organization part of
-                    the the Synthetix protocol that governs the process of
-                    funding projects that contribute to the adoption of
-                    Synthetix.
+                    Governs the process of public goods funding, contributing to
+                    the growth of the Synthetix protocol.
                   </p>
                 </div>
                 <div className="col-md-12 index-btn-wrapper">
