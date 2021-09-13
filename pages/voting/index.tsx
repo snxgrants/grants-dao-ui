@@ -122,8 +122,8 @@ export default function Voting() {
                   </div>
                   <div className="vertical-align align-center col-md-6 col-sm-12">
                     <div className="epoch">
-                      <span className="synth-h-start">start: </span> 15/06/2021
-                      - <span className="synth-h-end">End: </span> 15/09/2021
+                      <span className="synth-h-start">Start: </span> 01/07/2021
+                      - <span className="synth-h-end">End: </span> 30/09/2021
                     </div>
                   </div>
                 </div>
