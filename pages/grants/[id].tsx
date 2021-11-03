@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import ReactMarkdown from "react-markdown";
 import { Header } from "../../components/Header";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
@@ -223,11 +224,11 @@ export default function Grant() {
             </div>
             {/* ========================= Blue Banner End ========================= */}
             {/* ========================= grantsDAO Introduction ========================= */}
-            <section className="grants-introduction">
+            <section className="grants-introduction markdown-container">
               <div className="container">
                 <div className="row grants-descr-wrapper padding-bottom">
                   <div className="h4-grants-dao-descr">DESCRIPTION</div>
-                  <p className="gdao-descriptor">{proposal.body}</p>
+                  <ReactMarkdown>{proposal.body}</ReactMarkdown>
                 </div>
               </div>
             </section>

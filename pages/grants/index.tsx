@@ -73,13 +73,6 @@ const Grants = () => {
                     <h4 className="no-margin grantsdao-data-heading padding-right">
                       {proposal.title}
                     </h4>
-                    <p className="no-margin bio-info-p grants-excerpt bio-info-p no-margin padding-right">
-                      {proposal.body}
-                      <span className="sm-font synth-blue bold">
-                        {" "}
-                        View Details
-                      </span>
-                    </p>
                   </a>
                 </Link>
               </div>
