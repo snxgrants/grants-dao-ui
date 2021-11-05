@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from 'remark-gfm';
 import { Header } from "../../components/Header";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
@@ -228,7 +229,7 @@ export default function Grant() {
               <div className="container">
                 <div className="row grants-descr-wrapper padding-bottom">
                   <div className="h4-grants-dao-descr">DESCRIPTION</div>
-                  <ReactMarkdown>{proposal.body}</ReactMarkdown>
+                  <ReactMarkdown remarkPlugins={[remarkGfm]}>{proposal.body}</ReactMarkdown>
                 </div>
               </div>
             </section>
