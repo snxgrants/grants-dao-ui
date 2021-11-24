@@ -4144,3 +4144,10 @@ h1.synth-current-balance {
 .li-ml {
 	margin-left: 32px;
 }
+
+.markdown-container ul, ol {
+	margin: initial;
+	padding-left: 2rem;
+
+	list-style-type: initial;
+}
