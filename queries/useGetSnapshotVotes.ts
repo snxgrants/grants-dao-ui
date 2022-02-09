@@ -1,11 +1,7 @@
 import { useQuery, UseQueryOptions } from "react-query";
 import request, { gql } from "graphql-request";
 
-import {
-  QUERY_KEYS,
-  SNAPSHOT_ENS,
-  SNAPSHOT_ENDPOINT,
-} from "../constants/snapshot";
+import { QUERY_KEYS, SNAPSHOT_ENDPOINT } from "../constants/snapshot";
 
 export type Vote = {
   choice: number;
@@ -26,7 +22,7 @@ const useGetSnapshotVotes = (
         SNAPSHOT_ENDPOINT,
         gql`
           query Votes($proposalIds: [String]) {
-            votes(first: 5, where: { proposal_in: $proposalIds }) {
+            votes(first: 100, where: { proposal_in: $proposalIds }) {
               id
               voter
               created

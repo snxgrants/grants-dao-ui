@@ -5,3 +5,6 @@ export function truncateAddress(addressStr: string, first = 5, last = 5) {
     addressStr.slice(-last, addressStr.length)
   );
 }
+export const getEtherscanLink = (address: string) => {
+  return `https://etherscan.io/address${address}`;
+};

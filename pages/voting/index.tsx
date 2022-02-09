@@ -2,33 +2,20 @@ import Head from "next/head";
 import { Header } from "../../components/Header";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
-import { MEMBERS } from "../../queries/constants";
-import useGetSnapshotProposals from "../../queries/useGetSnapshotProposals";
-import useGetSnapshotVotes from "../../queries/useGetSnapshotVotes";
+import useCurrentCouncil from "../../queries/useCurrentCouncil";
+import { getEtherscanLink, truncateAddress } from "../../utils/wallet";
 
 export default function Voting() {
-  const snapshotProposalsQuery = useGetSnapshotProposals();
-  const proposals = snapshotProposalsQuery?.data;
-  const proposalIds =
-    proposals && proposals.length > 0 ? proposals.map(({ id }) => id) : null;
-  const snapshotVotesQuery = useGetSnapshotVotes(proposalIds);
-  const votes = snapshotVotesQuery?.data;
-
-  let addressesLength = MEMBERS.length;
-  let renderAddressRows = MEMBERS.map(({ address, displayName }, i) => {
-    let isLast = i === addressesLength - 1;
-
-    let votesCount = 0;
-
-    if (votes) {
-      Object.values(votes).forEach((proposal) => {
-        votesCount += Object.values(proposal).filter((v) => v.voter === address)
-          .length;
-      });
-    }
+  const snapshotVotesQuery = useCurrentCouncil();
+  const data = snapshotVotesQuery.data;
+  const renderAddressRows = data?.members.map((member, i, arr) => {
+    const isLast = i === arr.length - 1;
 
     return (
-      <div key={address} className={`voter-wrapper${isLast ? "-last" : ""}`}>
+      <div
+        key={member.displayName}
+        className={`voter-wrapper${isLast ? "-last" : ""}`}
+      >
         <div className="row">
           <div className="col-md-1">
             <div
@@ -51,20 +38,20 @@ export default function Voting() {
             </div>
           </div>
           <div className="col-md-5 col-sm-12 vertical-align">
-            <a href="#">
+            <a href={getEtherscanLink(member.address)}>
               <h4 className="member-acc-nr no-margin grantsdao-data-heading padding-right">
-                {address}
+                {member.ens ? member.ens : truncateAddress(member.address)}
               </h4>
             </a>
           </div>
           <div className="align-center col-md-3 col-sm-12 vertical-align">
-            {displayName}
+            {member.displayName}
           </div>
           <div className="align-center col-md-3 col-sm-12 vertical-align">
             <div className="utility-btn">
               <div>
                 <div className="vertical-align member-votes">
-                  {votesCount} Votes
+                  {member.score.toFixed(2)} Votes
                 </div>
               </div>
             </div>
@@ -117,13 +104,21 @@ export default function Voting() {
                 <div className="row max-width">
                   <div className="col-md-6 voting-header-height">
                     <div className="synth-tabs voting-header">
-                      current Members
+                      Current Members
                     </div>
                   </div>
                   <div className="vertical-align align-center col-md-6 col-sm-12">
                     <div className="epoch">
-                      <span className="synth-h-start">Start: </span> 01/07/2021
-                      - <span className="synth-h-end">End: </span> 30/09/2021
+                      {!data ? (
+                        "Loading"
+                      ) : (
+                        <>
+                          <span className="synth-h-start">Start: </span>
+                          {data.start.toLocaleDateString()}-
+                          <span className="synth-h-end">End: </span>{" "}
+                          {data.end.toLocaleDateString()}
+                        </>
+                      )}
                     </div>
                   </div>
                 </div>
