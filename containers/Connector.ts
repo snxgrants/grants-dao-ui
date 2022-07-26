@@ -3,7 +3,7 @@ import { createContainer } from "unstated-next";
 import { ethers } from "ethers";
 import { Wallet as OnboardWallet } from "bnc-onboard/dist/src/interfaces";
 
-import { initOnboard, MAINNET_NETWORK_ID } from "./walletConfig";
+import { initOnboard, OVM_MAINNET_NETWORK_ID } from "./walletConfig";
 
 const WALLET_STORAGE_KEY = "cachedWallet";
 
@@ -27,7 +27,7 @@ const useConnector = () => {
   useEffect(() => {
     const onboard = initOnboard({
       network: (networkId: number) => {
-        if (networkId === MAINNET_NETWORK_ID) {
+        if (networkId === OVM_MAINNET_NETWORK_ID) {
           const provider = new ethers.providers.Web3Provider(
             onboard.getState().wallet.provider
           );
