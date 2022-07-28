@@ -9,19 +9,20 @@ import { useRouter } from "next/router";
 import useGetSnapshotProposals from "../../queries/useGetSnapshotProposals";
 import useGetSnapshotVotes, { Vote } from "../../queries/useGetSnapshotVotes";
 import Moment from "react-moment";
-import { MEMBERS } from "../../queries/constants";
 import { truncateAddress } from "../../utils/wallet";
 import { getGrantStatus } from "../../utils/grants";
+import useGetGrantsCouncil from "../../queries/useCurrentCouncil";
 
 const Votes: React.FC<{ votes: Record<string, Vote> }> = ({ votes }) => {
+  const councilQuery = useGetGrantsCouncil();
   return (
     <>
       {Object.entries(votes).map(([address, voteObject]) => {
-        const member = MEMBERS.find(
-          (m) => m?.address.toLowerCase() === address.toLowerCase()
+        const member = councilQuery.data?.results.find(
+          (m) => m.address.toLowerCase() === address.toLowerCase()
         );
 
-        const voterHandle = member?.displayName;
+        const voterHandle = member?.username;
         const vote = voteObject.choice === 1 ? "Yes" : "No";
 
         return (
@@ -46,11 +47,7 @@ const Votes: React.FC<{ votes: Record<string, Vote> }> = ({ votes }) => {
                 />
               </div>
               <div className="col-md-5 col-sm-12 vertical-align">
-                <a href="#">
-                  <h4 className="member-acc-nr no-margin grantsdao-data-heading padding-right">
-                    {voteObject.voter}
-                  </h4>
-                </a>
+                {voteObject.voter}
               </div>
               <div className="align-center col-md-3 col-sm-12 vertical-align">
                 {voterHandle ?? "-"}
@@ -355,7 +352,7 @@ export default function Grant() {
                     VOTES
                   </div>
                   <div className="data-header align-center col-md-3 col-sm-12">
-                    HANDLE{" "}
+                    NAME{" "}
                     <span className="synth-up-arrow">
                       <img
                         alt="Arrow"
