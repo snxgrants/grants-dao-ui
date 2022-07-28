@@ -1,7 +1,7 @@
 import onboard from "bnc-onboard";
 import { Subscriptions } from "bnc-onboard/dist/src/interfaces";
 
-const INFURA_RPC_URL = `https://optimism-mainnet.infura.io/v3/${process.env.NEXT_PUBLIC_INFURA_PROJECT_ID}`;
+export const INFURA_RPC_URL = `https://optimism-mainnet.infura.io/v3/${process.env.NEXT_PUBLIC_INFURA_PROJECT_ID}`;
 export const OVM_MAINNET_NETWORK_ID = 10;
 
 export const initOnboard = (subscriptions: Subscriptions) => {

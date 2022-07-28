@@ -2,64 +2,66 @@ import Head from "next/head";
 import { Header } from "../../components/Header";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
-import useCurrentCouncil from "../../queries/useCurrentCouncil";
+import useCurrentCouncilNew from "../../queries/useCurrentCouncil";
 import { getEtherscanLink, truncateAddress } from "../../utils/wallet";
 
 export default function Voting() {
-  const snapshotVotesQuery = useCurrentCouncil();
-  const data = snapshotVotesQuery.data;
-  const renderAddressRows = data?.members.map((member, i, arr) => {
-    const isLast = i === arr.length - 1;
+  const currentCouncilNewQuery = useCurrentCouncilNew();
 
-    return (
-      <div
-        key={member.displayName}
-        className={`voter-wrapper${isLast ? "-last" : ""}`}
-      >
-        <div className="row">
-          <div className="col-md-1">
-            <div
-              style={{
-                height: 50,
-                width: 50,
-                borderRadius: "50%",
-                border: "2px solid #29b6af",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <img
-                alt="Avatar"
-                className="member-avatar"
-                src="/img/blue-x.png"
-                style={{ transform: "scale(0.7)" }}
-              />
+  const renderAddressRows = currentCouncilNewQuery.data?.results.map(
+    (member, i, arr) => {
+      const isLast = i === arr.length - 1;
+
+      return (
+        <div
+          key={member.username}
+          className={`voter-wrapper${isLast ? "-last" : ""}`}
+        >
+          <div className="row">
+            <div className="col-md-1">
+              <div
+                style={{
+                  height: 50,
+                  width: 50,
+                  borderRadius: "50%",
+                  border: "2px solid #29b6af",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <img
+                  alt="Avatar"
+                  className="member-avatar"
+                  src="/img/blue-x.png"
+                  style={{ transform: "scale(0.7)" }}
+                />
+              </div>
             </div>
-          </div>
-          <div className="col-md-5 col-sm-12 vertical-align">
-            <a href={getEtherscanLink(member.address)}>
-              <h4 className="member-acc-nr no-margin grantsdao-data-heading padding-right">
-                {member.ens ? member.ens : truncateAddress(member.address)}
-              </h4>
-            </a>
-          </div>
-          <div className="align-center col-md-3 col-sm-12 vertical-align">
-            {member.displayName}
-          </div>
-          <div className="align-center col-md-3 col-sm-12 vertical-align">
-            <div className="utility-btn">
-              <div>
-                <div className="vertical-align member-votes">
-                  {member.score.toFixed(2)} Votes
+            <div className="col-md-5 col-sm-12 vertical-align">
+              <a href={getEtherscanLink(member.address)}>
+                <h4 className="member-acc-nr no-margin grantsdao-data-heading padding-right">
+                  {member.ens ? member.ens : truncateAddress(member.address)}
+                </h4>
+              </a>
+            </div>
+            <div className="align-center col-md-3 col-sm-12 vertical-align">
+              {member.username}
+            </div>
+            <div className="align-center col-md-3 col-sm-12 vertical-align">
+              <div className="utility-btn">
+                <div>
+                  <div className="vertical-align member-votes">
+                    {member.score.toFixed(2)} Votes
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    );
-  });
+      );
+    }
+  );
 
   return (
     <>
@@ -109,14 +111,14 @@ export default function Voting() {
                   </div>
                   <div className="vertical-align align-center col-md-6 col-sm-12">
                     <div className="epoch">
-                      {!data ? (
+                      {!currentCouncilNewQuery.data ? (
                         "Loading"
                       ) : (
                         <>
                           <span className="synth-h-start">Start: </span>
-                          {data.start.toLocaleDateString()}-
-                          <span className="synth-h-end">End: </span>{" "}
-                          {data.end.toLocaleDateString()}
+                          {currentCouncilNewQuery.data.startDate.toLocaleDateString()}
+                          -<span className="synth-h-end">End: </span>{" "}
+                          {currentCouncilNewQuery.data.endDate.toLocaleDateString()}
                         </>
                       )}
                     </div>
