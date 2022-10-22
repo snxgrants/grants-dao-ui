@@ -7,21 +7,13 @@ import { Footer } from "../../components/Footer";
 import { useRouter } from "next/router";
 
 import Connector from "../../containers/Connector";
-import useSignMessage, { SignatureType } from "../../hooks/useSignMessage";
 import useSnapshotSpaceQuery from "../../queries/useGetSnapshotSpace";
-import { SNAPSHOT_ENS } from "../../constants/snapshot";
 import { generateBody } from "../../utils/grant-application";
-
-const PROPOSAL_PERIOD = 7 * 24 * 3600 * 1000;
-const PROPOSAL_CHOICES = ["Yes", "No"];
-
-const sanitiseTimestamp = (timestamp: number) => {
-  return Math.round(timestamp / 1e3);
-};
+import useCreateProposal from "../../hooks/useCreateProposal";
 
 export default function GrantApplication() {
   const { walletAddress, connectWallet, provider } = Connector.useContainer();
-  const createProposal = useSignMessage();
+  const createProposal = useCreateProposal();
   const router = useRouter();
 
   const snapshotQuery = useSnapshotSpaceQuery();
@@ -37,11 +29,7 @@ export default function GrantApplication() {
   const [block, setBlock] = useState<number | null>(null);
 
   const validSubmission = useMemo(() => {
-    if (title.length > 0 && description.length > 0 && !!spaceStrategies) {
-      return true;
-    } else {
-      return false;
-    }
+    return title.length > 0 && description.length > 0 && !!spaceStrategies;
   }, [title, description, spaceStrategies]);
 
   useEffect(() => {
@@ -61,34 +49,19 @@ export default function GrantApplication() {
     if (!!walletAddress) {
       if (validSubmission && !!block) {
         try {
-          const proposalStartDate = sanitiseTimestamp(new Date().getTime());
-          const proposalEndDate =
-            proposalStartDate + sanitiseTimestamp(PROPOSAL_PERIOD);
           await createProposal.mutateAsync({
-            spaceKey: SNAPSHOT_ENS,
-            type: SignatureType.PROPOSAL,
-            payload: {
-              name: title,
-              body: generateBody({
-                username,
-                overview,
-                vts,
-                fundingRequest,
-                additionalInformation,
-                implementation,
-                description,
-              }),
-              choices: PROPOSAL_CHOICES,
-              start: proposalStartDate,
-              end: proposalEndDate,
-              snapshot: block,
-              metadata: {
-                plugins: {},
-                network: "1",
-                strategies: spaceStrategies,
-              },
-              type: "single-choice",
-            },
+            title,
+            body: generateBody({
+              username,
+              overview,
+              vts,
+              fundingRequest,
+              additionalInformation,
+              implementation,
+              description,
+            }),
+            block,
+            // strategies: spaceStrategies,
           });
           router.push("/grants/grant-application-thank-you", undefined, {
             scroll: false,
@@ -96,52 +69,6 @@ export default function GrantApplication() {
         } catch (e) {
           console.log(e);
         }
-        // .then(async (response) => {
-        //   setSignModalOpen(false);
-
-        //   let ipfsHash = response?.data.ipfsHash;
-
-        //   setHash(ipfsHash);
-
-        //   if (activeTab === SPACE_KEY.PROPOSAL) {
-        //     try {
-        //       setSignTransactionState(Transaction.PRESUBMIT);
-        //       setTxTransactionState(Transaction.PRESUBMIT);
-        //       setTxModalOpen(true);
-
-        //       const gasLimit = await synthetix.getGasEstimateForTransaction({
-        //         txArgs: [ipfsHash],
-        //         method: contract.estimateGas.logProposal,
-        //       });
-
-        //       const transaction = await contract.logProposal(ipfsHash, {
-        //         gasLimit,
-        //       });
-
-        //       if (transaction) {
-        //         setTxHash(transaction.hash);
-        //         setTxTransactionState(Transaction.WAITING);
-        //         monitorTransaction({
-        //           txHash: transaction.hash,
-        //           onTxConfirmed: () =>
-        //             setTxTransactionState(Transaction.SUCCESS),
-        //         });
-        //         setTxModalOpen(false);
-        //       }
-        //     } catch (error) {
-        //       console.log(error);
-        //       setTxTransactionState(Transaction.PRESUBMIT);
-        //       setTxError(error);
-        //     }
-        //   } else {
-        //     setSignTransactionState(Transaction.SUCCESS);
-        //   }
-        // })
-        // .catch((error) => {
-        //   console.log(error);
-        //   setSignTransactionState(Transaction.PRESUBMIT);
-        //   setSignError(error.message);
-        // });
       }
     } else {
       connectWallet();

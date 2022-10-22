@@ -2,7 +2,12 @@ import { ethers } from "ethers";
 import { useMutation, useQueryClient } from "react-query";
 import axios from "axios";
 
-import { MESSAGE_URL, SNAPSHOT_ENS, QUERY_KEYS } from "../constants/snapshot";
+import {
+  MESSAGE_URL,
+  SNAPSHOT_ENS,
+  QUERY_KEYS,
+  SnapshotClient,
+} from "../constants/snapshot";
 import Connector from "../containers/Connector";
 
 type VotePayload = {
@@ -46,11 +51,12 @@ type SignaturePayload = {
 
 const useSignMessage = () => {
   const { signer, walletAddress } = Connector.useContainer();
-  const queryClient = useQueryClient();
+  // const queryClient = useQueryClient();
 
   return useMutation(
     async (payload: SignaturePayload) => {
       const version = "0.1.3";
+
       let msg: any = {
         address: walletAddress ? ethers.utils.getAddress(walletAddress) : "",
         msg: JSON.stringify({
