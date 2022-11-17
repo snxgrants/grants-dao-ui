@@ -7,9 +7,9 @@ export const MEMBERS = [
     address: "0x4f370b4d03d2b46cce26f1aefe142708e03d7ffe",
   },
   {
-    displayName: "Mike#0714",
-    ens: "ensmaxis.eth",
-    address: "0xe1f02f7e90ea5f21d0ac6f12c659c3484c143b03",
+    displayName: "Maxxam#8383",
+    ens: "fritzschoff.eth",
+    address: "0x71226c538679eD4A72E803b3E2C93aD7403DA094",
   },
   {
     displayName: "cyberduck.eth",
