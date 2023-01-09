@@ -7,14 +7,14 @@ export const MEMBERS = [
     address: "0x4f370b4d03d2b46cce26f1aefe142708e03d7ffe",
   },
   {
-    displayName: "Maxxam#8383",
-    ens: "fritzschoff.eth",
-    address: "0x71226c538679eD4A72E803b3E2C93aD7403DA094",
+    displayName: "Aana#4785",
+    ens: "",
+    address: "0x9BF5Dc85B5a3A066e26e6CeD2A8481A767e91758",
   },
   {
-    displayName: "cyberduck.eth",
-    ens: "cyberduck.eth",
-    address: "0xbf49b454818783d12bf4f3375ff17c59015e66cb s",
+    displayName: "synthquest",
+    ens: "",
+    address: "0x30E7ead8DE70d4BD3d2eD5Efd4B6A5427048A31E  ",
   },
   {
     address: "0x1a207bEefC754735871CEEb4C506686F044B1c41",
