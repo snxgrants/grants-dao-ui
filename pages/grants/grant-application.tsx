@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useMemo } from "react";
 
 import Head from "next/head";
 import { Header } from "../../components/Header";
@@ -12,7 +12,7 @@ import { generateBody } from "../../utils/grant-application";
 import useCreateProposal from "../../hooks/useCreateProposal";
 
 export default function GrantApplication() {
-  const { walletAddress, connectWallet, provider } = Connector.useContainer();
+  const { walletAddress, connectWallet } = Connector.useContainer();
   const createProposal = useCreateProposal();
   const router = useRouter();
 
@@ -26,28 +26,14 @@ export default function GrantApplication() {
   const [additionalInformation, setAdditionalInformation] = useState("");
   const [implementation, setImplementation] = useState("");
   const [description, setDescription] = useState<string>("");
-  const [block, setBlock] = useState<number | null>(null);
 
   const validSubmission = useMemo(() => {
     return title.length > 0 && description.length > 0 && !!spaceStrategies;
   }, [title, description, spaceStrategies]);
 
-  useEffect(() => {
-    const getCurrentBlock = async () => {
-      if (provider) {
-        let blockNumber = await provider?.getBlockNumber();
-        if (blockNumber) {
-          setBlock(blockNumber);
-        }
-      }
-    };
-
-    getCurrentBlock();
-  }, [provider]);
-
   const onSubmit = async () => {
     if (!!walletAddress) {
-      if (validSubmission && !!block) {
+      if (validSubmission) {
         try {
           await createProposal.mutateAsync({
             title,
@@ -60,7 +46,6 @@ export default function GrantApplication() {
               implementation,
               description,
             }),
-            block,
             // strategies: spaceStrategies,
           });
           router.push("/grants/grant-application-thank-you", undefined, {
