@@ -21,14 +21,10 @@ import Connector from "../containers/Connector";
 import { truncateAddress } from "../utils/wallet";
 
 export const Navbar = () => {
-  const [walletOptionsModalOpened, setWalletOptionsModalOpened] = useState<
-    boolean
-  >(false);
-  const {
-    walletAddress,
-    connectWallet,
-    disconnectWallet,
-  } = Connector.useContainer();
+  const [walletOptionsModalOpened, setWalletOptionsModalOpened] =
+    useState<boolean>(false);
+  const { walletAddress, connectWallet, disconnectWallet } =
+    Connector.useContainer();
 
   let walletRender;
 
@@ -94,6 +90,14 @@ export const Navbar = () => {
                     id="navbarSupportedContent"
                   >
                     <ul className="navbar-nav ml-auto" id="nav">
+                      <li className="nav-item">
+                        <Link
+                          href="https://grants-perps.synthetix.io"
+                          scroll={false}
+                        >
+                          Perps
+                        </Link>
+                      </li>
                       <li className="nav-item">
                         <Link href="/grants" scroll={false}>
                           Grants
