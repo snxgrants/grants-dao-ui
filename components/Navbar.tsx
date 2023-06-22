@@ -91,16 +91,16 @@ export const Navbar = () => {
                   >
                     <ul className="navbar-nav ml-auto" id="nav">
                       <li className="nav-item">
+                        <Link href="/grants" scroll={false}>
+                          Grants
+                        </Link>
+                      </li>
+                      <li className="nav-item">
                         <Link
                           href="https://grants-perps.synthetix.io"
                           scroll={false}
                         >
                           Perps
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link href="/grants" scroll={false}>
-                          Grants
                         </Link>
                       </li>
                       {/* <li className="nav-item">
