@@ -100,8 +100,8 @@ export const Footer = () => {
           </div>
         </div>
       </footer>
-      {/* ========================= Footer End ========================= */}
-      {/* ========================= scroll-top ========================= */}
+      {/* ======================= Footer End ========================= */}
+      {/* ======================= scroll-top ========================= */}
       <a className="scroll-top btn-hover" href="#">
         <i className="lni lni-chevron-up" />
       </a>
