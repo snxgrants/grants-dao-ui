@@ -61,7 +61,7 @@ export const Footer = () => {
                 <div className="social-icons-wrapper">
                   <div className="synth-social">
                     <a
-                      href="https://discord.gg/eKWkTxZ4VQ"
+                      href="https://discord.com/invite/ptfNSByB8P"
                       target="_blank"
                       rel="noreferrer"
                     >
